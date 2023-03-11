@@ -1,3 +1,3 @@
 import {somegn} from "./test";
 
-somegn(123);
+console.log(somegn(123));
