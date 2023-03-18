@@ -16,6 +16,9 @@
     "npm": "8.5.1"
   },
   "devDependencies": {
+    "babel-loader": "^8.2.3",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/core": "^7.17.5",
     "@svgr/webpack": "^6.2.1",
     "@types/node": "^17.0.21",
     "@types/react": "^17.0.39",
