@@ -39,10 +39,10 @@ module.exports = {
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
     'import/extensions': 'off',
-    'import/no-extraneous-dependencies': 'warn',
+    'import/no-extraneous-dependencies': ['warn', { devDependencies: true }],
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': ['off', { markupOnly: true }],
-    'max-len': ['off', { ignoreComments: true }],
+    'max-len': ['off', { ignoreComments: true, code: 100 }],
   },
   globals: {
     __IS_DEV__: true,
