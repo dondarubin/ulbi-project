@@ -14,19 +14,26 @@ export const Sidebar = ({ className }: SidebarProps) => {
   const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
 
-  const onClickToggleCollapse = () => {
+  const onClickToggleCollapseHandler = () => {
     setCollapsed((prev) => !prev);
   };
 
   return (
-    <div className={classNames(
-      styles.Sidebar,
-      { [styles.collapsed]: collapsed },
-      [className],
-    )}
+    <div
+      data-testid="sidebar"
+      className={classNames(
+        styles.Sidebar,
+        { [styles.collapsed]: collapsed },
+        [className],
+      )}
     >
+      <Button
+        data-testid="sidebar-toggle"
+        onClick={onClickToggleCollapseHandler}
+      >
+        {t('toggle')}
+      </Button>
 
-      <Button onClick={onClickToggleCollapse}>{t('toggle')}</Button>
       <div className={styles.switchers}>
         <ThemeSwitcher />
         <LangSwitcher className={styles.lang} />
