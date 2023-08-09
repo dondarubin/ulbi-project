@@ -14,14 +14,14 @@ export const Navbar = ({ className }: NavbarProps) => {
     <div className={classNames(styles.Navbar, {}, [className])}>
       <div className={classNames(styles.links, {}, [])}>
         <AppLink
-          theme={AppLinkTheme.SECONDARY}
+          theme={AppLinkTheme.PRIMARY_INVERTED}
           to="/"
           className={styles.mainLink}
         >
           {t('Главная')}
         </AppLink>
 
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/about">
+        <AppLink theme={AppLinkTheme.PRIMARY_INVERTED} to="/about">
           {t('О сайте')}
         </AppLink>
       </div>

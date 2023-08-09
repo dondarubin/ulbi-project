@@ -7,6 +7,14 @@
     color: var(--primary-color);
 }
 
-.secondary {
+.primaryInverted {
     color: var(--inverted-primary-color);
+}
+
+.secondary {
+    color: var(--secondary-color);
+}
+
+.secondaryInverted {
+    color: var(--secondary-color);
 }

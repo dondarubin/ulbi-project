@@ -1,11 +1,12 @@
 .app.dark {
-    --bg-color: #000;
-    --inverted-bg-color: #e3e3e3;
-    --primary-color: #fff;
-    --secondary-color: #afafaf;
-    --inverted-primary-color: #000;
-    --inverted-secondary-color: #0232c2;
+    --bg-color: var(--color-black);
+    --inverted-bg-color: var(--color-gray);
 
-    // #F27AE4 (purple)
+    --primary-color: var(--color-white);
+    --inverted-primary-color: var(--color-black);
+
+    --secondary-color: var(--color-purple);
+    --inverted-secondary-color: var(--color-blue);
+
     // #161616 (gray bg)
 }
