@@ -1,0 +1,53 @@
+name: linting, testing, building
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setting up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install modules
+        run: npm install
+
+      - name: TypeScript linter fix
+        run: npm run lint:ts:fix
+
+      - name: SCSS linter fix
+        run: npm run lint:scss:fix
+
+      - name: Build production project
+        run: npm run build:prod
+        if: always()
+
+      - name: TypeScript linter
+        run: npm run lint:ts
+        if: always()
+
+      - name: SCSS linter
+        run: npm run lint:scss
+        if: always()
+
+      - name: Unit tests
+        if: always()
+        run: npm run test:unit
+
+      - name: Storybook build
+        run: npm run storybook:build
+        if: always()
+
+      - name: Screenshot test
+        run: npm run test:ui:ci
+        if: always()
