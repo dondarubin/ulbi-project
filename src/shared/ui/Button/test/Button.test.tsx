@@ -12,6 +12,6 @@ describe('Button', () => {
   test('Test param theme', () => {
     render(<Button theme={ThemeButton.CLEAR}>Test</Button>);
     expect(screen.getByText('Test')).toHaveClass('clear');
-    screen.debug();
+    screen.debug(); // выводит логи в консоль
   });
 });
