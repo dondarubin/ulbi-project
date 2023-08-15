@@ -4,7 +4,6 @@ import React from 'react';
 import { Button } from 'shared/ui/Button/Button';
 import { ButtonTheme } from 'shared/ui/Button/Button.types';
 import { LangSwitcherProps } from './LangSwitcher.types';
-import styles from './LangSwitcher.mudule.scss';
 
 export const LangSwitcher = ({ className, short }: LangSwitcherProps) => {
   const { t, i18n } = useTranslation();
