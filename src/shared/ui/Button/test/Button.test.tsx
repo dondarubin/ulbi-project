@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui/Button/Button';
+import { ButtonTheme } from '../Button.types';
 
 describe('Button', () => {
   // Наличие кнопки на странице
@@ -10,7 +11,7 @@ describe('Button', () => {
 
   // Наличие класса 'clear'
   test('Test param theme', () => {
-    render(<Button theme={ThemeButton.CLEAR}>Test</Button>);
+    render(<Button theme={ButtonTheme.CLEAR}>Test</Button>);
     expect(screen.getByText('Test')).toHaveClass('clear');
     screen.debug(); // выводит логи в консоль
   });

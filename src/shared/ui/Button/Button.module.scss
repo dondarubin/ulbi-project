@@ -22,3 +22,51 @@
     border: 1px solid var(--primary-color);
     background: none;
 }
+
+.background {
+    background: var(--bg-color);
+    color: var(--primary-color);
+    border: none;
+}
+
+.backgroundInverted {
+    background: var(--inverted-bg-color);
+    color: var(--inverted-primary-color);
+    border: none;
+}
+
+.square {
+    padding: 0;
+
+    &.size_m {
+        width: var(--btn-size-m);
+        height: var(--btn-size-m);
+        font: var(--font-m);
+    }
+
+    &.size_l {
+        width: var(--btn-size-l);
+        height: var(--btn-size-l);
+        font: var(--font-l);
+    }
+
+    &.size_xl {
+        width: var(--btn-size-xl);
+        height: var(--btn-size-xl);
+        font: var(--font-xl);
+    }
+}
+
+.size_m {
+    font: var(--font-m);
+}
+
+.size_l {
+    font: var(--font-l);
+}
+
+.size_xl {
+    font: var(--font-xl);
+}
+
+
