@@ -10,6 +10,10 @@ import { AppLinkTheme } from 'shared/ui/AppLink/AppLink.types';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { MainIcon } from 'shared/assets/icons/MainIcon/MainIcon';
 import { AboutIcon } from 'shared/assets/icons/AboutIcon/AboutIcon';
+import { UserProfileIcon } from 'shared/assets/icons/UserProfile/UserProfileIcon';
+import { ArticlesIcon } from 'shared/assets/icons/ArticlesIcon/ArticlesIcon';
+import { ArrowIconRight } from 'shared/assets/icons/ArrowIcons/ArrowIconRight/ArrowIconRight';
+import { ArrowIconLeft } from 'shared/assets/icons/ArrowIcons/ArrowIconLeft/ArrowIconLeft';
 import styles from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -41,7 +45,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
         size={ButtonSize.XL}
         square
       >
-        {collapsed ? '>' : '<'}
+        {collapsed ? <ArrowIconRight color="var(--inverted-primary-color)" /> : <ArrowIconLeft color="var(--inverted-primary-color)" />}
       </Button>
 
       <div className={styles.items}>
@@ -64,6 +68,28 @@ export const Sidebar = ({ className }: SidebarProps) => {
           <AboutIcon color="var(--inverted-primary-color)" />
           <span className={styles.link}>
             {t('О сайте')}
+          </span>
+        </AppLink>
+
+        <AppLink
+          className={styles.item}
+          theme={AppLinkTheme.PRIMARY_INVERTED}
+          to=""
+        >
+          <UserProfileIcon color="var(--inverted-primary-color)" />
+          <span className={styles.link}>
+            {t('Профиль')}
+          </span>
+        </AppLink>
+
+        <AppLink
+          className={styles.item}
+          theme={AppLinkTheme.PRIMARY_INVERTED}
+          to=""
+        >
+          <ArticlesIcon color="var(--inverted-primary-color)" />
+          <span className={styles.link}>
+            {t('Статьи')}
           </span>
         </AppLink>
       </div>

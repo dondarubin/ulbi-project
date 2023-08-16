@@ -1,41 +1,18 @@
 export const MainIcon = (props : {color: string}) => {
   const { color } = props;
   return (
-
-    <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="36px" height="36px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg">
 
       <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
       <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
       <g id="SVGRepo_iconCarrier">
-        <path d="M22 22L2 22" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-        <path
-          d="M2 11L6.06296 7.74968M22 11L13.8741 4.49931C12.7784 3.62279 11.2216 3.62279 10.1259 4.49931L9.34398 5.12486"
-          stroke={color}
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <path
-          d="M15.5 5.5V3.5C15.5 3.22386 15.7239 3 16 3H18.5C18.7761 3 19 3.22386 19 3.5V8.5"
-          stroke={color}
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <path d="M4 22V9.5" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M20 9.5V13.5M20 22V17.5" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-        <path
-          d="M15 22V17C15 15.5858 15 14.8787 14.5607 14.4393C14.1213 14 13.4142 14 12 14C10.5858 14 9.87868 14 9.43934 14.4393M9 22V17"
-          stroke={color}
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z"
-          stroke={color}
-          strokeWidth="1.5"
-        />
+        {' '}
+        <path d="M12 15L12 18" stroke={color} strokeWidth="2.4" strokeLinecap="round" />
+        {' '}
+        <path d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274" stroke={color} strokeWidth="2.4" strokeLinecap="round" />
+        {' '}
       </g>
 
     </svg>

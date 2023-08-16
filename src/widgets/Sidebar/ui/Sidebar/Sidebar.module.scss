@@ -7,11 +7,11 @@
 }
 
 .switchers {
+    width: 100%;
     position: absolute;
     bottom: 20px;
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
 .lang {
@@ -25,33 +25,57 @@
 .collapseButton {
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 63%;
 
-    &:hover {
-        color: var(--inverted-secondary-color);
+    &:hover > svg > g > path {
+       stroke: var(--inverted-secondary-color);
     }
 }
 
-// todo сделать эффект hover на иконки
 .items {
+    height: 50%;
     margin-left: 10px;
     display: flex;
     flex-direction: column;
 }
 
 .item {
-    margin-bottom: 20px;
+    margin-top: 40px;
     display: flex;
     align-items: center;
+
+    // Цвет шрифта при hover
+    &:hover {
+        color: var(--inverted-secondary-color);
+    }
+
+    // Цвет первых 2-х svg при hover
+    &:nth-child(-n + 2):hover > svg > g > path {
+        stroke: var(--inverted-secondary-color);
+    }
+
+    // Цвет 3-ей иконки при hover
+    &:nth-child(3):hover > svg > g > path:nth-child(1) {
+        fill: var(--inverted-secondary-color);
+    }
+
+    &:nth-child(3):hover > svg > g > path:nth-child(3) {
+        stroke: var(--inverted-secondary-color);
+    }
+
+    &:nth-child(3):hover > svg > g > ellipse {
+        fill: var(--inverted-secondary-color);
+    }
+
+    // Цвет 4-ой иконки при hover
+    &:nth-child(4):hover > svg > g > path {
+        stroke: var(--inverted-secondary-color);
+    }
 }
 
 .link {
     margin-left: 15px;
-    display: block;
-
-    &:hover {
-        color: var(--inverted-secondary-color);
-    }
+    visibility: visible;
 }
 
 .collapsed {
@@ -59,7 +83,9 @@
 
     .link {
         margin-left: 0;
-        display: none;
+        visibility: hidden;
+        width: 0;
+        transition: visibility 0.1s;
     }
 
     .switchers {
