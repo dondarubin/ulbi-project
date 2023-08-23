@@ -17,12 +17,19 @@
     --btn-size-m: 24px;
     --btn-size-l: 32px;
     --btn-size-xl: 40px;
+    --modal-width: 60%;
 
     // Цвета
     --color-black: #000;
     --color-white: #fff;
     --color-gray: #e3e3e3;
+    --color-gray-dark: #161616;
     --color-purple: #f27ae4;
     --color-blue: #0232c2;
     --color-green: #06fc99;
+    --color-overlay: rgba(0 0 0/ 60%);
+
+    // Индексы
+    --modal-z-index: 10;
+
 }

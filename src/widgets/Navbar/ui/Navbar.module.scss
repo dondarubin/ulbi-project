@@ -9,6 +9,10 @@
 
 .links {
     margin-left: auto;
+
+    &:hover {
+        color: var(--inverted-secondary-color);
+    }
 }
 
 .mainLink {
