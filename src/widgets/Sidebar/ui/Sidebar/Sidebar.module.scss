@@ -27,7 +27,8 @@
     right: 0;
     top: 63%;
 
-    &:hover > svg > g > path {
+    // Цвет стрелочки при hover
+    &:hover > svg > path {
         stroke: var(--inverted-secondary-color);
     }
 }
@@ -49,27 +50,35 @@
         color: var(--inverted-secondary-color);
     }
 
-    // Цвет первых 2-х svg при hover
-    &:nth-child(-n + 2):hover > svg > g > path {
+    // Цвет 1-ой и 2-ой svg при hover
+    &:nth-child(1):hover > svg > rect {
         stroke: var(--inverted-secondary-color);
     }
 
-    // Цвет 4-ой иконки при hover
-    &:nth-child(4):hover > svg > g > path {
+    &:nth-child(-n + 2):hover > svg > path {
         stroke: var(--inverted-secondary-color);
     }
 
     // Цвет 3-ей иконки при hover
-    &:nth-child(3):hover > svg > g > path:nth-child(1) {
-        fill: var(--inverted-secondary-color);
-    }
-
-    &:nth-child(3):hover > svg > g > path:nth-child(3) {
+    &:nth-child(3):hover > svg > path {
         stroke: var(--inverted-secondary-color);
     }
 
-    &:nth-child(3):hover > svg > g > ellipse {
-        fill: var(--inverted-secondary-color);
+    &:nth-child(3):hover > svg > circle {
+        stroke: var(--inverted-secondary-color);
+    }
+
+    &:nth-child(3):hover > svg > rect {
+        stroke: var(--inverted-secondary-color);
+    }
+
+    // Цвет 4-ой иконки при hover
+    &:nth-child(4):hover > svg > path {
+        stroke: var(--inverted-secondary-color);
+    }
+
+    &:nth-child(4):hover > svg > circle {
+        stroke: var(--inverted-secondary-color);
     }
 }
 

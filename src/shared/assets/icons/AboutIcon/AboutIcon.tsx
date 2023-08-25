@@ -1,23 +1,18 @@
 export const AboutIcon = (props: { color: string }) => {
   const { color } = props;
   return (
-    <svg width="36px" height="36px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000">
-
-      <g id="SVGRepo_bgCarrier" strokeWidth="0" />
-
-      <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
-
-      <g id="SVGRepo_iconCarrier">
-        <path
-          d="M3 14V10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C20.4816 3.82476 20.7706 4.69989 20.8985 6M21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3.51839 20.1752 3.22937 19.3001 3.10149 18"
-          stroke={color}
-          strokeWidth="2.4"
-          strokeLinecap="round"
-        />
-        <path d="M8 14H13" stroke={color} strokeWidth="2.4" strokeLinecap="round" />
-        <path d="M8 10H9M16 10H12" stroke={color} strokeWidth="2.4" strokeLinecap="round" />
-      </g>
-
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M3 7C3 5.11438 3 4.17157 3.58579 3.58579C4.17157 3 5.11438 3 7 3H17C18.8856 3 19.8284 3 20.4142 3.58579C21 4.17157 21 5.11438 21 7V17C21 18.8856 21 19.8284 20.4142 20.4142C19.8284 21 18.8856 21 17 21H7C5.11438 21 4.17157 21 3.58579 20.4142C3 19.8284 3 18.8856 3 17V7Z"
+        stroke={color}
+        strokeWidth="2"
+      />
+      <path
+        d="M3 7H6C6.98142 7 7.47214 7 7.89443 7.21115C8.31672 7.42229 8.61115 7.81486 9.2 8.6L9.8 9.4C10.3889 10.1851 10.6833 10.5777 11.1056 10.7889C11.5279 11 12.0186 11 13 11H18C18.9319 11 19.3978 11 19.7654 10.8478C20.2554 10.6448 20.6448 10.2554 20.8478 9.76537C21 9.39782 21 8.93188 21 8V8"
+        stroke={color}
+        strokeWidth="2"
+      />
+      <path d="M7 16H15" stroke={color} strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 };

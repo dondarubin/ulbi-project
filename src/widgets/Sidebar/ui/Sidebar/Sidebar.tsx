@@ -8,12 +8,15 @@ import { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button.types';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { AppLinkTheme } from 'shared/ui/AppLink/AppLink.types';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { MainIcon } from 'shared/assets/icons/MainIcon/MainIcon';
+import { MainIconDesktop } from 'shared/assets/icons/MainIcon/MainIconDesktop';
 import { AboutIcon } from 'shared/assets/icons/AboutIcon/AboutIcon';
 import { UserProfileIcon } from 'shared/assets/icons/UserProfile/UserProfileIcon';
 import { ArticlesIcon } from 'shared/assets/icons/ArticlesIcon/ArticlesIcon';
 import { ArrowIconRight } from 'shared/assets/icons/ArrowIcons/ArrowIconRight/ArrowIconRight';
 import { ArrowIconLeft } from 'shared/assets/icons/ArrowIcons/ArrowIconLeft/ArrowIconLeft';
+import { useDeviceType } from 'shared/lib/hooks/useDeviceType/useDeviceType';
+import { MainIconTablet } from 'shared/assets/icons/MainIcon/MainIconTablet';
+import { MainIconMobile } from 'shared/assets/icons/MainIcon/MainIconMobile';
 import styles from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -23,6 +26,7 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
   const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
+  const deviceType = useDeviceType();
 
   const onClickToggleCollapseHandler = () => {
     setCollapsed((prev) => !prev);
@@ -45,7 +49,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
         size={ButtonSize.XL}
         square
       >
-        {collapsed ? <ArrowIconRight color="var(--inverted-primary-color)" /> : <ArrowIconLeft color="var(--inverted-primary-color)" />}
+        {
+          collapsed
+            ? <ArrowIconRight color="var(--inverted-primary-color)" />
+            : <ArrowIconLeft color="var(--inverted-primary-color)" />
+        }
       </Button>
 
       <div className={styles.items}>
@@ -54,7 +62,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
           theme={AppLinkTheme.PRIMARY_INVERTED}
           to={RoutePath.main}
         >
-          <MainIcon color="var(--inverted-primary-color)" />
+          {
+            deviceType === 'desktop'
+              ? <MainIconDesktop color="var(--inverted-primary-color)" />
+              : deviceType === 'tablet'
+                ? <MainIconTablet color="var(--inverted-primary-color)" />
+                : <MainIconMobile color="var(--inverted-primary-color)" />
+          }
           <span className={styles.link}>
             {t('Главная')}
           </span>
