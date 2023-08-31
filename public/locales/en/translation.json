@@ -10,5 +10,7 @@
   "Короткий язык": "En",
   "Профиль": "Profile",
   "Статьи": "Articles",
-  "Войти": "Sign Up"
+  "Войти": "Sign Up",
+  "increment": "increment",
+  "decrement": "decrement"
 }
