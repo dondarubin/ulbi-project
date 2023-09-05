@@ -1,4 +1,6 @@
 {
+  "decrement": "decrement",
+  "increment": "increment",
   "throw error": "",
   "toggle": "",
   "Войти": "",
@@ -10,7 +12,5 @@
   "Профиль": "Профиль",
   "Статьи": "Статьи",
   "Страница не найдена": "",
-  "Язык": "",
-  "increment": "increment",
-  "decrement": "decrement"
+  "Язык": ""
 }
