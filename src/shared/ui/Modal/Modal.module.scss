@@ -10,18 +10,6 @@
     color: var(--primary-color);
 }
 
-// todo убрать это дерьмо из прода
-.Modal.light {
-    --color-modal-bg: #e3e3e3;
-    --primary-color: black;
-}
-
-// todo убрать это дерьмо из прода
-.Modal.dark {
-    --color-modal-bg: #161616;
-    --primary-color: white;
-}
-
 .overlay {
     width: 100%;
     height: 100%;
