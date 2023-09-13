@@ -5,6 +5,21 @@
 }
 
 .clear,
+.clearInverted,
+.outline,
+.background, {
+    &:hover {
+        color: var(--secondary-color);
+    }
+}
+
+.backgroundInverted {
+    &:hover {
+        color: var(--inverted-secondary-color);
+    }
+}
+
+.clear,
 .clearInverted {
     padding: 0;
     border: none;
@@ -21,6 +36,10 @@
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     background: none;
+
+    &:hover {
+        border: 1px solid var(--secondary-color);
+    }
 }
 
 .background {

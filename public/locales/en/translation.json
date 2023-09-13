@@ -12,5 +12,7 @@
   "Статьи": "Articles",
   "Войти": "Sign Up",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "Хранилище/пользователь/имя": "Database:\\user\\username",
+  "Хранилище/пользователь/пароль": "Database:\\user\\password"
 }
