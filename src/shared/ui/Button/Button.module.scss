@@ -5,21 +5,6 @@
 }
 
 .clear,
-.clearInverted,
-.outline,
-.background, {
-    &:hover {
-        color: var(--secondary-color);
-    }
-}
-
-.backgroundInverted {
-    &:hover {
-        color: var(--inverted-secondary-color);
-    }
-}
-
-.clear,
 .clearInverted {
     padding: 0;
     border: none;
@@ -38,6 +23,7 @@
     background: none;
 
     &:hover {
+        color: var(--secondary-color);
         border: 1px solid var(--secondary-color);
     }
 }
@@ -52,6 +38,18 @@
     background: var(--inverted-bg-color);
     color: var(--inverted-primary-color);
     border: none;
+
+    &:hover {
+        color: var(--inverted-secondary-color);
+    }
+}
+
+.clear,
+.clearInverted,
+.background, {
+    &:hover {
+        color: var(--secondary-color);
+    }
 }
 
 .square {
