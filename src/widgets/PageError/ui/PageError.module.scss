@@ -5,4 +5,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background: var(--bg-color);
+    color: var(--primary-color);
+}
+
+.refreshBtn {
+    margin-top: 10px;
 }
