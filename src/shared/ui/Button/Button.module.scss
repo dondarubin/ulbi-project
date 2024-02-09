@@ -26,6 +26,11 @@
         color: var(--secondary-color);
         border: 1px solid var(--secondary-color);
     }
+
+    &:focus {
+        color: var(--secondary-color);
+        border: 1px solid var(--secondary-color);
+    }
 }
 
 .background {

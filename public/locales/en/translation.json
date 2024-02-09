@@ -13,6 +13,6 @@
   "Войти": "Sign Up",
   "increment": "increment",
   "decrement": "decrement",
-  "Хранилище/пользователь/имя": "Database:\\user\\username",
-  "Хранилище/пользователь/пароль": "Database:\\user\\password"
+  "Имя пользователя": "Username",
+  "Пароль": "Password"
 }

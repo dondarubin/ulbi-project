@@ -16,12 +16,12 @@ export const LoginForm = ({ className }: LoginFormProps) => {
     <div className={classNames(styles.LoginForm, {}, [className])}>
       <Input
         className={styles.input}
-        placeholder={t('Хранилище/пользователь/имя')}
+        placeholder={t('Имя пользователя')}
         type="text"
         autofocus
       />
       <Input
-        placeholder={t('Хранилище/пользователь/пароль')}
+        placeholder={t('Пароль')}
         className={styles.input}
         type="text"
       />

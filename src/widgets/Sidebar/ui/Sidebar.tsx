@@ -17,6 +17,7 @@ import { ArrowIconLeft } from 'shared/assets/icons/ArrowIcons/ArrowIconLeft/Arro
 import { useDeviceType } from 'shared/lib/hooks/useDeviceType/useDeviceType';
 import { MainIconTablet } from 'shared/assets/icons/MainIcon/MainIconTablet';
 import { MainIconMobile } from 'shared/assets/icons/MainIcon/MainIconMobile';
+import { LineIcon } from 'shared/assets/icons/ArrowIcons/LineIcon/LineIcon';
 import styles from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -26,10 +27,16 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
   const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const deviceType = useDeviceType();
 
   const onClickToggleCollapseHandler = () => {
     setCollapsed((prev) => !prev);
+    setHovered((prev) => !prev);
+  };
+
+  const onHoverToggleHoverHandler = () => {
+    setHovered((prev) => !prev);
   };
 
   return (
@@ -37,7 +44,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
       data-testid="sidebar"
       className={classNames(
         styles.Sidebar,
-        { [styles.collapsed]: collapsed },
+        {
+          [styles.collapsed]: collapsed,
+          [styles.hovered]: hovered,
+        },
         [className],
       )}
     >
@@ -45,6 +55,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
         className={styles.collapseButton}
         data-testid="sidebar-toggle"
         onClick={onClickToggleCollapseHandler}
+        onMouseEnter={onHoverToggleHoverHandler}
+        onMouseLeave={onHoverToggleHoverHandler}
         theme={ButtonTheme.BACKGROUND_INVERTED}
         size={ButtonSize.XL}
         square
@@ -52,7 +64,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
         {
           collapsed
             ? <ArrowIconRight color="var(--inverted-primary-color)" />
-            : <ArrowIconLeft color="var(--inverted-primary-color)" />
+            : hovered
+              ? <ArrowIconLeft color="var(--inverted-primary-color)" />
+              : <LineIcon color="var(--inverted-primary-color)" />
         }
       </Button>
 

@@ -3,7 +3,8 @@
     width: var(--sidebar-width);
     background: var(--inverted-bg-color);
     position: relative;
-    transition: width 0.3s;
+    transition: width, opacity 0.3s;
+    opacity: 1;
 }
 
 .switchers {
@@ -29,7 +30,7 @@
 
     // Цвет стрелочки при hover
     &:hover > svg > path {
-        stroke: var(--inverted-secondary-color);
+        fill: var(--inverted-secondary-color);
     }
 }
 
@@ -105,4 +106,8 @@
     .lang {
         margin-left: 0;
     }
+}
+
+.hovered {
+    opacity: .8;
 }
