@@ -11,8 +11,10 @@
   "Профиль": "Profile",
   "Статьи": "Articles",
   "Войти": "Sign Up",
+  "Выйти": "Leave",
   "increment": "increment",
   "decrement": "decrement",
   "Имя пользователя": "Username",
-  "Пароль": "Password"
+  "Пароль": "Password",
+  "Форма авторизации": "Authorization form:"
 }

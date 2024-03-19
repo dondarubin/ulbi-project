@@ -4,9 +4,9 @@ export function useDeviceType() {
   const [deviceType, setDeviceType] = useState('');
 
   const handleResizeWindowWidth = useCallback(() => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 500) {
       setDeviceType('mobile');
-    } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+    } else if (window.innerWidth >= 500 && window.innerWidth <= 1024) {
       setDeviceType('tablet');
     } else {
       setDeviceType('desktop');

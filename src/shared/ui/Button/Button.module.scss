@@ -1,92 +1,97 @@
 .Button {
-    cursor: pointer;
-    color: var(--color-black);
-    padding: 10px 15px;
+  cursor: pointer;
+  color: var(--color-black);
+  padding: 10px 15px;
+
+  // TODO дописать стили для disabled кнопки (убрать hover...)
+  &.disabled {
+    opacity: 0.5;
+  }
 }
 
 .clear,
 .clearInverted {
-    padding: 0;
-    border: none;
-    background: none;
-    outline: none;
-    color: var(--primary-color);
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--primary-color);
 }
 
 .clearInverted {
-    color: var(--inverted-primary-color);
+  color: var(--inverted-primary-color);
 }
 
 .outline {
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    background: none;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  background: none;
 
-    &:hover {
-        color: var(--secondary-color);
-        border: 1px solid var(--secondary-color);
-    }
+  &:hover {
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+  }
 
-    &:focus {
-        color: var(--secondary-color);
-        border: 1px solid var(--secondary-color);
-    }
+  &:focus {
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+  }
 }
 
 .background {
-    background: var(--bg-color);
-    color: var(--primary-color);
-    border: none;
+  background: var(--bg-color);
+  color: var(--primary-color);
+  border: none;
 }
 
 .backgroundInverted {
-    background: var(--inverted-bg-color);
-    color: var(--inverted-primary-color);
-    border: none;
+  background: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
+  border: none;
 
-    &:hover {
-        color: var(--inverted-secondary-color);
-    }
+  &:hover {
+    color: var(--inverted-secondary-color);
+  }
 }
 
 .clear,
 .clearInverted,
 .background, {
-    &:hover {
-        color: var(--secondary-color);
-    }
+  &:hover {
+    color: var(--secondary-color);
+  }
 }
 
 .square {
-    padding: 0;
+  padding: 0;
 
-    &.size_m {
-        width: var(--btn-size-m);
-        height: var(--btn-size-m);
-        font: var(--font-m);
-    }
+  &.size_m {
+    width: var(--btn-size-m);
+    height: var(--btn-size-m);
+    font: var(--font-m);
+  }
 
-    &.size_l {
-        width: var(--btn-size-l);
-        height: var(--btn-size-l);
-        font: var(--font-l);
-    }
+  &.size_l {
+    width: var(--btn-size-l);
+    height: var(--btn-size-l);
+    font: var(--font-l);
+  }
 
-    &.size_xl {
-        width: var(--btn-size-xl);
-        height: var(--btn-size-xl);
-        font: var(--font-xl);
-    }
+  &.size_xl {
+    width: var(--btn-size-xl);
+    height: var(--btn-size-xl);
+    font: var(--font-xl);
+  }
 }
 
 .size_m {
-    font: var(--font-m);
+  font: var(--font-m);
 }
 
 .size_l {
-    font: var(--font-l);
+  font: var(--font-l);
 }
 
 .size_xl {
-    font: var(--font-xl);
+  font: var(--font-xl);
 }

@@ -1,43 +1,46 @@
 :root {
-    --font-family-main: "JetBrains", consolas, "Times New Roman", serif;
-    --font-size-m: 16px;
-    --font-line-m: 24px;
-    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
-    --font-size-l: 24px;
-    --font-line-l: 32px;
-    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
-    --font-size-xl: 32px;
-    --font-line-xl: 40px;
-    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+  --font-family-main: "JetBrains", consolas, "Times New Roman", serif;
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
-    // Размеры
-    --navbar-height: 50px;
-    --sidebar-width: 200px;
-    --sidebar-width-collapsed: 60px;
-    --btn-size-m: 24px;
-    --btn-size-l: 32px;
-    --btn-size-xl: 40px;
-    --modal-width: 70%;
+  // Размеры
+  --navbar-height: 50px;
+  --sidebar-width: 200px;
+  --sidebar-width-collapsed: 60px;
+  --btn-size-m: 24px;
+  --btn-size-l: 32px;
+  --btn-size-xl: 40px;
+  --modal-width: 70%;
 
-    // Цвета
-    --color-black: #000;
-    --color-white: #fff;
-    --color-gray: #e3e3e3;
-    --color-gray-dark: #1f1f1f;
-    --color-purple: #f27ae4;
-    --color-blue: #0232c2;
-    --color-green: #06fc99;
-    --color-overlay: rgba(0 0 0 / 60%);
+  // Цвета
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray: #e3e3e3;
+  --color-gray-dark: #1f1f1f;
+  --color-purple: #f27ae4;
+  --color-blue: #0232c2;
+  --color-green: #06fc99;
+  --color-overlay: rgba(0 0 0 / 60%);
+  // TODO выбрать нормальный цвет для ошибки
+  --color-error-light: #ff0000;
+  --color-error-dark: #c90000;
 
-    //  gray-dark: #2D2D2D;
-    //  marine: #6EC1E4;
-    //  --e-global-color-primary: #6EC1E4;
-    //  --e-global-color-secondary: #54595F;
-    //  --e-global-color-text: #7A7A7A;
-    //  --e-global-color-accent: #61CE70;
-    //  --e-global-color-f156e4a: #FFFFFF;
-    //  --e-global-color-c0bcced: #000000;
+  //  gray-dark: #2D2D2D;
+  //  marine: #6EC1E4;
+  //  --e-global-color-primary: #6EC1E4;
+  //  --e-global-color-secondary: #54595F;
+  //  --e-global-color-text: #7A7A7A;
+  //  --e-global-color-accent: #61CE70;
+  //  --e-global-color-f156e4a: #FFFFFF;
+  //  --e-global-color-c0bcced: #000000;
 
-    // Индексы
-    --modal-z-index: 10;
+  // Индексы
+  --modal-z-index: 10;
 }

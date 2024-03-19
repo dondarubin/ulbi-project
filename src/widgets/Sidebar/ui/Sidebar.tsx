@@ -62,11 +62,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
         square
       >
         {
-          collapsed
-            ? <ArrowIconRight color="var(--inverted-primary-color)" />
-            : hovered
-              ? <ArrowIconLeft color="var(--inverted-primary-color)" />
-              : <LineIcon color="var(--inverted-primary-color)" />
+          collapsed ? (
+            <ArrowIconRight color="var(--inverted-primary-color)" />
+          ) : hovered ? (
+            <ArrowIconLeft color="var(--inverted-primary-color)" />
+          ) : (
+            <LineIcon color="var(--inverted-primary-color)" />
+          )
         }
       </Button>
 

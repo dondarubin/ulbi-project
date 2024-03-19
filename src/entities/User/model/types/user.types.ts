@@ -1,9 +1,8 @@
 export interface IUser {
-  id: string,
-  username: string,
+  userId: string,
+  userName: string,
 }
 
 export interface UserSchema {
   authData?: IUser,
-
 }
