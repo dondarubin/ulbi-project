@@ -1,12 +1,9 @@
 .app_dark_theme {
-    --bg-color: var(--color-black);
-    --inverted-bg-color: var(--color-gray);
-
-    --primary-color: var(--color-white);
-    --inverted-primary-color: var(--color-black);
-
-    --secondary-color: var(--color-green);
-    --inverted-secondary-color: var(--color-blue);
-
-    --color-modal-bg: var(--color-gray-dark);
+  --bg-color: var(--color-black);
+  --inverted-bg-color: var(--color-gray);
+  --primary-color: var(--color-white);
+  --inverted-primary-color: var(--color-black);
+  --secondary-color: var(--color-green);
+  --inverted-secondary-color: var(--color-blue);
+  --color-modal-bg: var(--color-gray-dark);
 }
