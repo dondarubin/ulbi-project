@@ -19,6 +19,11 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     }),
   ];
 
+  // Чтобы включить bundle-analyzer вынести этот плагин за условие if(isDev) и запустить build:prod/dev проекта
+  // plugins.push(new BundleAnalyzerPlugin({
+  //   openAnalyzer: false,
+  // }));
+
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin());
     plugins.push(new BundleAnalyzerPlugin({

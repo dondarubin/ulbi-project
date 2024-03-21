@@ -14,10 +14,10 @@ import { UserProfileIcon } from 'shared/assets/icons/UserProfile/UserProfileIcon
 import { ArticlesIcon } from 'shared/assets/icons/ArticlesIcon/ArticlesIcon';
 import { ArrowIconRight } from 'shared/assets/icons/ArrowIcons/ArrowIconRight/ArrowIconRight';
 import { ArrowIconLeft } from 'shared/assets/icons/ArrowIcons/ArrowIconLeft/ArrowIconLeft';
-import { useDeviceType } from 'shared/lib/hooks/useDeviceType/useDeviceType';
 import { MainIconTablet } from 'shared/assets/icons/MainIcon/MainIconTablet';
 import { MainIconMobile } from 'shared/assets/icons/MainIcon/MainIconMobile';
 import { LineIcon } from 'shared/assets/icons/ArrowIcons/LineIcon/LineIcon';
+import { useDeviceType } from 'shared/lib/hooks';
 import styles from './Sidebar.module.scss';
 
 interface SidebarProps {
