@@ -8,7 +8,7 @@ interface LogoutProps {
 
 export const logout = createAsyncThunk<LogoutProps, void, { rejectValue: string }>(
   'user/logout',
-  async (arg, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const response = await axios.post<LogoutProps>('http://localhost:5000/api/logout', {}, { withCredentials: true });
 
@@ -22,7 +22,7 @@ export const logout = createAsyncThunk<LogoutProps, void, { rejectValue: string 
 
       return response.data;
     } catch (e) {
-      return thunkAPI.rejectWithValue('error in logout (AsyncThunk');
+      return thunkAPI.rejectWithValue('error in logout (AsyncThunk)');
     }
   },
 );

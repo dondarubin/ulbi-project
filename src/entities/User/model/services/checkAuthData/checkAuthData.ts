@@ -7,7 +7,7 @@ export const checkAuthData = createAsyncThunk<RefreshResponseType, void, {
   rejectValue: string
 }>(
   'user/checkAuthData',
-  async (arg, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       // Тут нужен дефольный инстанс axios (без интерцепторов)
       const response = await axios.get<RefreshResponseType>('http://localhost:5000/api/refresh', { withCredentials: true });
