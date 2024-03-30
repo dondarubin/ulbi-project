@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, {
-  useCallback, useEffect, useRef, useState,
+import {
+  useCallback, useEffect, useRef, useState, MouseEvent,
 } from 'react';
-import { Portal } from 'shared/ui/Portal/Portal';
 import styles from './Modal.module.scss';
 import { ModalProps } from './Modal.types';
+import { Portal } from '../Portal';
 
 const ANIMATION_DELAY = 250;
 
@@ -31,7 +31,7 @@ export const Modal = (props: ModalProps) => {
     }
   }, [onClose]);
 
-  function onClickContentHandler(e: React.MouseEvent) {
+  function onClickContentHandler(e: MouseEvent) {
     e.stopPropagation();
   }
 

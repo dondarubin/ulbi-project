@@ -26,22 +26,30 @@ export function useDynamicModuleLoader(
   const dispatch = useDispatch();
   const store = useStore() as ReduxStoreWithManager;
 
-  useEffect(() => {
+  const addReducers = () => {
     Object.entries(reducers).forEach(([keyName, reducer]: ReducersListForObjectEntry) => {
       if (!store.reducerManager.has(keyName)) {
         store.reducerManager.add(keyName, reducer);
         dispatch({ type: `@INIT ${keyName} reducer` });
       }
     });
+  };
+
+  const removeReducers = () => {
+    Object.entries(reducers).forEach(([keyName, reducer]: ReducersListForObjectEntry) => {
+      if (store.reducerManager.has(keyName)) {
+        store.reducerManager.remove(keyName);
+        dispatch({ type: `@DELETE ${keyName} reducer` });
+      }
+    });
+  };
+
+  useEffect(() => {
+    addReducers();
 
     return () => {
       if (removeAfterUnmount) {
-        Object.entries(reducers).forEach(([keyName, reducer]: ReducersListForObjectEntry) => {
-          if (!store.reducerManager.has(keyName)) {
-            store.reducerManager.remove(keyName);
-            dispatch({ type: `@DELETE ${keyName} reducer` });
-          }
-        });
+        removeReducers();
       }
     };
     // eslint-disable-next-line

@@ -1,4 +1,4 @@
-import { AsyncThunkAction, Dispatch } from '@reduxjs/toolkit';
+import { AsyncThunkAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 
 // Этот тип - функция, которая принимает аргумент и возвращает AsyncThunkAction

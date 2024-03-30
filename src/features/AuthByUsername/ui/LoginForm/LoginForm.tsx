@@ -1,13 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
-import { ButtonTheme } from 'shared/ui/Button/Button.types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { Text } from 'shared/ui/Text/Text';
-import { TextTheme } from 'shared/ui/Text/Text.types';
-import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks';
+import { ReducersList, useAppDispatch, useDynamicModuleLoader } from 'shared/lib/hooks';
+import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Input } from 'shared/ui/Input';
+import { Text, TextTheme } from 'shared/ui/Text';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -18,6 +16,7 @@ import styles from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onSuccessLogin?: ()=> void;
 }
 
 // Вынесли отдельно от компонента, чтобы не создавался новый объект на каждый рендер компонента
@@ -25,14 +24,14 @@ const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccessLogin }: LoginFormProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
-  useDynamicModuleLoader({ reducers: initialReducers, removeAfterUnmount: false });
+  useDynamicModuleLoader({ reducers: initialReducers });
 
   const onChangeUsernameHandler = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
@@ -42,9 +41,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onClickLoginHandler = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const onClickLoginHandler = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccessLogin();
+    }
+  }, [dispatch, password, username, onSuccessLogin]);
 
   return (
     <div className={classNames(styles.LoginForm, {}, [className])}>
