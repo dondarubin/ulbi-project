@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
+  ChangeEvent,
   memo, useEffect, useRef, useState,
 } from 'react';
 import styles from './Input.module.scss';
@@ -32,7 +33,7 @@ export const Input = memo((props: InputProps) => {
     setCaretPosition(e?.target?.selectionStart || 0);
   };
 
-  const onInputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onInputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
     setCaretPosition(e.target.value.length);
   };
