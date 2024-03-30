@@ -3,7 +3,7 @@
   width: var(--sidebar-width);
   background: var(--inverted-bg-color);
   position: relative;
-  transition: width, opacity 0.3s;
+  transition: width 0.2s ease-in-out;
   opacity: 1;
 }
 
@@ -41,62 +41,8 @@
   flex-direction: column;
 }
 
-.item {
-  margin-top: 40px;
-  display: flex;
-  align-items: center;
-
-  // Цвет шрифта при hover
-  &:hover {
-    color: var(--inverted-secondary-color);
-  }
-
-  // Цвет 1-ой и 2-ой svg при hover
-  &:nth-child(1):hover > svg > rect {
-    stroke: var(--inverted-secondary-color);
-  }
-
-  &:nth-child(-n + 2):hover > svg > path {
-    stroke: var(--inverted-secondary-color);
-  }
-
-  // Цвет 3-ей иконки при hover
-  &:nth-child(3):hover > svg > path {
-    stroke: var(--inverted-secondary-color);
-  }
-
-  &:nth-child(3):hover > svg > circle {
-    stroke: var(--inverted-secondary-color);
-  }
-
-  &:nth-child(3):hover > svg > rect {
-    stroke: var(--inverted-secondary-color);
-  }
-
-  // Цвет 4-ой иконки при hover
-  &:nth-child(4):hover > svg > path {
-    stroke: var(--inverted-secondary-color);
-  }
-
-  &:nth-child(4):hover > svg > circle {
-    stroke: var(--inverted-secondary-color);
-  }
-}
-
-.link {
-  margin-left: 15px;
-  visibility: visible;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
-
-  .link {
-    margin-left: 0;
-    visibility: hidden;
-    width: 0;
-    transition: visibility 0.1s;
-  }
 
   .switchers {
     flex-direction: column;
@@ -106,8 +52,4 @@
   .lang {
     margin-left: 0;
   }
-}
-
-.hovered {
-  opacity: 0.8;
 }

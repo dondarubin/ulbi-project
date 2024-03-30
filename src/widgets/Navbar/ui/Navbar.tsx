@@ -1,29 +1,28 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { useCallback, useState } from 'react';
-import { Button } from 'shared/ui/Button/Button';
-import { ButtonTheme } from 'shared/ui/Button/Button.types';
+import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, logout } from 'entities/User';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
-  const [isAuth, setIsAuth] = useState(false);
+  const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const authData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
 
   const onClickOpenLoginModalHandler = useCallback(() => {
-    setIsAuth(true);
+    setIsOpenLoginModal(true);
   }, []);
 
   const onClickCloseLoginModalHandler = useCallback(() => {
-    setIsAuth(false);
+    setIsOpenLoginModal(false);
   }, []);
 
   const onClickLogoutHandler = useCallback(() => {
@@ -54,12 +53,12 @@ export const Navbar = ({ className }: NavbarProps) => {
         {t('Войти')}
       </Button>
 
-      {isAuth && (
+      {isOpenLoginModal && (
         <LoginModal
-          isOpen={isAuth}
+          isOpen={isOpenLoginModal}
           onClose={onClickCloseLoginModalHandler}
         />
       )}
     </div>
   );
-};
+});

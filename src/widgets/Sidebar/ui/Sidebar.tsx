@@ -1,34 +1,22 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwither';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { Button } from 'shared/ui/Button/Button';
-import { useTranslation } from 'react-i18next';
-import { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button.types';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { AppLinkTheme } from 'shared/ui/AppLink/AppLink.types';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { MainIconDesktop } from 'shared/assets/icons/MainIcon/MainIconDesktop';
-import { AboutIcon } from 'shared/assets/icons/AboutIcon/AboutIcon';
-import { UserProfileIcon } from 'shared/assets/icons/UserProfile/UserProfileIcon';
-import { ArticlesIcon } from 'shared/assets/icons/ArticlesIcon/ArticlesIcon';
 import { ArrowIconRight } from 'shared/assets/icons/ArrowIcons/ArrowIconRight/ArrowIconRight';
 import { ArrowIconLeft } from 'shared/assets/icons/ArrowIcons/ArrowIconLeft/ArrowIconLeft';
-import { MainIconTablet } from 'shared/assets/icons/MainIcon/MainIconTablet';
-import { MainIconMobile } from 'shared/assets/icons/MainIcon/MainIconMobile';
 import { LineIcon } from 'shared/assets/icons/ArrowIcons/LineIcon/LineIcon';
-import { useDeviceType } from 'shared/lib/hooks';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
+import { SidebarItem } from 'widgets/Sidebar/ui/components/SidebarItem';
 import styles from './Sidebar.module.scss';
+import { SidebarItemsList } from './model/constants';
 
 interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
-  const { t } = useTranslation();
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const deviceType = useDeviceType();
 
   const onClickToggleCollapseHandler = () => {
     setCollapsed((prev) => !prev);
@@ -44,10 +32,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       data-testid="sidebar"
       className={classNames(
         styles.Sidebar,
-        {
-          [styles.collapsed]: collapsed,
-          [styles.hovered]: hovered,
-        },
+        { [styles.collapsed]: collapsed },
         [className],
       )}
     >
@@ -73,55 +58,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </Button>
 
       <div className={styles.items}>
-        <AppLink
-          className={styles.item}
-          theme={AppLinkTheme.PRIMARY_INVERTED}
-          to={RoutePath.main}
-        >
-          {
-            deviceType === 'desktop'
-              ? <MainIconDesktop color="var(--inverted-primary-color)" />
-              : deviceType === 'tablet'
-                ? <MainIconTablet color="var(--inverted-primary-color)" />
-                : <MainIconMobile color="var(--inverted-primary-color)" />
-          }
-          <span className={styles.link}>
-            {t('Главная')}
-          </span>
-        </AppLink>
-
-        <AppLink
-          className={styles.item}
-          theme={AppLinkTheme.PRIMARY_INVERTED}
-          to={RoutePath.about}
-        >
-          <AboutIcon color="var(--inverted-primary-color)" />
-          <span className={styles.link}>
-            {t('О сайте')}
-          </span>
-        </AppLink>
-
-        <AppLink
-          className={styles.item}
-          theme={AppLinkTheme.PRIMARY_INVERTED}
-          to=""
-        >
-          <UserProfileIcon color="var(--inverted-primary-color)" />
-          <span className={styles.link}>
-            {t('Профиль')}
-          </span>
-        </AppLink>
-
-        <AppLink
-          className={styles.item}
-          theme={AppLinkTheme.PRIMARY_INVERTED}
-          to=""
-        >
-          <ArticlesIcon color="var(--inverted-primary-color)" />
-          <span className={styles.link}>
-            {t('Статьи')}
-          </span>
-        </AppLink>
+        {SidebarItemsList.map((item) => (
+          <SidebarItem
+            item={item}
+            collapsed={collapsed}
+            key={item.path}
+          />
+        ))}
       </div>
 
       <div className={styles.switchers}>
@@ -133,4 +76,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </div>
     </div>
   );
-};
+});

@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC } from 'react';
+import { memo } from 'react';
 import styles from './Button.module.scss';
 import { ButtonProps, ButtonSize } from './Button.types';
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button = memo((props: ButtonProps) => {
   const {
     className,
     theme,
@@ -35,4 +35,4 @@ export const Button: FC<ButtonProps> = (props) => {
       {children}
     </button>
   );
-};
+});
