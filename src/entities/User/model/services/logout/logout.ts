@@ -1,16 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { TOKEN_LOCALSTORAGE_KEY } from 'shared/constants/localstorage';
+import { ThinkAPI } from 'app/providers/StoreProvider';
 
 interface LogoutProps {
   deletedRefreshToken: string
 }
 
-export const logout = createAsyncThunk<LogoutProps, void, { rejectValue: string }>(
+export const logout = createAsyncThunk<LogoutProps, void, ThinkAPI<string>>(
   'user/logout',
   async (_, thunkAPI) => {
+    const { rejectWithValue, extra } = thunkAPI;
+
     try {
-      const response = await axios.post<LogoutProps>('http://localhost:5000/api/logout', {}, { withCredentials: true });
+      const response = await extra.api.post<LogoutProps>('/logout', {});
 
       console.log(response.data);
 
@@ -22,7 +24,7 @@ export const logout = createAsyncThunk<LogoutProps, void, { rejectValue: string 
 
       return response.data;
     } catch (e) {
-      return thunkAPI.rejectWithValue('error in logout (AsyncThunk)');
+      return rejectWithValue('error in logout (AsyncThunk)');
     }
   },
 );

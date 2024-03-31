@@ -5,10 +5,13 @@ import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
+import { AxiosInstance } from 'axios';
+import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StateSchema {
   counter: CounterSchema,
   user: UserSchema,
+
   // Асинхронные редюсеры
   loginForm?: LoginSchema,
   profile?: ProfileSchema
@@ -26,4 +29,14 @@ export interface ReducerManager {
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager
+}
+
+export interface ThunkExtraArgs {
+  api: AxiosInstance,
+  navigate: (to: To, options?: NavigateOptions) => void,
+}
+
+export interface ThinkAPI<T> {
+  rejectValue: T,
+  extra: ThunkExtraArgs
 }

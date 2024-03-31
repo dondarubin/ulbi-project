@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { userActions } from 'entities/User';
 import { TOKEN_LOCALSTORAGE_KEY } from 'shared/constants/localstorage';
+import { ThinkAPI } from 'app/providers/StoreProvider';
 import { LoginByUsernameProps, LoginResponseType } from './loginByUsername.types';
 
 // TODO Прописать обработку ошибок при неудачном запросе
@@ -23,15 +23,15 @@ import { LoginByUsernameProps, LoginResponseType } from './loginByUsername.types
 //   ...
 // }
 
-export const loginByUsername = createAsyncThunk<LoginResponseType, LoginByUsernameProps, {
-  rejectValue: string
-}>(
+export const loginByUsername = createAsyncThunk<LoginResponseType, LoginByUsernameProps, ThinkAPI<string>>(
   'login/loginByUsername',
   async ({ username, password }, thunkAPI) => {
+    const { dispatch, rejectWithValue, extra } = thunkAPI;
+
     try {
-      const response = await axios.post<LoginResponseType>('http://localhost:5000/api/login', {
+      const response = await extra.api.post<LoginResponseType>('/login', {
         username, password,
-      }, { withCredentials: true });
+      });
 
       console.log(response.data);
       if (!response.data) {
@@ -40,12 +40,12 @@ export const loginByUsername = createAsyncThunk<LoginResponseType, LoginByUserna
 
       // TODO Подумать, хранить токен в localstorage или в памяти фронта
       localStorage.setItem(TOKEN_LOCALSTORAGE_KEY, response.data.accessToken);
-      thunkAPI.dispatch(userActions.setAuthData(response.data.user));
+      dispatch(userActions.setAuthData(response.data.user));
 
       return response.data;
     } catch (e) {
       console.log(e);
-      return thunkAPI.rejectWithValue('error in loginByUsername (AsyncThunk)');
+      return rejectWithValue('error in loginByUsername (AsyncThunk)');
     }
   },
 );
