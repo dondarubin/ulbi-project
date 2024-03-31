@@ -21,28 +21,28 @@ export const ProfileCard = ({ className }: ProfileCardProps) => {
 
   return (
     <div className={classNames(styles.ProfileCard, {}, [className])}>
-      <div className={styles.header}>
-        <Text text={t('Профиль')} />
+      <div className={styles.ProfileCard_header}>
+        <Text title={t('Профиль')} />
 
         <Button
-          className={styles.edit}
+          className={styles.ProfileCard_header_edit}
           theme={ButtonTheme.OUTLINE}
         >
           {t('Редактировать')}
         </Button>
       </div>
 
-      <div className={styles.data}>
+      <div className={styles.ProfileCard_data}>
         <Input
           value={profileData?.firstname}
           placeholder={t('Ваше имя')}
-          className={styles.input}
+          className={styles.ProfileCard_data_input}
         />
 
         <Input
           value={profileData?.lastname}
           placeholder={t('Ваша фамилия')}
-          className={styles.input}
+          className={styles.ProfileCard_data_input}
         />
       </div>
     </div>
