@@ -5,10 +5,13 @@ import { TOKEN_LOCALSTORAGE_KEY } from 'shared/constants/localstorage';
 export const $api = axios.create({
   baseURL: __API__,
   withCredentials: true,
+  headers: {
+    Authorization: '',
+  },
 });
 
 $api.interceptors.request.use((config) => {
-  config.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN_LOCALSTORAGE_KEY)}`;
+  config!.headers!.Authorization = `Bearer ${localStorage.getItem(TOKEN_LOCALSTORAGE_KEY)}`;
   return config;
 });
 

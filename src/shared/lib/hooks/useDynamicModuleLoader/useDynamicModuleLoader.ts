@@ -9,9 +9,6 @@ export type ReducersList = {
   [name in StateSchemaKey]?: Reducer
 }
 
-// Чисто для Object.entries
-type ReducersListForObjectEntry = [StateSchemaKey, Reducer]
-
 interface useDynamicModuleLoaderProps {
   reducers: ReducersList,
   removeAfterUnmount?: boolean,
@@ -27,18 +24,18 @@ export function useDynamicModuleLoader(
   const store = useStore() as ReduxStoreWithManager;
 
   const addReducers = () => {
-    Object.entries(reducers).forEach(([keyName, reducer]: ReducersListForObjectEntry) => {
-      if (!store.reducerManager.has(keyName)) {
-        store.reducerManager.add(keyName, reducer);
+    Object.entries(reducers).forEach(([keyName, reducer]) => {
+      if (!store.reducerManager.has(keyName as StateSchemaKey)) {
+        store.reducerManager.add(keyName as StateSchemaKey, reducer);
         dispatch({ type: `@INIT ${keyName} reducer` });
       }
     });
   };
 
   const removeReducers = () => {
-    Object.entries(reducers).forEach(([keyName, reducer]: ReducersListForObjectEntry) => {
-      if (store.reducerManager.has(keyName)) {
-        store.reducerManager.remove(keyName);
+    Object.entries(reducers).forEach(([keyName, reducer]) => {
+      if (store.reducerManager.has(keyName as StateSchemaKey)) {
+        store.reducerManager.remove(keyName as StateSchemaKey);
         dispatch({ type: `@DELETE ${keyName} reducer` });
       }
     });

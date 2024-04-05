@@ -16,7 +16,7 @@ import styles from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
-  onSuccessLogin?: ()=> void;
+  onSuccessLogin: ()=> void;
 }
 
 // Вынесли отдельно от компонента, чтобы не создавался новый объект на каждый рендер компонента

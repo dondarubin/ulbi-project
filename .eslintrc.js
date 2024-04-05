@@ -45,6 +45,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'no-undef': 'off',
     'import/no-extraneous-dependencies': ['off', {
       devDependencies: false,
       optionalDependencies: false,

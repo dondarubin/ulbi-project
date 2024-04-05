@@ -2,9 +2,6 @@ import axios from 'axios';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
 import { logout } from './logout';
 
-jest.mock('axios');
-const mockedAxios = jest.mocked(axios, true);
-
 describe('logout.test', () => {
   test('success logout', async () => {
     // Полные данные, которые должен вернуть сервер
@@ -12,11 +9,10 @@ describe('logout.test', () => {
       deletedRefreshToken: 'fgdsgrsijfdnijfnegisgnfod',
     };
 
-    mockedAxios.post.mockReturnValue(Promise.resolve({
+    const testThunk = new TestAsyncThunk(logout);
+    testThunk.api.post.mockReturnValue(Promise.resolve({
       data: serverResponse,
     }));
-
-    const testThunk = new TestAsyncThunk(logout);
     const result = await testThunk.callThunk();
 
     // Вызывается ли dispatch 2 раза:
@@ -25,7 +21,7 @@ describe('logout.test', () => {
     expect(testThunk.dispatch).toHaveBeenCalledTimes(2);
 
     // Вызвался ли метод пост
-    expect(mockedAxios.post).toHaveBeenCalled();
+    expect(testThunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
 
     // Вернулись ли правильные данные
@@ -33,12 +29,11 @@ describe('logout.test', () => {
   });
 
   test('error logout', async () => {
+    const testThunk = new TestAsyncThunk(logout);
     // Полные данные, которые должен вернуть сервер
-    mockedAxios.post.mockReturnValue(Promise.resolve({
+    testThunk.api.post.mockReturnValue(Promise.resolve({
       status: 403,
     }));
-
-    const testThunk = new TestAsyncThunk(logout);
     const result = await testThunk.callThunk();
 
     // Вызывается ли dispatch 2 раз:
@@ -47,7 +42,7 @@ describe('logout.test', () => {
     expect(testThunk.dispatch).toHaveBeenCalledTimes(2);
 
     // Вызвался ли метод пост
-    expect(mockedAxios.post).toHaveBeenCalled();
+    expect(testThunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
 
     expect(result.payload).toBe('error in logout (AsyncThunk)');

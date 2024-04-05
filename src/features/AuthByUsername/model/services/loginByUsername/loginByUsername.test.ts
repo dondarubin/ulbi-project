@@ -1,10 +1,6 @@
-import axios from 'axios';
 import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
 import { loginByUsername } from './loginByUsername';
-
-jest.mock('axios');
-const mockedAxios = jest.mocked(axios, true);
 
 describe('loginByUsername.test', () => {
   // // Мок
@@ -88,11 +84,10 @@ describe('loginByUsername.test', () => {
       accessTokenExpiration: 1800000,
     };
 
-    mockedAxios.post.mockReturnValue(Promise.resolve({
+    const testThunk = new TestAsyncThunk(loginByUsername);
+    testThunk.api.post.mockReturnValue(Promise.resolve({
       data: serverResponse,
     }));
-
-    const testThunk = new TestAsyncThunk(loginByUsername);
     const result = await testThunk.callThunk({ username: 'mama', password: '123' });
 
     // Вызвался ли userAction с правильными данными
@@ -105,7 +100,7 @@ describe('loginByUsername.test', () => {
     expect(testThunk.dispatch).toHaveBeenCalledTimes(3);
 
     // Вызвался ли метод пост
-    expect(mockedAxios.post).toHaveBeenCalled();
+    expect(testThunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
 
     // Вернулись ли правильные данные
@@ -113,12 +108,11 @@ describe('loginByUsername.test', () => {
   });
 
   test('error login', async () => {
+    const testThunk = new TestAsyncThunk(loginByUsername);
     // Полные данные, которые должен вернуть сервер
-    mockedAxios.post.mockReturnValue(Promise.resolve({
+    testThunk.api.post.mockReturnValue(Promise.resolve({
       status: 403,
     }));
-
-    const testThunk = new TestAsyncThunk(loginByUsername);
     const result = await testThunk.callThunk({ username: 'mama', password: '123' });
 
     // Вызывается ли dispatch 2 раза:
@@ -127,7 +121,7 @@ describe('loginByUsername.test', () => {
     expect(testThunk.dispatch).toHaveBeenCalledTimes(2);
 
     // Вызвался ли метод пост
-    expect(mockedAxios.post).toHaveBeenCalled();
+    expect(testThunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
 
     expect(result.payload).toBe('error in loginByUsername (AsyncThunk)');

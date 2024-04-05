@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { userActions, userReducer, UserSchema } from 'entities/User';
 
 describe('userSlice.test', () => {
