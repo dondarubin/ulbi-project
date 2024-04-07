@@ -8,6 +8,7 @@ export type SidebarItemType = {
   path: string
   text: string
   Icon: FC<{ color: string }>;
+  authOnly?: boolean;
 }
 
 export const SidebarItemsList: SidebarItemType[] = [
@@ -25,5 +26,6 @@ export const SidebarItemsList: SidebarItemType[] = [
     path: RoutePath.profile,
     text: 'Профиль',
     Icon: UserProfileIcon,
+    authOnly: true,
   },
 ];

@@ -1,19 +1,37 @@
-.title {
-  font: var(--font-l);
-  color: var(--secondary-color);
-}
+.TextWrapper {
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
 
-.text {
-  font: var(--font-m);
-  color: var(--primary-color);
+  &_title {
+    font: var(--font-l);
+    color: var(--secondary-color);
+  }
+
+  &_text {
+    font: var(--font-m);
+    color: var(--primary-color);
+  }
 }
 
 .error {
-  .title {
+  .TextWrapper_title {
     color: var(--color-error-light);
   }
 
-  .text {
+  .TextWrapper_text {
     color: var(--color-error-dark);
   }
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
 }

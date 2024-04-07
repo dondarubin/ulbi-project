@@ -21,13 +21,13 @@ import { IProfile } from '../../types/profile.types';
 //   ...
 // }
 
-export const fetchProfileData = createAsyncThunk<IProfile, void, ThinkAPI<string>>(
-  'login/fetchProfileData',
-  async (_, thunkAPI) => {
+export const fetchProfileData = createAsyncThunk<IProfile, string, ThinkAPI<string>>(
+  'profile/fetchProfileData',
+  async (profileId, thunkAPI) => {
     const { dispatch, rejectWithValue, extra } = thunkAPI;
 
     try {
-      const response = await extra.api.get<IProfile>('/profile');
+      const response = await extra.api.get<IProfile>(`/profile/${profileId}`);
 
       console.log(response.data);
       if (!response.data) {
@@ -37,7 +37,7 @@ export const fetchProfileData = createAsyncThunk<IProfile, void, ThinkAPI<string
       return response.data;
     } catch (e) {
       console.log(e);
-      return rejectWithValue('error in loginByUsername (AsyncThunk)');
+      return rejectWithValue('error in fetchProfileData (AsyncThunk)');
     }
   },
 );

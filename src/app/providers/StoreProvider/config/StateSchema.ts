@@ -36,5 +36,6 @@ export interface ThunkExtraArgs {
 
 export interface ThinkAPI<T> {
   rejectValue: T,
-  extra: ThunkExtraArgs
+  extra: ThunkExtraArgs,
+  state: StateSchema
 }

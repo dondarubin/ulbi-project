@@ -38,6 +38,22 @@
   }
 }
 
+.outlineRed {
+  color: var(--color-error-dark);
+  border: 1px solid var(--color-error-dark);
+  background: none;
+
+  &:hover {
+    color: var(--color-error-light);
+    border: 1px solid var(--color-error-light);
+  }
+
+  &:focus {
+    color: var(--color-error-light);
+    border: 1px solid var(--color-error-light);
+  }
+}
+
 .background {
   background: var(--bg-color);
   color: var(--primary-color);

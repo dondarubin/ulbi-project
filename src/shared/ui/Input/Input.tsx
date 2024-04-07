@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
   ChangeEvent,
   memo, MutableRefObject, useEffect, useRef, useState,
@@ -14,12 +14,15 @@ export const Input = memo((props: InputProps) => {
     type = 'text',
     placeholder,
     autofocus,
+    readonly,
     ...otherProps
   } = props;
 
   const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
   const [inFocused, setInFocused] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
+
+  const isVisibleCaret = !readonly && inFocused;
 
   const onInputBlurHandler = () => {
     setInFocused(false);
@@ -45,8 +48,12 @@ export const Input = memo((props: InputProps) => {
     }
   }, [autofocus]);
 
+  const mods: Mods = {
+    [styles.readonly]: readonly,
+  };
+
   return (
-    <div className={classNames(styles.InputWrapper, {}, [className])}>
+    <div className={classNames(styles.InputWrapper, mods, [className])}>
       {placeholder && (
         <div className={styles.placeholder}>
           {`${placeholder}>`}
@@ -62,9 +69,10 @@ export const Input = memo((props: InputProps) => {
           onFocus={onInputFocusHandler}
           onBlur={onInputBlurHandler}
           onSelect={onInputSelectHandler}
+          readOnly={readonly}
           {...otherProps}
         />
-        {inFocused && (
+        {isVisibleCaret && (
           <span
             className={styles.caret}
             style={{ left: `${caretPosition * 9.62}px` }}

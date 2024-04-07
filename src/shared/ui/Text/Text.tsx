@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import styles from './Text.module.scss';
-import { TextProps, TextTheme } from './Text.types';
+import { TextAlign, TextProps, TextTheme } from './Text.types';
 
 export const Text = memo((props: TextProps) => {
   const {
@@ -9,22 +9,19 @@ export const Text = memo((props: TextProps) => {
     title,
     text,
     theme = TextTheme.PRIMARY,
+    align = TextAlign.LEFT,
   } = props;
-
-  const mods: Record<string, boolean> = {
-    [styles[theme]]: true,
-  };
 
   return (
     <div
       className={classNames(
-        styles.Text,
-        mods,
-        [className],
+        styles.TextWrapper,
+        {},
+        [className, styles[theme], styles[align]],
       )}
     >
-      {title && <p className={styles.title}>{title}</p>}
-      {text && <p className={styles.text}>{text}</p>}
+      {title && <p className={styles.TextWrapper_title}>{title}</p>}
+      {text && <p className={styles.TextWrapper_text}>{text}</p>}
     </div>
   );
 });
