@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThinkAPI } from 'app/providers/StoreProvider';
-import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData';
-import { IProfile } from '../../types/profile.types';
+import { getProfileFormData } from 'features/EditableProfileCard/model/selectors/getProfileFormData/getProfileFormData';
+import { IProfile } from '../../../../../entities/Profile/model/types/profile.types';
 
 // TODO Прописать обработку ошибок при неудачном запросе
 // rejectValue: {

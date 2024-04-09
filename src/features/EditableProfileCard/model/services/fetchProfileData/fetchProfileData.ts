@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThinkAPI } from 'app/providers/StoreProvider';
-import { IProfile } from '../../types/profile.types';
+import { IProfile } from 'entities/Profile';
 
 // TODO Прописать обработку ошибок при неудачном запросе
 // rejectValue: {

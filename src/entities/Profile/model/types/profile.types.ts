@@ -1,5 +1,5 @@
-import { Currency } from 'entities/Currency/model/types/currency.types';
-import { Country } from 'entities/Country/model/types/country.types';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 
 export interface IProfile {
   firstname?: string,
@@ -10,12 +10,4 @@ export interface IProfile {
   city?: string,
   username?: string,
   avatar?: string,
-}
-
-export interface ProfileSchema {
-  profileData?: IProfile,
-  profileFormData?: IProfile,
-  isLoading: boolean,
-  error?: string,
-  readonly: boolean,
 }

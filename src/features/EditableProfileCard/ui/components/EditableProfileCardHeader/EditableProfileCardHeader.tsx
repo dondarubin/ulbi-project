@@ -1,18 +1,20 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { useSelector } from 'react-redux';
-import { getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
-import styles from './ProfilePageHeader.module.scss';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Text } from 'shared/ui/Text';
+import { updateProfileData } from '../../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../../model/slice/profileSlice';
+import { getProfileReadonly } from '../../../model/selectors/getProfileReadonly/getProfileReadonly';
+import styles from './EditableProfileCardHeader.module.scss';
 
 interface ProfilePageHeaderProps {
     className?: string;
 }
 
-export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = ({ className }: ProfilePageHeaderProps) => {
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const readonly = useSelector(getProfileReadonly);

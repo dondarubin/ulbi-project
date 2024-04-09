@@ -5,8 +5,7 @@ import { Loader } from 'shared/ui/Loader';
 import { Avatar } from 'shared/ui/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text';
-import { Country } from 'entities/Country/model/types/country.types';
-import { CountrySelect } from 'entities/Country';
+import { Country, CountrySelect } from 'entities/Country';
 import styles from './ProfileCard.module.scss';
 import { IProfile } from '../../model/types/profile.types';
 
@@ -82,7 +81,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
       <Input
         className={styles.ProfileCard_input}
-        value={profileFormData?.firstname || t('Не указано')}
+        value={profileFormData?.firstname}
         onChange={onChangeFirstname}
         placeholder={t('Имя')}
         readonly={readonly}
@@ -90,7 +89,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
       <Input
         className={styles.ProfileCard_input}
-        value={profileFormData?.lastname || t('Не указано')}
+        value={profileFormData?.lastname}
         onChange={onChangeLastname}
         placeholder={t('Фамилия')}
         readonly={readonly}
@@ -99,7 +98,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
       <Input
         className={styles.ProfileCard_input}
         type="number"
-        value={profileFormData?.age || t('Не указано')}
+        value={profileFormData?.age}
         onChange={onChangeAge}
         placeholder={t('Возраст')}
         readonly={readonly}
@@ -107,7 +106,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
       <Input
         className={styles.ProfileCard_input}
-        value={profileFormData?.city || t('Не указано')}
+        value={profileFormData?.city}
         onChange={onChangeCity}
         placeholder={t('Город')}
         readonly={readonly}
@@ -115,7 +114,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
       <Input
         className={styles.ProfileCard_input}
-        value={profileFormData?.username || t('Не указано')}
+        value={profileFormData?.username}
         onChange={onChangeUsername}
         placeholder={t('Имя пользователя')}
         readonly={readonly}
@@ -123,7 +122,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
       <Input
         className={styles.ProfileCard_input}
-        value={profileFormData?.avatar || t('Не указано')}
+        value={profileFormData?.avatar}
         onChange={onChangeAvatar}
         placeholder={t('Ссылка на аватар')}
         readonly={readonly}
