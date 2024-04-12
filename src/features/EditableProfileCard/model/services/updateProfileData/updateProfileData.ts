@@ -1,7 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThinkAPI } from 'app/providers/StoreProvider';
-import { getProfileFormData } from 'features/EditableProfileCard/model/selectors/getProfileFormData/getProfileFormData';
 import { IProfile } from '../../../../../entities/Profile/model/types/profile.types';
+import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData';
+import { ValidateProfileErrors } from '../../types/editableProflieCard.types';
+import { validateProfileData } from '../valideteProfileData/valideteProfileData';
 
 // TODO Прописать обработку ошибок при неудачном запросе
 // rejectValue: {
@@ -22,7 +24,7 @@ import { IProfile } from '../../../../../entities/Profile/model/types/profile.ty
 //   ...
 // }
 
-export const updateProfileData = createAsyncThunk<IProfile, string, ThinkAPI<string>>(
+export const updateProfileData = createAsyncThunk<IProfile, string, ThinkAPI<ValidateProfileErrors[]>>(
   'profile/updateProfileData',
   async (profileId, thunkAPI) => {
     const {
@@ -33,6 +35,12 @@ export const updateProfileData = createAsyncThunk<IProfile, string, ThinkAPI<str
     } = thunkAPI;
 
     const profileFormData = getProfileFormData(getState());
+
+    const errors = validateProfileData(profileFormData);
+
+    if (errors.length) {
+      return rejectWithValue(errors);
+    }
 
     try {
       const response = await extra.api.put<IProfile>(`/profile/${profileId}`, profileFormData);
@@ -45,7 +53,7 @@ export const updateProfileData = createAsyncThunk<IProfile, string, ThinkAPI<str
       return response.data;
     } catch (e) {
       console.log(e);
-      return rejectWithValue('error in updateProfileData (AsyncThunk)');
+      return rejectWithValue([ValidateProfileErrors.SERVER_ERROR]);
     }
   },
 );
