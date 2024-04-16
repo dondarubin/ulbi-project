@@ -3,7 +3,7 @@ import { ThinkAPI } from 'app/providers/StoreProvider';
 import { IProfile } from '../../../../../entities/Profile/model/types/profile.types';
 import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData';
 import { ValidateProfileErrors } from '../../types/editableProflieCard.types';
-import { validateProfileData } from '../valideteProfileData/valideteProfileData';
+import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 // TODO Прописать обработку ошибок при неудачном запросе
 // rejectValue: {

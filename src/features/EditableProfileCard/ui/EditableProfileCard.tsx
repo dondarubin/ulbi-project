@@ -35,6 +35,7 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
   const dispatch = useAppDispatch();
   useDynamicModuleLoader({ reducers: initialReducers });
 
+  // TODO написать нормальные переводы
   const validateErrorsTranslates: Record<ValidateProfileErrors, string> = {
     [ValidateProfileErrors.SERVER_ERROR]: t('Серверная'),
     [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Если ввел имя введи и фамилию и наоборот'),
@@ -43,7 +44,9 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
   };
 
   useEffect(() => {
-    dispatch(fetchProfileData('1'));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData('1'));
+    }
   }, [dispatch]);
 
   const onChangeFirstnameHandler = useCallback((value?: string) => {
