@@ -2,11 +2,12 @@
   display: flex;
   margin-bottom: 20px;
 
-  &_edit, &_cancel {
+  &_edit,
+  &_cancel {
     margin-left: auto;
   }
 
-  &_save{
+  &_save {
     margin-left: 10px;
   }
 }
