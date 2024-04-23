@@ -3,6 +3,7 @@ import { MainIconDesktop } from 'shared/assets/icons/MainIcon/MainIconDesktop';
 import { UserProfileIcon } from 'shared/assets/icons/UserProfile/UserProfileIcon';
 import { AboutIcon } from 'shared/assets/icons/AboutIcon/AboutIcon';
 import { FC } from 'react';
+import { ArticlesIcon } from 'shared/assets/icons/ArticlesIcon/ArticlesIcon';
 
 export type SidebarItemType = {
   path: string
@@ -26,6 +27,12 @@ export const SidebarItemsList: SidebarItemType[] = [
     path: RoutePath.profile,
     text: 'Профиль',
     Icon: UserProfileIcon,
+    authOnly: true,
+  },
+  {
+    path: RoutePath.articles,
+    text: 'Статьи',
+    Icon: ArticlesIcon,
     authOnly: true,
   },
 ];
