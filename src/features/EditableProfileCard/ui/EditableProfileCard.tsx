@@ -37,9 +37,12 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
 
   // TODO написать нормальные переводы
   const validateErrorsTranslates: Record<ValidateProfileErrors, string> = {
-    [ValidateProfileErrors.SERVER_ERROR]: t('Серверная'),
-    [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Если ввел имя введи и фамилию и наоборот'),
+    [ValidateProfileErrors.SERVER_ERROR]: t('Серверная ошибка'),
+    [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Имя и фамилия должны быть указаны вместе.'),
     [ValidateProfileErrors.INCORRECT_USERNAME]: t('Имя пользоватеся обязательно и должно быть более 3 но менее 20 символов'),
+    [ValidateProfileErrors.INCORRECT_AGE]: t('Возраст должен быть не менее 0 и не более 100'),
+    [ValidateProfileErrors.INCORRECT_CITY]: t('Город должен быть не более 50'),
+    [ValidateProfileErrors.INCORRECT_FIRSTNAME]: t('Имя должен быть не более 50'),
     [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
   };
 

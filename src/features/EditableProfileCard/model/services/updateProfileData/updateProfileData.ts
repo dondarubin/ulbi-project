@@ -5,25 +5,6 @@ import { getProfileFormData } from '../../selectors/getProfileFormData/getProfil
 import { ValidateProfileErrors } from '../../types/editableProflieCard.types';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
-// TODO Прописать обработку ошибок при неудачном запросе
-// rejectValue: {
-//   'message': string,
-//     'errors': [
-//     {
-//       'type': string,
-//       'msg': string,
-//       'path': string,
-//       'location': string
-//     }
-//   ]
-// }
-//
-// enum LoginErrors {
-//   INCORRECT_DATA="400...",
-//   SERVER_ERROR="400...",
-//   ...
-// }
-
 export const updateProfileData = createAsyncThunk<IProfile, string, ThinkAPI<ValidateProfileErrors[]>>(
   'profile/updateProfileData',
   async (profileId, thunkAPI) => {

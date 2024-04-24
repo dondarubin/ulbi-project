@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ValidateLoginErrors } from 'features/AuthByUsername/model/types/loginSchema';
 import LoginForm from '../LoginForm';
 
 export default {
@@ -29,7 +30,7 @@ PrimaryDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
 export const withError = Template.bind({});
 withError.args = {};
 withError.decorators = [StoreDecorator({
-  loginForm: { username: 'admin', password: 'admin', error: 'ERROR' },
+  loginForm: { username: 'admin', password: 'admin', validateErrors: [ValidateLoginErrors.NO_DATA] },
 })];
 
 export const withLoading = Template.bind({});

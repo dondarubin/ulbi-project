@@ -18,7 +18,6 @@ export const checkAuthData = createAsyncThunk<RefreshResponseType, void, ThinkAP
         throw new Error();
       }
 
-      // TODO Подумать, хранить токен в localstorage или в памяти фронта
       localStorage.setItem(TOKEN_LOCALSTORAGE_KEY, response.data.accessToken);
 
       return response.data;

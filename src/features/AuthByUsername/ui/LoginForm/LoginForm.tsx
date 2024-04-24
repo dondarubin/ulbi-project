@@ -7,12 +7,13 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginValidateErrors } from '../../model/selectors/getLoginValidateErrors/getLoginValidateErrors';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
-import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
+import { ValidateLoginErrors } from '../../model/types/loginSchema';
 
 export interface LoginFormProps {
   className?: string;
@@ -30,8 +31,17 @@ const LoginForm = memo(({ className, onSuccessLogin }: LoginFormProps) => {
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
-  const error = useSelector(getLoginError);
+  const validateErrors = useSelector(getLoginValidateErrors);
   useDynamicModuleLoader({ reducers: initialReducers });
+
+  const validateErrorsTranslates: Record<ValidateLoginErrors, string> = {
+    [ValidateLoginErrors.USERNAME_LENGTH]: t('Имя пользователя не должно быть пустым'),
+    [ValidateLoginErrors.USERNAME_MASK]: t('Имя пользователя может состоять из латинских букв и цифр'),
+    [ValidateLoginErrors.PASSWORD_LENGTH]: t('Длина пароля должна составлять не менее 5 символов и не более чем на 20 символов меньше'),
+    [ValidateLoginErrors.PASSWORD_MASK]: t('Пароль может состоять из латинских букв, цифр и специальных символов `(.!&)`'),
+    [ValidateLoginErrors.NO_DATA]: t('Имя пользователя или пароль не должны быть пустыми'),
+    [ValidateLoginErrors.SERVER_ERROR]: t('Серверная ошибка'),
+  };
 
   const onChangeUsernameHandler = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
@@ -51,7 +61,13 @@ const LoginForm = memo(({ className, onSuccessLogin }: LoginFormProps) => {
   return (
     <div className={classNames(styles.LoginForm, {}, [className])}>
       <Text title={t('Форма авторизации')} />
-      {error && <Text theme={TextTheme.ERROR} text={error} />}
+      {validateErrors?.length && validateErrors.map((error) => (
+        <Text
+          key={error}
+          theme={TextTheme.ERROR}
+          text={validateErrorsTranslates[error]}
+        />
+      ))}
       <Input
         className={styles.input}
         placeholder={t('Имя пользователя')}

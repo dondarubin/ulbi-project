@@ -2,11 +2,6 @@
   cursor: pointer;
   color: var(--color-black);
   padding: 10px 15px;
-
-  // TODO дописать стили для disabled кнопки (убрать hover...)
-  &.disabled {
-    opacity: 0.5;
-  }
 }
 
 .clear,
@@ -36,6 +31,20 @@
     color: var(--secondary-color);
     border: 1px solid var(--secondary-color);
   }
+
+  &.disabled {
+    opacity: 0.5;
+
+    &:hover {
+      color: var(--secondary-color);
+      border: 1px solid var(--secondary-color);
+    }
+
+    &:focus {
+      color: var(--secondary-color);
+      border: 1px solid var(--secondary-color);
+    }
+  }
 }
 
 .outlineRed {
@@ -51,6 +60,20 @@
   &:focus {
     color: var(--color-error-light);
     border: 1px solid var(--color-error-light);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+
+    &:hover {
+      color: var(--color-error-light);
+      border: 1px solid var(--color-error-light);
+    }
+
+    &:focus {
+      color: var(--color-error-light);
+      border: 1px solid var(--color-error-light);
+    }
   }
 }
 
@@ -75,6 +98,18 @@
 .background, {
   &:hover {
     color: var(--secondary-color);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+
+    &:hover {
+      color: var(--secondary-color);
+    }
+
+    &:focus {
+      color: var(--secondary-color);
+    }
   }
 }
 

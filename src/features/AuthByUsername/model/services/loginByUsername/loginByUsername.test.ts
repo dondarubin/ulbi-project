@@ -78,7 +78,7 @@ describe('loginByUsername.test', () => {
       // UserDto, который должен вернуть сервер
       user: {
         userId: 1,
-        userName: 'mama',
+        userName: 'mama228',
       },
       accessToken: 'fgdhnksjmdskgnjlzds',
       accessTokenExpiration: 1800000,
@@ -88,7 +88,7 @@ describe('loginByUsername.test', () => {
     testThunk.api.post.mockReturnValue(Promise.resolve({
       data: serverResponse,
     }));
-    const result = await testThunk.callThunk({ username: 'mama', password: '123' });
+    const result = await testThunk.callThunk({ username: 'mama228', password: '12345' });
 
     // Вызвался ли userAction с правильными данными
     expect(testThunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(serverResponse.user));
@@ -113,7 +113,7 @@ describe('loginByUsername.test', () => {
     testThunk.api.post.mockReturnValue(Promise.resolve({
       status: 403,
     }));
-    const result = await testThunk.callThunk({ username: 'mama', password: '123' });
+    const result = await testThunk.callThunk({ username: 'mama228', password: '12345' });
 
     // Вызывается ли dispatch 2 раза:
     // при самом вызове dispatch(loginByUsername),
@@ -124,6 +124,6 @@ describe('loginByUsername.test', () => {
     expect(testThunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
 
-    expect(result.payload).toBe('error in loginByUsername (AsyncThunk)');
+    expect(result.payload).toStrictEqual(['server error in loginByUsername (AsyncThunk)']);
   });
 });
