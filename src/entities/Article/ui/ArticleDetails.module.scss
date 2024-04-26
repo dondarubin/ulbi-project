@@ -1,0 +1,16 @@
+.ArticleDetails {
+  min-height: 100%;
+
+  &_image {
+    margin: 0 auto;
+  }
+
+  &_title {
+    margin-top: 20px;
+  }
+
+  &_skeleton {
+    margin-top: 15px;
+  }
+}
+
