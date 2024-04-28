@@ -1,8 +1,9 @@
 import { Text } from './Text';
-import { TextAlign, TextTheme } from './Text.types';
+import { TextAlign, TextSize, TextTheme } from './Text.types';
 
 export {
   Text,
   TextTheme,
   TextAlign,
+  TextSize,
 };

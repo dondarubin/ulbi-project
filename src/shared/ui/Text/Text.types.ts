@@ -9,10 +9,16 @@ export enum TextAlign {
   CENTER = 'center'
 }
 
+export enum TextSize {
+  M = 'size_m',
+  L = 'size_l',
+}
+
 export interface TextProps {
   className?: string;
-  title?: string,
-  text?: string,
-  theme?: TextTheme,
-  align?: TextAlign
+  title?: string;
+  text?: string;
+  theme?: TextTheme;
+  align?: TextAlign;
+  size?: TextSize;
 }

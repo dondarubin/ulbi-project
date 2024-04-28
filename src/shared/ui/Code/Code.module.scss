@@ -1,0 +1,17 @@
+.Code {
+  border: 1px solid var(--primary-color);
+  padding: 20px;
+  position: relative;
+  background: var(--code-bg);
+  overflow: auto;
+
+  &_copy {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    &:hover > svg > path {
+      stroke: var(--secondary-color);
+    }
+  }
+}

@@ -15,6 +15,7 @@ export interface ArticleTextContent extends ArticleContentBase {
   paragraphs: string[];
 }
 
+// TODO сделать на фронте и на беке imageCaption optional
 export interface ArticleImageContent extends ArticleContentBase {
   type: ArticleContentType.IMAGE;
   imageUrl: string;
@@ -41,7 +42,7 @@ export interface IArticle {
   subtitle: string;
   img: string;
   views: number;
-  createdAt: string;
+  created_at: string;
   type: ArticleTypes[];
   content?: ArticleContent[]
 }

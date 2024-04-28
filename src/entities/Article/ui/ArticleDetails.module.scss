@@ -1,6 +1,12 @@
 .ArticleDetails {
   min-height: 100%;
 
+  &_imageWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   &_image {
     margin: 0 auto;
   }
@@ -12,5 +18,14 @@
   &_skeleton {
     margin-top: 15px;
   }
-}
 
+  &_info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &_content {
+    margin-top: 16px;
+  }
+}
