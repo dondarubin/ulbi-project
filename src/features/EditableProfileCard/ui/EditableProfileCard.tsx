@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
-import { ReducersList, useAppDispatch, useDynamicModuleLoader } from 'shared/lib/hooks';
+import {
+  ReducersList, useAppDispatch, useDynamicModuleLoader, useEffectInitial,
+} from 'shared/lib/hooks';
 import { useCallback, useEffect } from 'react';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
@@ -46,10 +48,8 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
     [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData('1'));
-    }
+  useEffectInitial(() => {
+    dispatch(fetchProfileData('1'));
   }, [dispatch]);
 
   const onChangeFirstnameHandler = useCallback((value?: string) => {

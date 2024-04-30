@@ -1,6 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ReducersList, useAppDispatch, useDynamicModuleLoader } from 'shared/lib/hooks';
+import {
+  ReducersList, useAppDispatch, useDynamicModuleLoader, useEffectInitial,
+} from 'shared/lib/hooks';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {
@@ -40,6 +42,10 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const articleDetailsData = useSelector(getArticleDetailsData);
   useDynamicModuleLoader({ reducers: initialReducers });
 
+  useEffectInitial(() => {
+    dispatch(fetchArticleById(id));
+  }, [dispatch, id]);
+
   // TODO придумать уникальные ключи
   const renderContent = useCallback((content: ArticleContent) => {
     switch (content.type) {
@@ -71,13 +77,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
       return null;
     }
   }, []);
-
-  useEffect(() => {
-    // чтобы запросы не отправлялись на сервер, когда смотришь изменения в storybook
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
 
   let content;
 

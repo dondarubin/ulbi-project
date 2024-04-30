@@ -7,14 +7,17 @@ import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
 import { ProfileSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleCommentsSchema } from 'features/ArticleCommentList';
 
+// TODO Разобраться и принять решение использования одного из видов кейсов для userId и т.д. (Kebab...)
 export interface StateSchema {
-  user: UserSchema,
+  user: UserSchema;
 
   // Асинхронные редюсеры
-  loginForm?: LoginSchema,
-  profile?: ProfileSchema,
-  articleDetails?: ArticleDetailsSchema
+  loginForm?: LoginSchema;
+  profile?: ProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
+  articleComments?: ArticleCommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema

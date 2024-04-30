@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { Text, TextTheme } from 'shared/ui/Text';
+import { ArticleCommentList } from 'features/ArticleCommentList';
 import styles from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -25,6 +26,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
     <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
       <ArticleDetails id={id} />
+      <Text className={styles.ArticleDetailsPage_comment_title} title={t('Комментарии')} />
+      <ArticleCommentList id={id} />
     </div>
   );
 };
