@@ -21,7 +21,7 @@ Normal.decorators = [StoreDecorator({
       title: 'Javascript news',
       subtitle: 'Что нового в JS за 2022 год?',
       img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
-      userId: 23,
+      user_id: 23,
       views: 1001,
       type: [ArticleTypes.IT, ArticleTypes.BUSINESS],
       content: [

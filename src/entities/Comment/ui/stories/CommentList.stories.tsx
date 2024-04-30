@@ -16,11 +16,13 @@ const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...
 
 export const Normal = Template.bind({});
 Normal.args = {
-  comments: [{
-    comment_id: 1, article_id: 1, text: 'Comment 1', avatar: AvatarStorybook, user_id: 1, username: 'Username 1',
-  }, {
-    comment_id: 1, article_id: 1, text: 'Comment 2', avatar: AvatarStorybook, user_id: 1, username: 'Username 2',
-  }],
+  comments: [
+    {
+      comment_id: 1, article_id: 1, text: 'Comment 1', avatar: AvatarStorybook, user_id: 1, username: 'Username 1',
+    }, {
+      comment_id: 1, article_id: 1, text: 'Comment 2', avatar: AvatarStorybook, user_id: 1, username: 'Username 2',
+    },
+  ],
 };
 
 export const Dark = Template.bind({});
@@ -33,12 +35,8 @@ Dark.args = {
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const isLoading = Template.bind({});
-isLoading.args = {
-  comments: [{
-    comment_id: 1, article_id: 1, text: 'Comment 1', avatar: AvatarStorybook, user_id: 1, username: 'Username 1',
-  }, {
-    comment_id: 1, article_id: 1, text: 'Comment 2', avatar: AvatarStorybook, user_id: 1, username: 'Username 2',
-  }],
+export const Loading = Template.bind({});
+Loading.args = {
+  comments: [],
   isLoading: true,
 };

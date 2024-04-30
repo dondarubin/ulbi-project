@@ -36,8 +36,8 @@ export enum ArticleTypes {
 }
 
 export interface IArticle {
-  articleId: number;
-  userId: number;
+  article_id: number;
+  user_id: number;
   title: string;
   subtitle: string;
   img: string;

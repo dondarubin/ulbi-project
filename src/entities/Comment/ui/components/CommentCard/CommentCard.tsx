@@ -5,11 +5,13 @@ import { IComment } from 'entities/Comment';
 import { Avatar } from 'shared/ui/Avatar';
 import { Text } from 'shared/ui/Text';
 import { Skeleton } from 'shared/ui/Skeleton';
+import { AppLink } from 'shared/ui/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import styles from './CommentCard.module.scss';
 
 interface CommentCardProps {
   className?: string;
-  comment: IComment;
+  comment?: IComment;
   isLoading?: boolean;
 }
 
@@ -33,12 +35,16 @@ export const CommentCard = memo((props: CommentCardProps) => {
     );
   }
 
+  if (!comment) {
+    return null;
+  }
+
   return (
     <div className={classNames(styles.CommentCard, {}, [className])}>
-      <div className={styles.CommentCard_header}>
+      <AppLink className={styles.CommentCard_header} to={`${RoutePath.profile}${comment.user_id}`}>
         {comment.avatar && <Avatar size={30} src={comment.avatar} />}
         <Text className={styles.CommentCard_username} title={comment.username} />
-      </div>
+      </AppLink>
       <Text className={styles.CommentCard_text} text={comment.text} />
     </div>
   );

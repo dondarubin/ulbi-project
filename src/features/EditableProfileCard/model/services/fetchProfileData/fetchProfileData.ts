@@ -4,11 +4,11 @@ import { IProfile } from 'entities/Profile';
 
 export const fetchProfileData = createAsyncThunk<IProfile, string, ThinkAPI<string>>(
   'profile/fetchProfileData',
-  async (profileId, thunkAPI) => {
+  async (userId, thunkAPI) => {
     const { dispatch, rejectWithValue, extra } = thunkAPI;
 
     try {
-      const response = await extra.api.get<IProfile>(`/profile/${profileId}`);
+      const response = await extra.api.get<IProfile>(`/profile/${userId}`);
 
       console.log(response.data);
       if (!response.data) {

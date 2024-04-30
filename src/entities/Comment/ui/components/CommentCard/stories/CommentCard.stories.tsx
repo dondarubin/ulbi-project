@@ -29,7 +29,10 @@ Dark.args = {
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const isLoading = Template.bind({});
-isLoading.args = {
+export const Loading = Template.bind({});
+Loading.args = {
+  comment: {
+    comment_id: 1, article_id: 1, text: 'Comment', avatar: AvatarStorybook, user_id: 1, username: 'Username',
+  },
   isLoading: true,
 };

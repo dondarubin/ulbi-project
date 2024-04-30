@@ -5,7 +5,7 @@ import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoadi
 describe('getArticleDetailsData.test', () => {
   test('should return state', () => {
     const articleData: DeepPartial<IArticle> = {
-      articleId: 1,
+      article_id: 1,
       title: 'Mama',
     };
     const state: DeepPartial<StateSchema> = {

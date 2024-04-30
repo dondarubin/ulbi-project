@@ -14,7 +14,6 @@ export default {
   },
 } as ComponentMeta<typeof EditableProfileCard>;
 
-// @ts-ignore
 const Template: ComponentStory<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
 
 export const Light = Template.bind({});
@@ -36,6 +35,28 @@ Light.decorators = [StoreDecorator({
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+  profile: {
+    profileFormData: {
+      username: 'admin',
+      firstname: 'Mama',
+      lastname: 'Papa',
+      age: 22,
+      currency: Currency.USD,
+      city: 'Saratov',
+      country: Country.RUSSIA,
+    },
+  },
+})];
+
+export const WithAuth = Template.bind({});
+WithAuth.args = { id: '1' };
+WithAuth.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+  user: {
+    authData: {
+      userId: 1,
+      userName: 'admin',
+    },
+  },
   profile: {
     profileFormData: {
       username: 'admin',

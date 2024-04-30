@@ -7,7 +7,7 @@ import { validateProfileData } from '../validateProfileData/validateProfileData'
 
 export const updateProfileData = createAsyncThunk<IProfile, string, ThinkAPI<ValidateProfileErrors[]>>(
   'profile/updateProfileData',
-  async (profileId, thunkAPI) => {
+  async (userId, thunkAPI) => {
     const {
       dispatch,
       rejectWithValue,
@@ -24,7 +24,7 @@ export const updateProfileData = createAsyncThunk<IProfile, string, ThinkAPI<Val
     }
 
     try {
-      const response = await extra.api.put<IProfile>(`/profile/${profileId}`, profileFormData);
+      const response = await extra.api.put<IProfile>(`/profile/${userId}`, profileFormData);
 
       console.log(response.data);
       if (!response.data) {
