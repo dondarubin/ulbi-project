@@ -3,6 +3,7 @@
   "AGE": "AGE",
   "Age must be at least 0 and not more than 100": "Age must be at least 0 and not more than 100",
   "Article not found!": "Article not found!",
+  "ArticlesPage": "ArticlesPage",
   "CITY": "CITY",
   "City must be at least 0 chars long and 50 chars less": "City must be at least 0 chars long and 50 chars less",
   "City should not be more than 50": "City should not be more than 50",

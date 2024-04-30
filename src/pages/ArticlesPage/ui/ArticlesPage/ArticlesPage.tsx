@@ -12,6 +12,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
   return (
     <div className={classNames(styles.ArticlesPage, {}, [className])}>
+      {t('ArticlesPage')}
     </div>
   );
 };
