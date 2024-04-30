@@ -1,14 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwither';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ArrowIconRight } from 'shared/assets/icons/ArrowIcons/ArrowIconRight/ArrowIconRight';
 import { ArrowIconLeft } from 'shared/assets/icons/ArrowIcons/ArrowIconLeft/ArrowIconLeft';
 import { LineIcon } from 'shared/assets/icons/ArrowIcons/LineIcon/LineIcon';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
-import { SidebarItem } from 'widgets/Sidebar/ui/components/SidebarItem';
+import { useSelector } from 'react-redux';
 import styles from './Sidebar.module.scss';
-import { SidebarItemsList } from './model/constants';
+import { getSidebarItems } from './model/selectors/getSidebarItemsSelectors';
+import { SidebarItem } from './components/SidebarItem';
 
 interface SidebarProps {
   className?: string;
@@ -17,6 +18,7 @@ interface SidebarProps {
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const sidebarItemsList = useSelector(getSidebarItems);
 
   const onClickToggleCollapseHandler = () => {
     setCollapsed((prev) => !prev);
@@ -26,6 +28,14 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   const onHoverToggleHoverHandler = () => {
     setHovered((prev) => !prev);
   };
+
+  const sidebarItemsListMemo = useMemo(() => sidebarItemsList.map((item) => (
+    <SidebarItem
+      item={item}
+      collapsed={collapsed}
+      key={item.path}
+    />
+  )), [collapsed, sidebarItemsList]);
 
   return (
     <div
@@ -58,13 +68,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       </Button>
 
       <div className={styles.items}>
-        {SidebarItemsList.map((item) => (
-          <SidebarItem
-            item={item}
-            collapsed={collapsed}
-            key={item.path}
-          />
-        ))}
+        {sidebarItemsListMemo}
       </div>
 
       <div className={styles.switchers}>
