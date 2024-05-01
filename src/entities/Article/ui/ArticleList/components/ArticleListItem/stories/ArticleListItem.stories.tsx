@@ -1,15 +1,20 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
-import { ArticleList, ArticleView, IArticle } from 'entities/Article';
-import { ArticleContentType, ArticleTypes } from 'entities/Article/model/types/article.types';
-import styles from './ArticlesPage.module.scss';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import {
+  ArticleContentType, ArticleTypes, ArticleView, IArticle,
+} from '../../../../../model/types/article.types';
+import { ArticleListItem } from '../ArticleListItem';
 
-interface ArticlesPageProps {
-  className?: string;
-}
+export default {
+  title: 'entities/ArticleListItem',
+  component: ArticleListItem,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof ArticleListItem>;
 
-const mockArticle: IArticle = {
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+
+const article: IArticle = {
   title: 'Javascript news Javascript news Javascript news Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
@@ -71,14 +76,14 @@ const mockArticle: IArticle = {
   ],
 } as IArticle;
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
-  const { t } = useTranslation('articles');
-
-  return (
-    <div className={classNames(styles.ArticlesPage, {}, [className])}>
-      <ArticleList view={ArticleView.TILE} articles={new Array(16).fill(0).map((item, index) => ({ ...mockArticle, article_id: index }))} />
-    </div>
-  );
+export const List = Template.bind({});
+List.args = {
+  view: ArticleView.LIST,
+  article,
 };
 
-export default memo(ArticlesPage);
+export const Tile = Template.bind({});
+Tile.args = {
+  view: ArticleView.TILE,
+  article,
+};

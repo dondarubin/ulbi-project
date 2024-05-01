@@ -44,7 +44,12 @@ export interface IArticle {
   views: number;
   created_at: string;
   type: ArticleTypes[];
-  content?: ArticleContent[]
+  content: ArticleContent[]
+}
+
+export enum ArticleView {
+  LIST = 'list',
+  TILE = 'tile'
 }
 
 export interface ArticleDetailsSchema {

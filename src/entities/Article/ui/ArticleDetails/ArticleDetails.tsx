@@ -13,14 +13,14 @@ import { Avatar } from 'shared/ui/Avatar';
 import { EyeIcon } from 'shared/assets/icons/EyeIcon/EyeIcon';
 import { CalendarIcon } from 'shared/assets/icons/CalendarIcon/CalendarIcon';
 import styles from './ArticleDetails.module.scss';
-import { articleDetailsReducer } from '../model/slice/articleDetailsSlice';
-import { fetchArticleById } from '../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
-} from '../model/selectors/articleDetailsSelectors';
-import { ArticleContent, ArticleContentType } from '../model/types/article.types';
+} from '../../model/selectors/articleDetailsSelectors';
+import { ArticleContent, ArticleContentType } from '../../model/types/article.types';
 import { ArticleText } from './components/ArticleText/ArticleText';
 import { ArticleImage } from './components/ArticleImage/ArticleImage';
 import { ArticleCode } from './components/ArticleCode/ArticleCode';

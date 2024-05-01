@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 import { CommentList } from 'entities/Comment';
 import { AddNewCommentForm } from 'features/AddNewComment';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextTheme } from 'shared/ui/Text';
+import { useTranslation } from 'react-i18next';
 import styles from './ArticleCommentList.module.scss';
 import { articleCommentsReducer, getArticleComments } from '../model/slice/articleCommentsSlice';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../model/selectors/articleCommentsSelectors';
@@ -22,6 +24,7 @@ const initialReducers: ReducersList = {
 };
 
 export const ArticleCommentList = memo(({ className, id }: ArticleCommentListProps) => {
+  const { t } = useTranslation('articles');
   useDynamicModuleLoader({ reducers: initialReducers });
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
@@ -35,6 +38,10 @@ export const ArticleCommentList = memo(({ className, id }: ArticleCommentListPro
   const onSuccessCreateNewCommentHandler = useCallback((value: string) => {
     dispatch(addNewCommentForArticle(value));
   }, [dispatch]);
+
+  if (error) {
+    return <Text theme={TextTheme.ERROR} text={t('Комментарии не найдены')} />;
+  }
 
   return (
     <div className={classNames(styles.ArticleCommentList, {}, [className])}>
