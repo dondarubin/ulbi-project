@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { IComment } from 'entities/Comment';
 import { Avatar } from 'shared/ui/Avatar';
@@ -16,7 +15,6 @@ interface CommentCardProps {
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-  const { t } = useTranslation();
   const {
     comment,
     isLoading,

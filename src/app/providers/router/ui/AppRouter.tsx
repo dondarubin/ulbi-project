@@ -11,21 +11,21 @@ const AppRouter = () => {
   const routes = useMemo(() => Object.values(routeConfig).filter((route) => !(route.authOnly && !isAuth)), [isAuth]);
 
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        {routes.map(({ element, path }) => (
-          <Route
-            key={path}
-            path={path}
-            element={(
+    <Routes>
+      {routes.map(({ element, path }) => (
+        <Route
+          key={path}
+          path={path}
+          element={(
+            <Suspense fallback={<PageLoader />}>
               <div className="page-wrapper">
                 {element}
               </div>
-            )}
-          />
-        ))}
-      </Routes>
-    </Suspense>
+            </Suspense>
+          )}
+        />
+      ))}
+    </Routes>
   );
 };
 

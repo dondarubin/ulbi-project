@@ -3,10 +3,11 @@ import { ThinkAPI } from 'app/providers/StoreProvider';
 import { getArticleDetailsData } from 'entities/Article';
 import { IComment } from 'entities/Comment';
 import { getUserAuthData } from 'entities/User';
+import { ValidateCommentErrors } from 'features/AddNewComment';
 import { fetchArticleCommentsById } from '../fetchArticleCommentsById/fetchArticleCommentsById';
 
 // TODO написать тесы
-export const addNewCommentForArticle = createAsyncThunk<IComment, string, ThinkAPI<string>>(
+export const addNewCommentForArticle = createAsyncThunk<IComment, string, ThinkAPI<ValidateCommentErrors>>(
   'article/createNewComment',
   async (commentText, thunkAPI) => {
     const {
@@ -17,7 +18,11 @@ export const addNewCommentForArticle = createAsyncThunk<IComment, string, ThinkA
     const article = getArticleDetailsData(getState());
 
     if (!userData?.userId || !commentText || !article?.article_id) {
-      return rejectWithValue('NO DATA in createNewComment (AsyncThunk)');
+      return rejectWithValue(ValidateCommentErrors.NO_DATA);
+    }
+
+    if (commentText.length > 500) {
+      return rejectWithValue(ValidateCommentErrors.INCORRECT_DATA);
     }
 
     try {
@@ -35,7 +40,7 @@ export const addNewCommentForArticle = createAsyncThunk<IComment, string, ThinkA
 
       return response.data;
     } catch (e) {
-      return rejectWithValue('error in createNewComment (AsyncThunk)');
+      return rejectWithValue(ValidateCommentErrors.SERVER_ERROR);
     }
   },
 );

@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { addNewCommentForArticle } from 'features/ArticleCommentList';
 import { AddNewCommentFormSchema } from '../types/addNewCommentForm.types';
 
 const initialState: AddNewCommentFormSchema = {
   commentText: '',
-  error: undefined,
+  validateError: undefined,
 };
 
 export const addNewCommentFormSlice = createSlice({
@@ -14,21 +15,18 @@ export const addNewCommentFormSlice = createSlice({
       state.commentText = action.payload;
     },
   },
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(loginByUsername.pending, (state, action) => {
-  //       state.validateErrors = undefined;
-  //       state.isLoading = true;
-  //     })
-  //     .addCase(loginByUsername.fulfilled, (state, action) => {
-  //       state.validateErrors = undefined;
-  //       state.isLoading = false;
-  //     })
-  //     .addCase(loginByUsername.rejected, (state, action) => {
-  //       state.isLoading = false;
-  //       state.validateErrors = action.payload;
-  //     });
-  // },
+  extraReducers: (builder) => {
+    builder
+      .addCase(addNewCommentForArticle.pending, () => {
+      })
+      .addCase(addNewCommentForArticle.fulfilled, (state) => {
+        state.validateError = undefined;
+        state.commentText = '';
+      })
+      .addCase(addNewCommentForArticle.rejected, (state, action) => {
+        state.validateError = action.payload;
+      });
+  },
 });
 
 export const { actions: addNewCommentFormActions } = addNewCommentFormSlice;

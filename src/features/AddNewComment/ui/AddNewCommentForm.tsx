@@ -7,7 +7,7 @@ import { ReducersList, useAppDispatch, useDynamicModuleLoader } from 'shared/lib
 import { useSelector } from 'react-redux';
 import styles from './AddNewCommentForm.module.scss';
 import { addNewCommentFormActions, addNewCommentFormReducer } from '../model/slice/addNewCommentFormSlice';
-import { getAddNewCommentFormError, getAddNewCommentFormText } from '../model/selectors/addNewCommentFormSelectors';
+import { getAddNewCommentFormText } from '../model/selectors/addNewCommentFormSelectors';
 
 export interface AddNewCommentFormProps {
   className?: string;
@@ -25,7 +25,6 @@ const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
   } = props;
   const { t } = useTranslation('articles');
   const commentText = useSelector(getAddNewCommentFormText);
-  const error = useSelector(getAddNewCommentFormError);
   const dispatch = useAppDispatch();
   useDynamicModuleLoader({ reducers: initialReducers });
 
@@ -35,8 +34,7 @@ const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
 
   const onSendHandler = useCallback(() => {
     onSuccessCreateNewComment(commentText);
-    onChangeCommentTextHandler('');
-  }, [commentText, onChangeCommentTextHandler, onSuccessCreateNewComment]);
+  }, [commentText, onSuccessCreateNewComment]);
 
   return (
     <div className={classNames(styles.AddNewCommentForm, {}, [className])}>
