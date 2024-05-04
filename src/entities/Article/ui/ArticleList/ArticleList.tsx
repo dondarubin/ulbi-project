@@ -1,13 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import styles from './ArticleList.module.scss';
-import { ArticleView, IArticle } from '../../model/types/article.types';
+import { ArticleView, IArticleWithUserData } from '../../model/types/article.types';
 import { ArticleListItem } from './components/ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from './components/ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {
   className?: string;
-  articles: IArticle[];
+  articles: IArticleWithUserData[];
   isLoading?: boolean;
   view?: ArticleView;
 }
@@ -23,7 +23,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   if (isLoading) {
     return (
       <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
-        {new Array(articles.length)
+        {new Array(9)
           .fill(0)
           .map((item, index) => (
             <ArticleListItemSkeleton
@@ -36,7 +36,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     );
   }
 
-  const renderArticle = (article: IArticle) => (
+  const renderArticle = (article: IArticleWithUserData) => (
     <ArticleListItem
       key={article.article_id}
       className={styles.card}

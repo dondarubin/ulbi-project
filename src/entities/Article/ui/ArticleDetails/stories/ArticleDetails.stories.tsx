@@ -3,6 +3,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { ArticleContentType, ArticleTypes } from 'entities/Article/model/types/article.types';
 import { ArticleDetails } from '../ArticleDetails';
 
+// TODO объединить по смыслу некоторые сторибуки
 export default {
   title: 'entities/ArticleDetails',
   component: ArticleDetails,
@@ -89,7 +90,7 @@ Loading.decorators = [StoreDecorator({
 })];
 
 export const Error = Template.bind({});
-Error.args = {};
+Error.args = { error: 'Some error' };
 Error.decorators = [StoreDecorator({
   articleDetails: {
     error: 'Some error!',

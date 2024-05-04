@@ -28,17 +28,17 @@ import { ArticleCode } from './components/ArticleCode/ArticleCode';
 interface ArticleDetailsProps {
   className?: string;
   id: string
+  error?: string;
 }
 
 const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
-export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
+export const ArticleDetails = memo(({ className, id, error }: ArticleDetailsProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
-  const error = useSelector(getArticleDetailsError);
   const articleDetailsData = useSelector(getArticleDetailsData);
   useDynamicModuleLoader({ reducers: initialReducers });
 

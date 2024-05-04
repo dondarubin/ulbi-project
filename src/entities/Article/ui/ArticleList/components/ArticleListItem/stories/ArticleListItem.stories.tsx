@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import AvatarStorybook from 'shared/assets/test/avatarStorybook.png';
 import {
-  ArticleContentType, ArticleTypes, ArticleView, IArticle,
+  ArticleContentType, ArticleTypes, ArticleView, IArticle, IArticleWithUserData,
 } from '../../../../../model/types/article.types';
 import { ArticleListItem } from '../ArticleListItem';
 
@@ -14,13 +15,15 @@ export default {
 
 const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
 
-const article: IArticle = {
+const article = {
   title: 'Javascript news Javascript news Javascript news Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
-  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  img: AvatarStorybook,
   user_id: 23,
   type: [ArticleTypes.IT, ArticleTypes.BUSINESS, ArticleTypes.ECONOMY],
   views: 1000,
+  username: 'test username',
+  avatar: AvatarStorybook,
   created_at: '10.10.2024',
   content: [
     {
@@ -46,7 +49,7 @@ const article: IArticle = {
     },
     {
       type: ArticleContentType.IMAGE,
-      imageUrl: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+      imageUrl: AvatarStorybook,
       imageCaption: 'Рисунок 1 - скриншот сайта',
     },
     {
@@ -63,7 +66,7 @@ const article: IArticle = {
     },
     {
       type: ArticleContentType.IMAGE,
-      imageUrl: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+      imageUrl: AvatarStorybook,
       imageCaption: 'Рисунок 1 - скриншот сайта',
     },
     {
@@ -74,7 +77,7 @@ const article: IArticle = {
       ],
     },
   ],
-} as IArticle;
+} as IArticleWithUserData;
 
 export const List = Template.bind({});
 List.args = {

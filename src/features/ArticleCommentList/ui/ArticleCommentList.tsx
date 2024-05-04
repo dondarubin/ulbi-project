@@ -17,20 +17,21 @@ import { addNewCommentForArticle } from '../model/services/addNewCommentForArtic
 
 interface ArticleCommentListProps {
   className?: string;
-  id: string
+  id: string;
+  error?: string
 }
 
 const initialReducers: ReducersList = {
   articleComments: articleCommentsReducer,
 };
 
-export const ArticleCommentList = memo(({ className, id }: ArticleCommentListProps) => {
+export const ArticleCommentList = memo(({ className, id, error }: ArticleCommentListProps) => {
   const { t } = useTranslation('articles');
   useDynamicModuleLoader({ reducers: initialReducers });
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
   const validateError = useSelector(getAddNewCommentFormValidateError);
-  const error = useSelector(getArticleCommentsError);
+  // const error = useSelector(getArticleCommentsError);
   const dispatch = useAppDispatch();
 
   // TODO написать нормальные переводы

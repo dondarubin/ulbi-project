@@ -9,6 +9,7 @@ import { ProfileSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleCommentsSchema } from 'features/ArticleCommentList';
 import { AddNewCommentFormSchema } from 'features/AddNewComment';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 // TODO Разобраться и принять решение использования одного из видов кейсов для userId и т.д. (Kebab...)
 export interface StateSchema {
@@ -20,6 +21,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleComments?: ArticleCommentsSchema;
   addNewCommentForm?: AddNewCommentFormSchema;
+  articlesPages?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema

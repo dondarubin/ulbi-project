@@ -7,15 +7,19 @@ import { Card } from 'shared/ui/Card';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Avatar } from 'shared/ui/Avatar';
 import styles from './ArticleListItem.module.scss';
 import {
-  ArticleContentType, ArticleTextContent, ArticleView, IArticle,
+  ArticleContentType,
+  ArticleTextContent,
+  ArticleView,
+  IArticleWithUserData,
 } from '../../../../model/types/article.types';
 import { ArticleText } from '../../../ArticleDetails/components/ArticleText/ArticleText';
 
 interface ArticleListItemProps {
   className?: string;
-  article: IArticle;
+  article: IArticleWithUserData;
   view: ArticleView;
 }
 
@@ -40,8 +44,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       <div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
         <Card>
           <div className={styles.header}>
-            {/* <Avatar size={30} src={article.avatar} /> */}
-            {/* <Text text={article.username} className={styles.username} /> */}
+            {article.avatar && <Avatar size={30} src={article.avatar} />}
+            <Text text={article.username} className={styles.username} />
             <Text text={article.created_at} className={styles.date} />
           </div>
 

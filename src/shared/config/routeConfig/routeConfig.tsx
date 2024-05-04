@@ -22,7 +22,7 @@ export enum AppRotes {
 export const RoutePath: Record<AppRotes, string> = {
   [AppRotes.MAIN]: '/',
   [AppRotes.ABOUT]: '/about',
-  [AppRotes.PROFILE]: '/profile/',
+  [AppRotes.PROFILE]: '/profile/', // + :id
   [AppRotes.ARTICLES]: '/articles',
   [AppRotes.ARTICLE_DETAILS]: '/articles/', // + :id
   [AppRotes.NOT_FOUND]: '*',

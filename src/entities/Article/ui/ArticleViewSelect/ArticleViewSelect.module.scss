@@ -1,0 +1,12 @@
+.selected {
+  // для 1 иконки (tile)
+  &:nth-of-type(1) > svg > path {
+    fill: var(--secondary-color);
+  }
+
+  // для 2 иконки (list)
+  &:nth-of-type(2) > svg > * {
+    stroke: var(--secondary-color);
+
+  }
+}

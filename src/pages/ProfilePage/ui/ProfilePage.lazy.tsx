@@ -6,4 +6,4 @@ export const ProfilePageLazy = lazy(() => new Promise((resolve) => {
   setTimeout(() => resolve(import('./ProfilePage')), 1500);
 }));
 
-// export const MainPageLazy = lazy(()=>import('./ProfilePage'))
+// export const ProfilePageLazy = lazy(()=>import('./ProfilePage'))

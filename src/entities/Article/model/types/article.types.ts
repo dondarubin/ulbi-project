@@ -47,6 +47,11 @@ export interface IArticle {
   content: ArticleContent[]
 }
 
+export interface IArticleWithUserData extends IArticle {
+  avatar?: string;
+  username: string;
+}
+
 export enum ArticleView {
   LIST = 'list',
   TILE = 'tile'
