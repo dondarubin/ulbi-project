@@ -12,6 +12,10 @@ interface ArticleListProps {
   view?: ArticleView;
 }
 
+const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.TILE ? 4 : 2)
+  .fill(0)
+  .map((item, index) => <ArticleListItemSkeleton key={index} view={view} />);
+
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
     className,
@@ -50,6 +54,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
       {articles.length > 0
         ? articles.map(renderArticle)
         : null}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 });

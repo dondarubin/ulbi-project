@@ -8,6 +8,7 @@ import { ArticleCommentList } from 'features/ArticleCommentList';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
+import { PageWrapper } from 'shared/ui/PageWrapper';
 import styles from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -27,21 +28,21 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   if (!id) {
     return (
-      <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+      <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
         <Text theme={TextTheme.ERROR} title={t('Article not found!')} text={t('Try later')} />
-      </div>
+      </PageWrapper>
     );
   }
 
   return (
-    <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+    <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
       <Button onClick={onClickBackToArticleListHandler} theme={ButtonTheme.OUTLINE}>
         {t('Назад к списку статей')}
       </Button>
       <ArticleDetails id={id} error={error} />
       <Text className={styles.ArticleDetailsPage_comment_title} title={t('Комментарии')} />
       <ArticleCommentList id={id} error={error} />
-    </div>
+    </PageWrapper>
   );
 };
 

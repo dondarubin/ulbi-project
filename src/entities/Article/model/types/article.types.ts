@@ -52,6 +52,11 @@ export interface IArticleWithUserData extends IArticle {
   username: string;
 }
 
+export interface GetAllArticleResponse {
+  searchingArticles: IArticleWithUserData[];
+  hasMore: boolean;
+}
+
 export enum ArticleView {
   LIST = 'list',
   TILE = 'tile'

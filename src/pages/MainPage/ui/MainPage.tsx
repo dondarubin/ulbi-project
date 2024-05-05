@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BugButton } from 'app/providers/ErrorBoundary';
+import { PageWrapper } from 'shared/ui/PageWrapper';
 
 const MainPage = memo(() => {
   const { t } = useTranslation('main');
@@ -15,11 +16,11 @@ const MainPage = memo(() => {
   // }
 
   return (
-    <div>
+    <PageWrapper>
       {/* <button onClick={getUsers}>Получить пользоваетелей</button> */}
       <BugButton />
       {t('Главная страница')}
-    </div>
+    </PageWrapper>
   );
 });
 

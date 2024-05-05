@@ -3,6 +3,7 @@ import { useDeviceType } from './useDeviceType/useDeviceType';
 import { ReducersList, useDynamicModuleLoader } from './useDynamicModuleLoader/useDynamicModuleLoader';
 import { useEffectInitial } from './useEffectInitial/useEffectInitial';
 import { useHover } from './useHover/useHover';
+import { useInfinityScroll } from './useInfinityScroll/useInfinityScroll';
 
 export {
   useDeviceType,
@@ -11,4 +12,5 @@ export {
   useAppDispatch,
   useEffectInitial,
   useHover,
+  useInfinityScroll,
 };
