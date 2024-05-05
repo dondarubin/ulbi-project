@@ -9,4 +9,6 @@ export interface ArticlesPageSchema extends EntityState<IArticleWithUserData>{
   page: number;
   limit?: number;
   hasMore: boolean;
+
+  _mounted: boolean;
 }
