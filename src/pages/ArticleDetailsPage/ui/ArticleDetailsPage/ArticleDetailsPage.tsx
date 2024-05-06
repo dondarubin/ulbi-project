@@ -8,7 +8,7 @@ import { ArticleCommentList } from 'features/ArticleCommentList';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
-import { PageWrapper } from 'shared/ui/PageWrapper';
+import { PageWrapper } from 'widgets/PageWrapper';
 import styles from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {

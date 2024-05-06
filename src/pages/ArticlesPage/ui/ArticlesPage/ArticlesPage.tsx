@@ -8,7 +8,7 @@ import {
   useEffectInitial,
 } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
-import { PageWrapper } from 'shared/ui/PageWrapper';
+import { PageWrapper } from 'widgets/PageWrapper';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';

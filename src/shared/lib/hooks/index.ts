@@ -4,6 +4,8 @@ import { ReducersList, useDynamicModuleLoader } from './useDynamicModuleLoader/u
 import { useEffectInitial } from './useEffectInitial/useEffectInitial';
 import { useHover } from './useHover/useHover';
 import { useInfinityScroll } from './useInfinityScroll/useInfinityScroll';
+import { useLayoutEffectCustom } from './useLayoutEffectCustom/useLayoutEffectCustom';
+import { useThrottle } from './useThrottle/useThrottle';
 
 export {
   useDeviceType,
@@ -13,4 +15,6 @@ export {
   useEffectInitial,
   useHover,
   useInfinityScroll,
+  useThrottle,
+  useLayoutEffectCustom,
 };

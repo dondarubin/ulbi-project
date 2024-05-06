@@ -4,16 +4,17 @@ import {
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { AxiosInstance } from 'axios';
-import { NavigateOptions, To } from 'react-router-dom';
 import { ProfileSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleCommentsSchema } from 'features/ArticleCommentList';
 import { AddNewCommentFormSchema } from 'features/AddNewComment';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollSaveSchema } from 'features/ScrollSave';
 
 // TODO Разобраться и принять решение использования одного из видов кейсов для userId и т.д. (Kebab...)
 export interface StateSchema {
   user: UserSchema;
+  scrollSave: ScrollSaveSchema;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;
