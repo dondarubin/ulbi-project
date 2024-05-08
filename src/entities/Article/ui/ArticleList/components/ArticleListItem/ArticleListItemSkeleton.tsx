@@ -1,18 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
-import { Text } from 'shared/ui/Text';
-import { EyeIcon } from 'shared/assets/icons/EyeIcon/EyeIcon';
+import { memo } from 'react';
 import { Card } from 'shared/ui/Card';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Skeleton } from 'shared/ui/Skeleton';
 import styles from './ArticleListItem.module.scss';
-import {
-  ArticleContentType, ArticleTextContent, ArticleView, IArticle,
-} from '../../../../model/types/article.types';
-import { ArticleText } from '../../../ArticleDetails/components/ArticleText/ArticleText';
+import { ArticleView } from '../../../../model/constants/articleConstants';
 
 interface ArticleListItemSkeletonProps {
   className?: string;

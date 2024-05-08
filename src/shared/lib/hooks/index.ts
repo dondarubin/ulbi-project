@@ -1,4 +1,5 @@
 import { useAppDispatch } from './useAppDispatch/useAppDispatch';
+import { useDebounce } from './useDebounce/useDebounce';
 import { useDeviceType } from './useDeviceType/useDeviceType';
 import { ReducersList, useDynamicModuleLoader } from './useDynamicModuleLoader/useDynamicModuleLoader';
 import { useEffectInitial } from './useEffectInitial/useEffectInitial';
@@ -17,4 +18,5 @@ export {
   useInfinityScroll,
   useThrottle,
   useLayoutEffectCustom,
+  useDebounce,
 };

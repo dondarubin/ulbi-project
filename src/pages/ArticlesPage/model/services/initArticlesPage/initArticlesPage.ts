@@ -1,27 +1,44 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThinkAPI } from 'app/providers/StoreProvider';
-import { getArticlesPageMounted, getArticlesPagePage } from '../../selectors/articlesPageSelectors';
+import { SortOrder } from 'shared/constants/sort';
+import { ArticleSortField, ArticleTypes } from 'entities/Article';
+import { getArticlesPageMounted } from '../../selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../slice/articlesPageSlice';
 
 export const initArticlesPage = createAsyncThunk<
   void,
-  void,
+  URLSearchParams,
   ThinkAPI<string>>(
     'article/initArticlesPage',
-    async (_, thunkAPI) => {
+    async (searchParams, thunkAPI) => {
       const {
         getState, dispatch,
       } = thunkAPI;
-
-      const page = getArticlesPagePage(getState());
       const mounted = getArticlesPageMounted(getState());
 
       if (!mounted) {
+        searchParams.forEach((value, key) => {
+          switch (key) {
+          case 'order':
+            dispatch(articlesPageActions.setOrder(value as SortOrder));
+            break;
+          case 'sort':
+            dispatch(articlesPageActions.setSort(value as ArticleSortField));
+            break;
+          case 'search':
+            dispatch(articlesPageActions.setSearch(value));
+            break;
+          case 'type':
+            dispatch(articlesPageActions.setType(value as ArticleTypes));
+            break;
+          default:
+            break;
+          }
+        });
+
         dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList({
-          page,
-        }));
+        dispatch(fetchArticlesList({}));
       }
     },
   );

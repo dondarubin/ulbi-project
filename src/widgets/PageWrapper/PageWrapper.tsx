@@ -53,7 +53,7 @@ export const PageWrapper = (props: PageWrapperProps) => {
       onScroll={onScrollHandler}
     >
       {children}
-      <div ref={triggerRef} />
+      {onPageEnd && <div className={styles.trigger} ref={triggerRef} />}
     </section>
   );
 };

@@ -1,8 +1,4 @@
-export enum ArticleContentType {
-  TEXT = 'TEXT',
-  IMAGE = 'IMAGE',
-  CODE = 'CODE'
-}
+import { ArticleContentType, ArticleTypes } from '../constants/articleConstants';
 
 export interface ArticleContentBase {
   id: number;
@@ -29,12 +25,6 @@ export interface ArticleCodeContent extends ArticleContentBase {
 
 export type ArticleContent = ArticleTextContent | ArticleImageContent | ArticleCodeContent
 
-export enum ArticleTypes {
-  IT = 'IT',
-  ECONOMY = 'Economy',
-  BUSINESS = 'Business',
-}
-
 export interface IArticle {
   article_id: number;
   user_id: number;
@@ -55,11 +45,6 @@ export interface IArticleWithUserData extends IArticle {
 export interface GetAllArticleResponse {
   searchingArticles: IArticleWithUserData[];
   hasMore: boolean;
-}
-
-export enum ArticleView {
-  LIST = 'list',
-  TILE = 'tile'
 }
 
 export interface ArticleDetailsSchema {

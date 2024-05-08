@@ -15,15 +15,12 @@ import { CalendarIcon } from 'shared/assets/icons/CalendarIcon/CalendarIcon';
 import styles from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import {
-  getArticleDetailsData,
-  getArticleDetailsError,
-  getArticleDetailsIsLoading,
-} from '../../model/selectors/articleDetailsSelectors';
-import { ArticleContent, ArticleContentType } from '../../model/types/article.types';
+import { getArticleDetailsData, getArticleDetailsIsLoading } from '../../model/selectors/articleDetailsSelectors';
+import { ArticleContent } from '../../model/types/article.types';
 import { ArticleText } from './components/ArticleText/ArticleText';
 import { ArticleImage } from './components/ArticleImage/ArticleImage';
 import { ArticleCode } from './components/ArticleCode/ArticleCode';
+import { ArticleContentType } from '../../model/constants/articleConstants';
 
 interface ArticleDetailsProps {
   className?: string;

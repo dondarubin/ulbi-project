@@ -10,12 +10,11 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Avatar } from 'shared/ui/Avatar';
 import styles from './ArticleListItem.module.scss';
 import {
-  ArticleContentType,
   ArticleTextContent,
-  ArticleView,
   IArticleWithUserData,
 } from '../../../../model/types/article.types';
 import { ArticleText } from '../../../ArticleDetails/components/ArticleText/ArticleText';
+import { ArticleContentType, ArticleView } from '../../../../model/constants/articleConstants';
 
 interface ArticleListItemProps {
   className?: string;

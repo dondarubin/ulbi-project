@@ -8,7 +8,7 @@ interface NotFoundPageProps {
   className?: string;
 }
 
-export const NotFoundPage = memo(({ className }: NotFoundPageProps) => {
+export const NotFoundPage = ({ className }: NotFoundPageProps) => {
   const { t } = useTranslation();
 
   return (
@@ -16,4 +16,6 @@ export const NotFoundPage = memo(({ className }: NotFoundPageProps) => {
       {t('Страница не найдена')}
     </PageWrapper>
   );
-});
+};
+
+export default memo(NotFoundPage);

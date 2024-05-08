@@ -6,7 +6,7 @@ import AvatarStorybook from 'shared/assets/test/avatarStorybook.png';
 import { ArticleCommentList } from '../ArticleCommentList';
 
 export default {
-  title: 'features/ArticleCommentList',
+  title: 'features/Article/ArticleCommentList',
   component: ArticleCommentList,
   argTypes: {
     backgroundColor: { control: 'color' },

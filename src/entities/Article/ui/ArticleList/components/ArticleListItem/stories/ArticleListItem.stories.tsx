@@ -1,12 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import AvatarStorybook from 'shared/assets/test/avatarStorybook.png';
-import {
-  ArticleContentType, ArticleTypes, ArticleView, IArticle, IArticleWithUserData,
-} from '../../../../../model/types/article.types';
+import { ArticleContentType, ArticleTypes, ArticleView } from '../../../../../model/constants/articleConstants';
+import { IArticleWithUserData } from '../../../../../model/types/article.types';
 import { ArticleListItem } from '../ArticleListItem';
 
 export default {
-  title: 'entities/ArticleListItem',
+  title: 'entities/Article/ArticleListItem',
   component: ArticleListItem,
   argTypes: {
     backgroundColor: { control: 'color' },

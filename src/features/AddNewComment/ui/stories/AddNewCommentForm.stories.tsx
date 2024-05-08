@@ -4,7 +4,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import AddNewCommentForm from '../AddNewCommentForm';
 
 export default {
-  title: 'features/AddNewCommentForm',
+  title: 'features/Article/AddNewCommentForm',
   component: AddNewCommentForm,
   argTypes: {
     backgroundColor: { control: 'color' },

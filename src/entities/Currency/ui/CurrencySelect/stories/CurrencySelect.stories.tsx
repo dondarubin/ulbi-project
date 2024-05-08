@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Currency } from 'entities/Currency';
 import { CurrencySelect } from '../CurrencySelect';
 
 export default {
@@ -12,4 +13,6 @@ export default {
 const Template: ComponentStory<typeof CurrencySelect> = (args) => <CurrencySelect {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  value: Currency.USD,
+};

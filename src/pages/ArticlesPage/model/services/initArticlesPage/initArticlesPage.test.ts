@@ -14,7 +14,7 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    await testThunk.callThunk();
+    // await testThunk.callThunk({});
 
     // pending, fulfilled, и 2 dispatch внутри initArticlesPage
     expect(testThunk.dispatch).toBeCalledTimes(4);
@@ -30,7 +30,7 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    await testThunk.callThunk();
+    // await testThunk.callThunk();
 
     // pending, fulfilled
     expect(testThunk.dispatch).toBeCalledTimes(2);

@@ -1,13 +1,13 @@
-export interface SelectOptions {
-  value: string
-  content: string
+export interface SelectOptions<T extends string> {
+  value: T;
+  content: string;
 }
 
-export interface SelectProps {
+export interface SelectProps<T extends string> {
   className?: string;
-  label?: string
-  options?: SelectOptions[]
-  value?: string
-  onChange?: (value: string) => void
-  readonly?: boolean
+  label?: string;
+  options?: SelectOptions<T>[];
+  value?: T;
+  onChange?: (value: T) => void;
+  readonly?: boolean;
 }

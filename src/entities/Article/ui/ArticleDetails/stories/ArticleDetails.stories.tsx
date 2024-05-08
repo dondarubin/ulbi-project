@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleContentType, ArticleTypes } from 'entities/Article/model/types/article.types';
+import { ArticleContentType, ArticleTypes } from '../../../model/constants/articleConstants';
 import { ArticleDetails } from '../ArticleDetails';
 
 // TODO объединить по смыслу некоторые сторибуки
 export default {
-  title: 'entities/ArticleDetails',
+  title: 'entities/Article/ArticleDetails',
   component: ArticleDetails,
   argTypes: {
     backgroundColor: { control: 'color' },

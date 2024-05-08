@@ -3,7 +3,7 @@ import { ChangeEvent, memo, useMemo } from 'react';
 import styles from './Select.module.scss';
 import { SelectProps } from './Select.types';
 
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const {
     className,
     label,
@@ -14,7 +14,7 @@ export const Select = memo((props: SelectProps) => {
   } = props;
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value);
+    onChange?.(e.target.value as T);
   };
 
   const optionsList = useMemo(() => options?.map((currentOption) => (
@@ -49,4 +49,4 @@ export const Select = memo((props: SelectProps) => {
       </select>
     </div>
   );
-});
+};

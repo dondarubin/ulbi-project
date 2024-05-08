@@ -4,7 +4,7 @@ import { ListIcon } from 'shared/assets/icons/ListIcon/ListIcon';
 import { TileIcon } from 'shared/assets/icons/TileIcon/TileIcon';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import styles from './ArticleViewSelect.module.scss';
-import { ArticleView } from '../../model/types/article.types';
+import { ArticleView } from '../../model/constants/articleConstants';
 
 interface ArticleViewSelectProps {
   className?: string;
