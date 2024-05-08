@@ -12,10 +12,15 @@ import { Skeleton } from 'shared/ui/Skeleton';
 import { Avatar } from 'shared/ui/Avatar';
 import { EyeIcon } from 'shared/assets/icons/EyeIcon/EyeIcon';
 import { CalendarIcon } from 'shared/assets/icons/CalendarIcon/CalendarIcon';
+import { getRandomNumber } from 'shared/lib/getRandomNumber/getRandomNumber';
 import styles from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import { getArticleDetailsData, getArticleDetailsIsLoading } from '../../model/selectors/articleDetailsSelectors';
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
+} from '../../model/selectors/articleDetailsSelectors';
 import { ArticleContent } from '../../model/types/article.types';
 import { ArticleText } from './components/ArticleText/ArticleText';
 import { ArticleImage } from './components/ArticleImage/ArticleImage';
@@ -25,17 +30,17 @@ import { ArticleContentType } from '../../model/constants/articleConstants';
 interface ArticleDetailsProps {
   className?: string;
   id: string
-  error?: string;
 }
 
 const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
-export const ArticleDetails = memo(({ className, id, error }: ArticleDetailsProps) => {
+export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
+  const error = useSelector(getArticleDetailsError);
   const articleDetailsData = useSelector(getArticleDetailsData);
   useDynamicModuleLoader({ reducers: initialReducers });
 
@@ -49,7 +54,7 @@ export const ArticleDetails = memo(({ className, id, error }: ArticleDetailsProp
     case ArticleContentType.TEXT:
       return (
         <ArticleText
-          key={content.id}
+          key={`${content.title} + ${getRandomNumber()}`}
           className={styles.ArticleDetails_content}
           content={content}
         />
@@ -57,7 +62,7 @@ export const ArticleDetails = memo(({ className, id, error }: ArticleDetailsProp
     case ArticleContentType.IMAGE:
       return (
         <ArticleImage
-          key={content.id}
+          key={`${content.imageUrl} + ${getRandomNumber()}`}
           className={styles.ArticleDetails_content}
           content={content}
         />
@@ -65,7 +70,7 @@ export const ArticleDetails = memo(({ className, id, error }: ArticleDetailsProp
     case ArticleContentType.CODE:
       return (
         <ArticleCode
-          key={content.id}
+          key={`${content.code} + ${getRandomNumber()}`}
           className={styles.ArticleDetails_content}
           content={content}
         />

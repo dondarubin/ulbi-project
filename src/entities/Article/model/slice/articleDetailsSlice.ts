@@ -6,6 +6,7 @@ const initialState: ArticleDetailsSchema = {
   isLoading: false,
   error: undefined,
   articleData: undefined,
+  _mounted: false,
 };
 
 export const articleDetailsSlice = createSlice({
@@ -21,13 +22,14 @@ export const articleDetailsSlice = createSlice({
       .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<IArticle>) => {
         state.isLoading = false;
         state.articleData = action.payload;
+        state._mounted = true;
       })
       .addCase(fetchArticleById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        state._mounted = false;
       });
   },
 });
 
-export const { actions: articleDetailsActions } = articleDetailsSlice;
 export const { reducer: articleDetailsReducer } = articleDetailsSlice;

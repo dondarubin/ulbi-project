@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { CommentList } from 'entities/Comment';
 import { AddNewCommentForm, ValidateCommentErrors } from 'features/AddNewComment';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextTheme } from 'shared/ui/Text';
+import { Text, TextSize, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { getAddNewCommentFormValidateError } from 'features/AddNewComment/model/selectors/addNewCommentFormSelectors';
 import styles from './ArticleCommentList.module.scss';
@@ -18,20 +18,19 @@ import { addNewCommentForArticle } from '../model/services/addNewCommentForArtic
 interface ArticleCommentListProps {
   className?: string;
   id: string;
-  error?: string
 }
 
 const initialReducers: ReducersList = {
   articleComments: articleCommentsReducer,
 };
 
-export const ArticleCommentList = memo(({ className, id, error }: ArticleCommentListProps) => {
+export const ArticleCommentList = memo(({ className, id }: ArticleCommentListProps) => {
   const { t } = useTranslation('articles');
   useDynamicModuleLoader({ reducers: initialReducers });
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
   const validateError = useSelector(getAddNewCommentFormValidateError);
-  // const error = useSelector(getArticleCommentsError);
+  const error = useSelector(getArticleCommentsError);
   const dispatch = useAppDispatch();
 
   // TODO написать нормальные переводы
@@ -49,12 +48,13 @@ export const ArticleCommentList = memo(({ className, id, error }: ArticleComment
     dispatch(addNewCommentForArticle(value));
   }, [dispatch]);
 
-  if (error) {
-    return <Text theme={TextTheme.ERROR} text={t('Комментарии не найдены')} />;
-  }
-
   return (
     <div className={classNames(styles.ArticleCommentList, {}, [className])}>
+      <Text
+        size={TextSize.L}
+        className={styles.ArticleDetailsPage_comment_title}
+        title={t('Комментарии')}
+      />
       {validateError && (
         <Text
           theme={TextTheme.ERROR}

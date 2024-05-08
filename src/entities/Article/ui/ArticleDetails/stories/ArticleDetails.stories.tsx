@@ -90,7 +90,7 @@ Loading.decorators = [StoreDecorator({
 })];
 
 export const Error = Template.bind({});
-Error.args = { error: 'Some error' };
+Error.args = { };
 Error.decorators = [StoreDecorator({
   articleDetails: {
     error: 'Some error!',

@@ -3,6 +3,10 @@ import { ThinkAPI } from 'app/providers/StoreProvider';
 import { GetAllArticleResponse } from 'entities/Article';
 import { addQueryParams } from 'shared/lib/addQueryParams/addQueryParams';
 import {
+  articleRecommendationsActions,
+  articleRecommendationsReducer,
+} from 'features/ArticleRecommendationsList/model/slice/articleRecommendationsSlice';
+import {
   getArticlesPageLimit,
   getArticlesPageOrder, getArticlesPagePage,
   getArticlesPageSearch,
@@ -21,7 +25,7 @@ export const fetchArticlesList = createAsyncThunk<
     'article/fetchArticlesList',
     async (_, thunkAPI) => {
       const {
-        rejectWithValue, extra, getState,
+        rejectWithValue, extra, getState, dispatch,
       } = thunkAPI;
       const sort = getArticlesPageSort(getState());
       const order = getArticlesPageOrder(getState());

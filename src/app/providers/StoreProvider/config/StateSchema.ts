@@ -10,6 +10,7 @@ import { ArticleCommentsSchema } from 'features/ArticleCommentList';
 import { AddNewCommentFormSchema } from 'features/AddNewComment';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
+import { ArticleRecommendationsSchema } from 'features/ArticleRecommendationsList';
 
 // TODO Разобраться и принять решение использования одного из видов кейсов для userId и т.д. (Kebab...)
 export interface StateSchema {
@@ -21,6 +22,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleComments?: ArticleCommentsSchema;
+  articleRecommendations?: ArticleRecommendationsSchema;
   addNewCommentForm?: AddNewCommentFormSchema;
   articlesPages?: ArticlesPageSchema;
 }
