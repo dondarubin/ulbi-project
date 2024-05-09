@@ -6,6 +6,7 @@ import { Avatar } from 'shared/ui/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text';
 import { Country, CountrySelect } from 'entities/Country';
+import { HStack, VStack } from 'shared/ui/Stack';
 import styles from './ProfileCard.module.scss';
 import { IProfile } from '../../model/types/profile.types';
 
@@ -45,22 +46,22 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(styles.ProfileCard, {}, [className, styles.loading])}>
+      <HStack justify="center" max className={classNames(styles.ProfileCard, {}, [className, styles.loading])}>
         <Loader />
-      </div>
+      </HStack>
     );
   }
 
   if (error) {
     return (
-      <div className={classNames(styles.ProfileCard, {}, [className, styles.error])}>
+      <HStack justify="center" max className={classNames(styles.ProfileCard, {}, [className, styles.error])}>
         <Text
           theme={TextTheme.ERROR}
           title={t('Произошла ошибка при загрузке профиля')}
           text={t('Попробуйте обновить страницу')}
           align={TextAlign.CENTER}
         />
-      </div>
+      </HStack>
     );
   }
 
@@ -69,31 +70,28 @@ export const ProfileCard = (props: ProfileCardProps) => {
   };
 
   return (
-    <div className={classNames(styles.ProfileCard, mods, [className])}>
+    <VStack gap="16" max className={classNames(styles.ProfileCard, mods, [className])}>
       {profileFormData?.avatar && (
-        <div className={styles.ProfileCard_avatarWrapper}>
+        <HStack justify="center" max>
           <Avatar
             src={profileFormData.avatar}
             alt=""
           />
-        </div>
+        </HStack>
       )}
       <Input
-        className={styles.ProfileCard_input}
         value={profileFormData?.firstname}
         onChange={onChangeFirstname}
         placeholder={t('Имя')}
         readonly={readonly}
       />
       <Input
-        className={styles.ProfileCard_input}
         value={profileFormData?.lastname}
         onChange={onChangeLastname}
         placeholder={t('Фамилия')}
         readonly={readonly}
       />
       <Input
-        className={styles.ProfileCard_input}
         type="number"
         value={profileFormData?.age}
         onChange={onChangeAge}
@@ -101,38 +99,33 @@ export const ProfileCard = (props: ProfileCardProps) => {
         readonly={readonly}
       />
       <Input
-        className={styles.ProfileCard_input}
         value={profileFormData?.city}
         onChange={onChangeCity}
         placeholder={t('Город')}
         readonly={readonly}
       />
       <Input
-        className={styles.ProfileCard_input}
         value={profileFormData?.username}
         onChange={onChangeUsername}
         placeholder={t('Имя пользователя')}
         readonly={readonly}
       />
       <Input
-        className={styles.ProfileCard_input}
         value={profileFormData?.avatar}
         onChange={onChangeAvatar}
         placeholder={t('Ссылка на аватар')}
         readonly={readonly}
       />
       <CurrencySelect
-        className={styles.ProfileCard_input}
         value={profileFormData?.currency}
         onChange={onChangeCurrency}
         readonly={readonly}
       />
       <CountrySelect
-        className={styles.ProfileCard_input}
         value={profileFormData?.country}
         onChange={onChangeCountry}
         readonly={readonly}
       />
-    </div>
+    </VStack>
   );
 };

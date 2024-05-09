@@ -1,9 +1,6 @@
 .AddNewCommentForm {
   padding: 15px;
   border: 1px solid var(--primary-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
   &_input {
     flex-grow: 1;

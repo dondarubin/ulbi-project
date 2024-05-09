@@ -8,6 +8,7 @@ import { AddNewCommentForm, getAddNewCommentFormValidateError, ValidateCommentEr
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
+import { VStack } from 'shared/ui/Stack';
 import styles from './ArticleCommentList.module.scss';
 import { articleCommentsReducer, getArticleComments } from '../model/slice/articleCommentsSlice';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../model/selectors/articleCommentsSelectors';
@@ -48,10 +49,13 @@ export const ArticleCommentList = memo(({ className, id }: ArticleCommentListPro
   }, [dispatch]);
 
   return (
-    <div className={classNames(styles.ArticleCommentList, {}, [className])}>
+    <VStack
+      gap="16"
+      max
+      className={classNames(styles.ArticleCommentList, {}, [className])}
+    >
       <Text
         size={TextSize.L}
-        className={styles.ArticleDetailsPage_comment_title}
         title={t('Комментарии')}
       />
       {validateError && (
@@ -62,6 +66,6 @@ export const ArticleCommentList = memo(({ className, id }: ArticleCommentListPro
       )}
       <AddNewCommentForm onSuccessCreateNewComment={onSuccessCreateNewCommentHandler} />
       <CommentList comments={comments} isLoading={isLoading} />
-    </div>
+    </VStack>
   );
 });

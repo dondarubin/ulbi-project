@@ -7,6 +7,7 @@ import { ArrowIconLeft } from 'shared/assets/icons/ArrowIcons/ArrowIconLeft/Arro
 import { LineIcon } from 'shared/assets/icons/ArrowIcons/LineIcon/LineIcon';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
+import { VStack } from 'shared/ui/Stack';
 import styles from './Sidebar.module.scss';
 import { getSidebarItems } from './model/selectors/getSidebarItemsSelectors';
 import { SidebarItem } from './components/SidebarItem';
@@ -67,9 +68,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         }
       </Button>
 
-      <div className={styles.items}>
+      <VStack
+        className={styles.items}
+      >
         {sidebarItemsListMemo}
-      </div>
+      </VStack>
 
       <div className={styles.switchers}>
         <ThemeSwitcher />

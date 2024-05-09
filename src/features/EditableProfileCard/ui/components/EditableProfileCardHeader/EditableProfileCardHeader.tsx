@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text';
 import { getUserAuthData } from 'entities/User';
+import { HStack } from 'shared/ui/Stack';
 import { updateProfileData } from '../../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../../model/slice/profileSlice';
 import { getProfileReadonly } from '../../../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -38,21 +39,19 @@ export const EditableProfileCardHeader = ({ className, id }: ProfilePageHeaderPr
   }, [dispatch, id]);
 
   return (
-    <div className={classNames(styles.ProfilePageHeader, {}, [className])}>
+    <HStack justify="between" max>
       <Text title={t('Профиль')} />
       {canEditProfile && (
         readonly ? (
           <Button
-            className={styles.ProfilePageHeader_edit}
             theme={ButtonTheme.OUTLINE}
             onClick={onEditProfileHandler}
           >
             {t('Редактировать')}
           </Button>
         ) : (
-          <>
+          <HStack gap="8">
             <Button
-              className={styles.ProfilePageHeader_cancel}
               theme={ButtonTheme.OUTLINE_RED}
               onClick={onCancelEditProfileHandler}
             >
@@ -60,15 +59,14 @@ export const EditableProfileCardHeader = ({ className, id }: ProfilePageHeaderPr
             </Button>
 
             <Button
-              className={styles.ProfilePageHeader_save}
               theme={ButtonTheme.OUTLINE}
               onClick={onSaveProfileHandler}
             >
               {t('Сохранить')}
             </Button>
-          </>
+          </HStack>
         )
       )}
-    </div>
+    </HStack>
   );
 };

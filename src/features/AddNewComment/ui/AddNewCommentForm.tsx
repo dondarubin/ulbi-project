@@ -5,6 +5,7 @@ import { Input } from 'shared/ui/Input';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { ReducersList, useAppDispatch, useDynamicModuleLoader } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
+import { HStack, VStack } from 'shared/ui/Stack';
 import styles from './AddNewCommentForm.module.scss';
 import { addNewCommentFormActions, addNewCommentFormReducer } from '../model/slice/addNewCommentFormSlice';
 import { getAddNewCommentFormText } from '../model/selectors/addNewCommentFormSelectors';
@@ -37,7 +38,11 @@ const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
   }, [commentText, onSuccessCreateNewComment]);
 
   return (
-    <div className={classNames(styles.AddNewCommentForm, {}, [className])}>
+    <HStack
+      max
+      justify="between"
+      className={classNames(styles.AddNewCommentForm, {}, [className])}
+    >
       <Input
         className={styles.AddNewCommentForm_input}
         value={commentText}
@@ -50,7 +55,7 @@ const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
       >
         {t('Отправить')}
       </Button>
-    </div>
+    </HStack>
   );
 });
 

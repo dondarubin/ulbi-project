@@ -13,6 +13,7 @@ import { Avatar } from 'shared/ui/Avatar';
 import { EyeIcon } from 'shared/assets/icons/EyeIcon/EyeIcon';
 import { CalendarIcon } from 'shared/assets/icons/CalendarIcon/CalendarIcon';
 import { getRandomNumber } from 'shared/lib/getRandomNumber/getRandomNumber';
+import { HStack, VStack } from 'shared/ui/Stack';
 import styles from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
@@ -55,7 +56,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
       return (
         <ArticleText
           key={`${content.title} + ${getRandomNumber()}`}
-          className={styles.ArticleDetails_content}
           content={content}
         />
       );
@@ -63,7 +63,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
       return (
         <ArticleImage
           key={`${content.imageUrl} + ${getRandomNumber()}`}
-          className={styles.ArticleDetails_content}
           content={content}
         />
       );
@@ -71,7 +70,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
       return (
         <ArticleCode
           key={`${content.code} + ${getRandomNumber()}`}
-          className={styles.ArticleDetails_content}
           content={content}
         />
       );
@@ -85,11 +83,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   if (isLoading) {
     content = (
       <>
-        <Skeleton className={styles.ArticleDetails_image} width={200} height={200} border="50%" />
-        <Skeleton className={styles.ArticleDetails_title} width={300} height={32} />
-        <Skeleton className={styles.ArticleDetails_skeleton} width={600} height={24} />
-        <Skeleton className={styles.ArticleDetails_skeleton} width="100%" height={200} />
-        <Skeleton className={styles.ArticleDetails_skeleton} width="100%" height={200} />
+        <Skeleton className={styles.ArticleDetails_avatar} width={200} height={200} border="50%" />
+        <Skeleton width={300} height={32} />
+        <Skeleton width={600} height={24} />
+        <Skeleton width="100%" height={200} />
+        <Skeleton width="100%" height={200} />
       </>
     );
   } else if (error) {
@@ -103,35 +101,39 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   } else {
     content = (
       <>
-        <div className={styles.ArticleDetails_imageWrapper}>
+        <HStack
+          justify="center"
+          max
+        >
           <Avatar
-            className={styles.ArticleDetails_image}
+            className={styles.ArticleDetails_avatar}
             size={200}
             src={articleDetailsData?.img}
           />
-        </div>
-        <Text
-          className={styles.ArticleDetails_title}
-          title={articleDetailsData?.title}
-          text={articleDetailsData?.subtitle}
-          size={TextSize.L}
-        />
-        <div className={styles.ArticleDetails_info}>
-          <EyeIcon color="var(--primary-color)" />
-          <Text text={String(articleDetailsData?.views)} />
-        </div>
-        <div className={styles.ArticleDetails_info}>
-          <CalendarIcon color="var(--primary-color)" />
-          <Text text={articleDetailsData?.created_at} />
-        </div>
+        </HStack>
+        <VStack gap="4" max>
+          <Text
+            title={articleDetailsData?.title}
+            text={articleDetailsData?.subtitle}
+            size={TextSize.L}
+          />
+          <HStack gap="8">
+            <EyeIcon color="var(--primary-color)" />
+            <Text text={String(articleDetailsData?.views)} />
+          </HStack>
+          <HStack gap="8">
+            <CalendarIcon color="var(--primary-color)" />
+            <Text text={articleDetailsData?.created_at} />
+          </HStack>
+        </VStack>
         {articleDetailsData?.content?.map(renderContent)}
       </>
     );
   }
 
   return (
-    <div className={classNames(styles.ArticleDetails, {}, [className])}>
+    <VStack gap="16" className={classNames(styles.ArticleDetails, {}, [className])}>
       {content}
-    </div>
+    </VStack>
   );
 });

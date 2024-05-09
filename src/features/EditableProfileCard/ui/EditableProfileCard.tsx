@@ -9,6 +9,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { ProfileCard } from 'entities/Profile';
+import { VStack } from 'shared/ui/Stack';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -88,7 +89,7 @@ export const EditableProfileCard = ({ className, id }: EditableProfileCardProps)
   }, [dispatch]);
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <VStack gap="16" max>
       <EditableProfileCardHeader id={id} />
       {validateErrors?.length && validateErrors.map((error) => (
         <Text
@@ -111,6 +112,6 @@ export const EditableProfileCard = ({ className, id }: EditableProfileCardProps)
         onChangeCurrency={onChangeCurrencyHandler}
         onChangeCountry={onChangeCountryHandler}
       />
-    </div>
+    </VStack>
   );
 };

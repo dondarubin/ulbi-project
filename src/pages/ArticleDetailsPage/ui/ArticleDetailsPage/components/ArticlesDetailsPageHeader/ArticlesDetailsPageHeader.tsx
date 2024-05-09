@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { getArticleDetailsData } from 'entities/Article';
+import { HStack } from 'shared/ui/Stack';
 import styles from './ArticlesDetailsPageHeader.module.scss';
 
 interface ArticlesDetailsPageHeaderProps {
@@ -32,19 +33,18 @@ export const ArticlesDetailsPageHeader = memo((props: ArticlesDetailsPageHeaderP
   }, [currentArticle?.article_id, navigate]);
 
   return (
-    <div className={classNames(styles.ArticlesDetailsPageHeader, {}, [className])}>
+    <HStack max justify="between" className={classNames(styles.ArticlesDetailsPageHeader, {}, [className])}>
       <Button onClick={onClickBackToArticleListHandler} theme={ButtonTheme.OUTLINE}>
         {t('Назад к списку статей')}
       </Button>
       {canEdit && (
         <Button
-          className={styles.editBtn}
           theme={ButtonTheme.OUTLINE}
           onClick={onClickEditArticleHandler}
         >
           {t('Редактировать')}
         </Button>
       )}
-    </div>
+    </HStack>
   );
 });
