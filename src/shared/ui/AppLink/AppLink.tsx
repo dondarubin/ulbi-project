@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Link } from 'react-router-dom';
 import { memo } from 'react';
-import { AppLinkProps, AppLinkTheme } from 'shared/ui/AppLink/AppLink.types';
 import styles from './AppLink.module.scss';
+import { AppLinkProps, AppLinkTheme } from './AppLink.types';
 
 export const AppLink = memo((props: AppLinkProps) => {
   const {

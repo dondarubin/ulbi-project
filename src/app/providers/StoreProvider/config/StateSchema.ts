@@ -30,23 +30,23 @@ export interface StateSchema {
 export type StateSchemaKey = keyof StateSchema
 
 export interface ReducerManager {
-  getReducerMap: () => ReducersMapObject<StateSchema>,
-  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>,
-  add: (key: StateSchemaKey, reducer: Reducer) => void,
-  remove: (key: StateSchemaKey) => void,
-  has: (key: StateSchemaKey) => boolean,
+  getReducerMap: () => ReducersMapObject<StateSchema>;
+  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+  add: (key: StateSchemaKey, reducer: Reducer) => void;
+  remove: (key: StateSchemaKey) => void;
+  has: (key: StateSchemaKey) => boolean;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
-  reducerManager: ReducerManager
+  reducerManager: ReducerManager;
 }
 
 export interface ThunkExtraArgs {
-  api: AxiosInstance,
+  api: AxiosInstance;
 }
 
 export interface ThinkAPI<T> {
-  rejectValue: T,
-  extra: ThunkExtraArgs,
-  state: StateSchema
+  rejectValue: T;
+  extra: ThunkExtraArgs;
+  state: StateSchema;
 }

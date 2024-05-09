@@ -16,7 +16,7 @@ const ArticleCreatePage = memo((props: ArticleCreatePageProps) => {
 
   return (
     <PageWrapper className={classNames(styles.ArticleCreatePage, {}, [className])}>
-      ArticleCreatePage
+
     </PageWrapper>
   );
 });

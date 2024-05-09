@@ -2,8 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ValidateLoginErrors } from 'features/AuthByUsername/model/types/loginSchema';
 import LoginForm from '../LoginForm';
+import { ValidateLoginErrors } from '../../../model/types/loginSchema';
 
 export default {
   title: 'features/LoginForm',

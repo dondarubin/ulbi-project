@@ -22,6 +22,7 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
+    'origin-fsd-plugin',
   ],
   rules: {
     'react/jsx-indent': [2, 2],
@@ -47,6 +48,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
+    'origin-fsd-plugin/fsd-check-path': 'error',
     'import/no-extraneous-dependencies': ['off', {
       devDependencies: false,
       optionalDependencies: false,

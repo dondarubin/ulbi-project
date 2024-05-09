@@ -16,7 +16,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
 
   return (
     <PageWrapper className={classNames(styles.ArticleEditPage, {}, [className])}>
-      ArticleEditPage
+
     </PageWrapper>
   );
 });

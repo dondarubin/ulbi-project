@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ValidateLoginErrors } from 'features/AuthByUsername/model/types/loginSchema';
+import { ValidateLoginErrors } from '../../types/loginSchema';
 import { getLoginValidateErrors } from './getLoginValidateErrors';
 
 describe('getLoginValidateErrors.test', () => {

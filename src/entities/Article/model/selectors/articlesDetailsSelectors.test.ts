@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { IArticle } from 'entities/Article';
+import { IArticle } from '../types/article.types';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetailsSelectors';
 
 describe('getArticleDetailsData.test', () => {
