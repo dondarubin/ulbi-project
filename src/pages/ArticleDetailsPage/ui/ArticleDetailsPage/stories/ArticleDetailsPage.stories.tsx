@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleContentType, ArticleTypes } from 'entities/Article/model/constants/articleConstants';
+import { ArticleContentType, ArticleType } from 'entities/Article/model/constants/articleConstants';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleDetailsPage from '../ArticleDetailsPage';
 
@@ -24,7 +24,7 @@ Default.decorators = [StoreDecorator({
       img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
       user_id: 23,
       views: 1001,
-      type: [ArticleTypes.IT, ArticleTypes.BUSINESS],
+      type: [ArticleType.IT, ArticleType.BUSINESS],
       content: [
         {
           type: ArticleContentType.TEXT,

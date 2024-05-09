@@ -78,7 +78,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
           />
         </div>
       )}
-
       <Input
         className={styles.ProfileCard_input}
         value={profileFormData?.firstname}
@@ -86,7 +85,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Имя')}
         readonly={readonly}
       />
-
       <Input
         className={styles.ProfileCard_input}
         value={profileFormData?.lastname}
@@ -94,7 +92,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Фамилия')}
         readonly={readonly}
       />
-
       <Input
         className={styles.ProfileCard_input}
         type="number"
@@ -103,7 +100,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Возраст')}
         readonly={readonly}
       />
-
       <Input
         className={styles.ProfileCard_input}
         value={profileFormData?.city}
@@ -111,7 +107,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Город')}
         readonly={readonly}
       />
-
       <Input
         className={styles.ProfileCard_input}
         value={profileFormData?.username}
@@ -119,7 +114,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Имя пользователя')}
         readonly={readonly}
       />
-
       <Input
         className={styles.ProfileCard_input}
         value={profileFormData?.avatar}
@@ -127,21 +121,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Ссылка на аватар')}
         readonly={readonly}
       />
-
       <CurrencySelect
         className={styles.ProfileCard_input}
         value={profileFormData?.currency}
         onChange={onChangeCurrency}
         readonly={readonly}
       />
-
       <CountrySelect
         className={styles.ProfileCard_input}
         value={profileFormData?.country}
         onChange={onChangeCountry}
         readonly={readonly}
       />
-
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { ArticleContentType, ArticleTypes } from '../constants/articleConstants';
+import { ArticleContentType, ArticleType } from '../constants/articleConstants';
 
 export interface ArticleContentBase {
   id: number;
@@ -33,7 +33,7 @@ export interface IArticle {
   img: string;
   views: number;
   created_at: string;
-  type: ArticleTypes[];
+  type: ArticleType[];
   content: ArticleContent[]
 }
 
@@ -45,12 +45,4 @@ export interface IArticleWithUserData extends IArticle {
 export interface GetAllArticleResponse {
   searchingArticles: IArticleWithUserData[];
   hasMore: boolean;
-}
-
-export interface ArticleDetailsSchema {
-  isLoading: boolean;
-  error?: string;
-  articleData?: IArticle;
-
-  _mounted: boolean;
 }

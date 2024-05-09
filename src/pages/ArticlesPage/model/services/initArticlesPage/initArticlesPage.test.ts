@@ -9,7 +9,7 @@ jest.mock('../../slice/articlesPageSlice');
 describe('initArticlesPage.test', () => {
   test('success fetch', async () => {
     const testThunk = new TestAsyncThunk(initArticlesPage, {
-      articlesPages: {
+      articlesPage: {
         page: 2,
       },
     });
@@ -24,7 +24,7 @@ describe('initArticlesPage.test', () => {
 
   test('fetchArticlesList not called', async () => {
     const testThunk = new TestAsyncThunk(initArticlesPage, {
-      articlesPages: {
+      articlesPage: {
         page: 2,
         _mounted: true,
       },

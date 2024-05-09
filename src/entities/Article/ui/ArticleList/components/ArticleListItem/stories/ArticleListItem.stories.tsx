@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import AvatarStorybook from 'shared/assets/test/avatarStorybook.png';
-import { ArticleContentType, ArticleTypes, ArticleView } from '../../../../../model/constants/articleConstants';
+import { ArticleContentType, ArticleType, ArticleView } from '../../../../../model/constants/articleConstants';
 import { IArticleWithUserData } from '../../../../../model/types/article.types';
 import { ArticleListItem } from '../ArticleListItem';
 
@@ -19,7 +19,7 @@ const article = {
   subtitle: 'Что нового в JS за 2022 год?',
   img: AvatarStorybook,
   user_id: 23,
-  type: [ArticleTypes.IT, ArticleTypes.BUSINESS, ArticleTypes.ECONOMY],
+  type: [ArticleType.IT, ArticleType.BUSINESS, ArticleType.ECONOMY],
   views: 1000,
   username: 'test username',
   avatar: AvatarStorybook,

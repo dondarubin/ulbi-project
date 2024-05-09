@@ -24,7 +24,7 @@ export interface StateSchema {
   articleComments?: ArticleCommentsSchema;
   articleRecommendations?: ArticleRecommendationsSchema;
   addNewCommentForm?: AddNewCommentFormSchema;
-  articlesPages?: ArticlesPageSchema;
+  articlesPage?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema

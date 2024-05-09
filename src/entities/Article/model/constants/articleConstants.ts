@@ -1,4 +1,4 @@
-export enum ArticleTypes {
+export enum ArticleType {
   ALL = 'ALL',
   IT = 'IT',
   ECONOMY = 'Economy',

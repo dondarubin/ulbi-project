@@ -17,7 +17,6 @@ import { fetchArticleRecommendations } from '../model/services/fetchArticleRecom
 
 interface ArticleRecommendationsListProps {
   className?: string;
-  articleMounted?: boolean;
 }
 
 const initialReducers: ReducersList = {
@@ -27,20 +26,20 @@ const initialReducers: ReducersList = {
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
   const {
     className,
-    articleMounted,
   } = props;
   const { t } = useTranslation('articles');
   const dispatch = useAppDispatch();
+  const articleDetailsMounted = useSelector(getArticleDetailsMounted);
   const recommendations = useSelector(getArticleRecommendations.selectAll);
   const isLoading = useSelector(getArticleRecommendationsIsLoading);
   const error = useSelector(getArticleRecommendationsError);
   useDynamicModuleLoader({ reducers: initialReducers });
 
   useEffectInitial(() => {
-    if (articleMounted) {
+    if (articleDetailsMounted) {
       dispatch(fetchArticleRecommendations());
     }
-  }, [dispatch, articleMounted]);
+  }, [dispatch, articleDetailsMounted]);
 
   if (error) {
     return (

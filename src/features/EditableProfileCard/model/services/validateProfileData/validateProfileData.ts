@@ -1,5 +1,5 @@
 import { IProfile } from 'entities/Profile';
-import { ValidateProfileErrors } from '../../types/editableProflieCard.types';
+import { ValidateProfileErrors } from '../../types/ProflieSchema.types';
 
 export function validateProfileData(profile?: IProfile) {
   if (!profile) {

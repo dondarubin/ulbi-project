@@ -2,13 +2,14 @@ import { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthDa
 import { checkAuthData } from './model/services/checkAuthData/checkAuthData';
 import { logout } from './model/services/logout/logout';
 import { userActions, userReducer } from './model/slice/userSlice';
-import { IUser, UserSchema } from './model/types/user.types';
+import { IUser } from './model/types/user.types';
+import { UserSchema } from './model/types/UserSchema.types';
 
 export {
   userReducer,
   userActions,
-  UserSchema,
-  IUser,
+  type UserSchema,
+  type IUser,
   getUserAuthData,
   logout,
   checkAuthData,

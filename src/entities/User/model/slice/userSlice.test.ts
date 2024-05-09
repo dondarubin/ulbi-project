@@ -1,4 +1,5 @@
-import { userActions, userReducer, UserSchema } from 'entities/User';
+import { UserSchema } from '../types/UserSchema.types';
+import { userActions, userReducer } from './userSlice';
 
 describe('userSlice.test', () => {
   test('test set username', () => {

@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { logout } from 'entities/User';
 import { checkAuthData } from '../services/checkAuthData/checkAuthData';
-import { IUser, UserSchema } from '../types/user.types';
+import { logout } from '../services/logout/logout';
+import { IUser } from '../types/user.types';
+import { UserSchema } from '../types/UserSchema.types';
 
 const initialState: UserSchema = {
   authData: undefined,

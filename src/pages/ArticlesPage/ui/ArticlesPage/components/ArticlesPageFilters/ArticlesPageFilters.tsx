@@ -1,19 +1,24 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useDebounce } from 'shared/lib/hooks';
 import {
-  ArticleSortField, ArticleSortSelect, ArticleTypes, ArticleTypeTabs, ArticleView, ArticleViewSelect,
+  ArticleSortField,
+  ArticleSortSelect,
+  ArticleType,
+  ArticleTypeTabs,
+  ArticleView,
+  ArticleViewSelect,
 } from 'entities/Article';
 import { Input } from 'shared/ui/Input';
 import { Card } from 'shared/ui/Card';
 import { SortOrder } from 'shared/constants/sort';
-import { TabItem, Tabs } from 'shared/ui/Tabs';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
-  getArticlesPageSort, getArticlesPageType,
+  getArticlesPageSort,
+  getArticlesPageType,
   getArticlesPageView,
 } from '../../../../model/selectors/articlesPageSelectors';
 import styles from './ArticlesPageFilters.module.scss';
@@ -64,7 +69,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     debouncedFetchSortedArticleData();
   }, [debouncedFetchSortedArticleData, dispatch]);
 
-  const onChangeTabHandler = useCallback((articleType: ArticleTypes) => {
+  const onChangeTabHandler = useCallback((articleType: ArticleType) => {
     dispatch(articlesPageActions.setType(articleType));
     dispatch(articlesPageActions.setPage(1));
     fetchSortedArticleData();

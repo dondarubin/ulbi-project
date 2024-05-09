@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { ArticleTypes } from 'entities/Article';
+import { ArticleType } from 'entities/Article';
 import { ArticleTypeTabs } from '../ArticleTypeTabs';
 
 export default {
@@ -16,5 +16,5 @@ const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => <ArticleTypeT
 export const Normal = Template.bind({});
 Normal.args = {
   onChangeType: action('onClickTab'),
-  selectedType: ArticleTypes.ALL,
+  selectedType: ArticleType.ALL,
 };

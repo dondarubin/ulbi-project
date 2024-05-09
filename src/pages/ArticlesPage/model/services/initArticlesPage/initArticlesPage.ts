@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThinkAPI } from 'app/providers/StoreProvider';
 import { SortOrder } from 'shared/constants/sort';
-import { ArticleSortField, ArticleTypes } from 'entities/Article';
+import { ArticleSortField, ArticleType } from 'entities/Article';
 import { getArticlesPageMounted } from '../../selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../slice/articlesPageSlice';
@@ -30,7 +30,7 @@ export const initArticlesPage = createAsyncThunk<
             dispatch(articlesPageActions.setSearch(value));
             break;
           case 'type':
-            dispatch(articlesPageActions.setType(value as ArticleTypes));
+            dispatch(articlesPageActions.setType(value as ArticleType));
             break;
           default:
             break;

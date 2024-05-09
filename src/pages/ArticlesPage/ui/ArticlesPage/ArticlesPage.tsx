@@ -25,7 +25,7 @@ interface ArticlesPageProps {
 }
 
 const initialReducers: ReducersList = {
-  articlesPages: articlesPageReducer,
+  articlesPage: articlesPageReducer,
 };
 
 const ArticlesPage = memo(({ className }: ArticlesPageProps) => {

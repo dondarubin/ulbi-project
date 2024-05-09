@@ -1,15 +1,14 @@
-import { ArticleSortField, ArticleTypes, ArticleView } from './model/constants/articleConstants';
+import { ArticleSortField, ArticleType, ArticleView } from './model/constants/articleConstants';
 import {
   getArticleDetailsData,
-  getArticleDetailsError,
   getArticleDetailsMounted,
 } from './model/selectors/articleDetailsSelectors';
 import {
-  ArticleDetailsSchema,
   GetAllArticleResponse,
   IArticle,
   IArticleWithUserData,
 } from './model/types/article.types';
+import { ArticleDetailsSchema } from './model/types/articleDetailsSchema.types';
 import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 import { ArticleList } from './ui/ArticleList/ArticleList';
 import { ArticleSortSelect } from './ui/ArticleSortSelect/ArticleSortSelect';
@@ -18,7 +17,6 @@ import { ArticleViewSelect } from './ui/ArticleViewSelect/ArticleViewSelect';
 
 export {
   getArticleDetailsData,
-  getArticleDetailsError,
   getArticleDetailsMounted,
   ArticleDetails,
   type IArticle,
@@ -27,7 +25,7 @@ export {
   type GetAllArticleResponse,
   ArticleSortField,
   ArticleView,
-  ArticleTypes,
+  ArticleType,
   ArticleList,
   ArticleViewSelect,
   ArticleSortSelect,

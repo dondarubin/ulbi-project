@@ -4,11 +4,10 @@ import {
 } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
 import { CommentList } from 'entities/Comment';
-import { AddNewCommentForm, ValidateCommentErrors } from 'features/AddNewComment';
+import { AddNewCommentForm, getAddNewCommentFormValidateError, ValidateCommentErrors } from 'features/AddNewComment';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
-import { getAddNewCommentFormValidateError } from 'features/AddNewComment/model/selectors/addNewCommentFormSelectors';
 import styles from './ArticleCommentList.module.scss';
 import { articleCommentsReducer, getArticleComments } from '../model/slice/articleCommentsSlice';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../model/selectors/articleCommentsSelectors';
@@ -26,12 +25,12 @@ const initialReducers: ReducersList = {
 
 export const ArticleCommentList = memo(({ className, id }: ArticleCommentListProps) => {
   const { t } = useTranslation('articles');
-  useDynamicModuleLoader({ reducers: initialReducers });
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
   const validateError = useSelector(getAddNewCommentFormValidateError);
   const error = useSelector(getArticleCommentsError);
   const dispatch = useAppDispatch();
+  useDynamicModuleLoader({ reducers: initialReducers });
 
   // TODO написать нормальные переводы
   const validateErrorsTranslates: Record<ValidateCommentErrors, string> = {
