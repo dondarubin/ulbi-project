@@ -1,16 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { ArticleDetails, getArticleDetailsMounted } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { ArticleCommentList } from 'features/ArticleCommentList';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
 import { PageWrapper } from 'widgets/PageWrapper';
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import styles from './ArticleDetailsPage.module.scss';
+import { ArticlesDetailsPageHeader } from './components/ArticlesDetailsPageHeader/ArticlesDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -18,14 +17,9 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles');
-  const navigate = useNavigate();
   const mounted = useSelector(getArticleDetailsMounted);
 
   const { id } = useParams<{ id: string }>();
-
-  const onClickBackToArticleListHandler = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
 
   if (!id) {
     return (
@@ -37,11 +31,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   return (
     <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-      <Button onClick={onClickBackToArticleListHandler} theme={ButtonTheme.OUTLINE}>
-        {t('Назад к списку статей')}
-      </Button>
+      <ArticlesDetailsPageHeader />
       <ArticleDetails id={id} />
-      <ArticleRecommendationsList mounted={mounted} />
+      <ArticleRecommendationsList articleMounted={mounted} />
       <ArticleCommentList id={id} />
     </PageWrapper>
   );
