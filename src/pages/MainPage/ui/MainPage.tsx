@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { PageWrapper } from 'widgets/PageWrapper';
 
-const MainPage = () => {
+const MainPage = memo(() => {
   const { t } = useTranslation('main');
 
   return (
@@ -12,6 +12,6 @@ const MainPage = () => {
       {t('Главная страница')}
     </PageWrapper>
   );
-};
+});
 
-export default memo(MainPage);
+export default MainPage;

@@ -28,7 +28,7 @@ const initialReducers: ReducersList = {
   articlesPages: articlesPageReducer,
 };
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
+const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
@@ -60,6 +60,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       />
     </PageWrapper>
   );
-};
+});
 
-export default memo(ArticlesPage);
+export default ArticlesPage;

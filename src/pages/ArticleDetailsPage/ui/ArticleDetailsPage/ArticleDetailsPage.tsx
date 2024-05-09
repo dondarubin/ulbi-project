@@ -15,7 +15,7 @@ interface ArticleDetailsPageProps {
   className?: string;
 }
 
-const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
+const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles');
   const mounted = useSelector(getArticleDetailsMounted);
 
@@ -37,6 +37,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       <ArticleCommentList id={id} />
     </PageWrapper>
   );
-};
+});
 
-export default memo(ArticleDetailsPage);
+export default ArticleDetailsPage;

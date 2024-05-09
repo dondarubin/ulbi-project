@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageWrapper } from 'widgets/PageWrapper';
 
-const AboutPage = () => {
+const AboutPage = memo(() => {
   const { t } = useTranslation('about');
 
   return (
@@ -10,6 +10,6 @@ const AboutPage = () => {
       {t('О сайте')}
     </PageWrapper>
   );
-};
+});
 
-export default memo(AboutPage);
+export default AboutPage;

@@ -8,7 +8,7 @@ interface ArticleEditPageProps {
   className?: string;
 }
 
-const ArticleEditPage = (props: ArticleEditPageProps) => {
+const ArticleEditPage = memo((props: ArticleEditPageProps) => {
   const {
     className,
   } = props;
@@ -19,6 +19,6 @@ const ArticleEditPage = (props: ArticleEditPageProps) => {
       ArticleEditPage
     </PageWrapper>
   );
-};
+});
 
-export default memo(ArticleEditPage);
+export default ArticleEditPage;

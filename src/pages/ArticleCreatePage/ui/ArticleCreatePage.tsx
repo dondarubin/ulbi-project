@@ -8,7 +8,7 @@ interface ArticleCreatePageProps {
   className?: string;
 }
 
-const ArticleCreatePage = (props: ArticleCreatePageProps) => {
+const ArticleCreatePage = memo((props: ArticleCreatePageProps) => {
   const {
     className,
   } = props;
@@ -19,6 +19,6 @@ const ArticleCreatePage = (props: ArticleCreatePageProps) => {
       ArticleCreatePage
     </PageWrapper>
   );
-};
+});
 
-export default memo(ArticleCreatePage);
+export default ArticleCreatePage;
