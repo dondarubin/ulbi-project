@@ -8,6 +8,8 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown';
+import { Avatar } from 'shared/ui/Avatar';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -47,13 +49,24 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         >
           {t('Создать статью')}
         </AppLink>
-        <Button
-          className={classNames(styles.links, {}, [])}
-          theme={ButtonTheme.CLEAR_INVERTED}
-          onClick={onClickLogoutHandler}
-        >
-          {t('Выйти')}
-        </Button>
+
+        {/* TODO добавить как то аватар */}
+        <Dropdown
+          className={styles.dropdown}
+          items={[
+            {
+              content: t('Профиль'),
+              href: RoutePath.profile + authData.userId,
+            },
+            {
+              content: t('Выйти'),
+              onClick: onClickLogoutHandler,
+            },
+          ]}
+          // trigger={<Avatar size={30} src={authData.avatar}/>}
+          trigger={<Avatar size={30} />}
+          direction="bottom left"
+        />
       </header>
     );
   }

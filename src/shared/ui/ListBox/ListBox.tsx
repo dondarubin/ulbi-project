@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Listbox as HListBox } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
+import { DropdownDirection } from 'shared/types/ui.types';
 import styles from './ListBox.module.scss';
 import { Button } from '../Button';
 import { HStack } from '../Stack';
@@ -10,8 +11,6 @@ export interface ListBoxItem {
   content: ReactNode;
   disabled?: boolean;
 }
-
-type DropdownDirection = 'top' | 'bottom'
 
 interface ListBoxProps {
   items?: ListBoxItem[];
@@ -25,8 +24,10 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
-  top: styles.optionsTop,
-  bottom: styles.optionsBottom,
+  'top left': styles.optionsTopLeft,
+  'top right': styles.optionsTopRight,
+  'bottom left': styles.optionsBottomLeft,
+  'bottom right': styles.optionsBottomRight,
 };
 
 export function ListBox(props: ListBoxProps) {
@@ -37,7 +38,7 @@ export function ListBox(props: ListBoxProps) {
     selectedValue,
     onChange,
     readonly,
-    direction = 'bottom',
+    direction = 'bottom right',
     label,
   } = props;
 
@@ -64,6 +65,7 @@ export function ListBox(props: ListBoxProps) {
           <Button disabled={readonly}>
             {selectedValue ?? defaultValue}
           </Button>
+          {/* TODO добавить иконку */}
         </HListBox.Button>
 
         <HListBox.Options className={classNames(styles.ListBox_options, {}, optionsClasses)}>
@@ -84,6 +86,7 @@ export function ListBox(props: ListBoxProps) {
                     },
                   )}
                 >
+                  {/* TODO добавить иконку */}
                   {selected && '!!!'}
                   {item.content}
                 </li>

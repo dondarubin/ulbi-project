@@ -36,6 +36,7 @@ const gapClasses: Record<FlexGap, string> = {
   32: styles.gap32,
 };
 
+// TODO вернуть наследование
 type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export interface FlexProps{
