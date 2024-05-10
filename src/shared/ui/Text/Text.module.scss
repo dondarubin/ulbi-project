@@ -44,6 +44,16 @@
   text-align: center;
 }
 
+.size_s {
+  .TextWrapper_title {
+    font: var(--font-m);
+  }
+
+  .TextWrapper_text {
+    font: var(--font-s);
+  }
+}
+
 .size_m {
   .TextWrapper_title {
     font: var(--font-l);

@@ -69,6 +69,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       </Button>
 
       <VStack
+        role="navigation"
         className={styles.items}
       >
         {sidebarItemsListMemo}

@@ -11,6 +11,7 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+  S = 'size_s',
   M = 'size_m',
   L = 'size_l',
 }
@@ -23,3 +24,5 @@ export interface TextProps {
   align?: TextAlign;
   size?: TextSize;
 }
+
+export type HeaderTagType = 'h1' | 'h2' | 'h3'

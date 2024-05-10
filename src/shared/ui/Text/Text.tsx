@@ -2,8 +2,14 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import styles from './Text.module.scss';
 import {
-  TextAlign, TextProps, TextSize, TextTheme,
+  HeaderTagType, TextAlign, TextProps, TextSize, TextTheme,
 } from './Text.types';
+
+const mapSizeToHeaderText: Record<TextSize, HeaderTagType> = {
+  [TextSize.S]: 'h3',
+  [TextSize.M]: 'h2',
+  [TextSize.L]: 'h1',
+};
 
 export const Text = memo((props: TextProps) => {
   const {
@@ -14,6 +20,8 @@ export const Text = memo((props: TextProps) => {
     align = TextAlign.LEFT,
     size = TextSize.M,
   } = props;
+
+  const HeaderTag = mapSizeToHeaderText[size];
 
   const mods: Mods = {
     [styles[theme]]: true,
@@ -29,7 +37,7 @@ export const Text = memo((props: TextProps) => {
         [className],
       )}
     >
-      {title && <p className={styles.TextWrapper_title}>{title}</p>}
+      {title && <HeaderTag className={styles.TextWrapper_title}>{title}</HeaderTag>}
       {text && <p className={styles.TextWrapper_text}>{text}</p>}
     </div>
   );
