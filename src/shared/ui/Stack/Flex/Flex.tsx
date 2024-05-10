@@ -38,7 +38,7 @@ const gapClasses: Record<FlexGap, string> = {
 
 type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-export interface FlexProps extends DivProps{
+export interface FlexProps{
   className?: string;
   children: ReactNode;
   justify?: FlexJustify;
@@ -46,6 +46,7 @@ export interface FlexProps extends DivProps{
   direction: FlexDirection;
   gap?: FlexGap;
   max?: boolean;
+  component?: keyof HTMLElementTagNameMap;
 }
 
 export const Flex = memo((props: FlexProps) => {
@@ -57,7 +58,10 @@ export const Flex = memo((props: FlexProps) => {
     direction = 'row',
     gap,
     max,
+    component = 'div',
   } = props;
+
+  const ComponentWrapper = component;
 
   const mods: Mods = {
     [styles.max]: max,
@@ -72,8 +76,8 @@ export const Flex = memo((props: FlexProps) => {
   ];
 
   return (
-    <div className={classNames(styles.Flex, mods, classes)}>
+    <ComponentWrapper className={classNames(styles.Flex, mods, classes)}>
       {children}
-    </div>
+    </ComponentWrapper>
   );
 });

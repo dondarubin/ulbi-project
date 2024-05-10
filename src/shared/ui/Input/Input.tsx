@@ -1,10 +1,10 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
-  ChangeEvent,
-  memo, MutableRefObject, useEffect, useRef, useState,
+  ChangeEvent, memo, MutableRefObject, useEffect, useRef, useState,
 } from 'react';
 import styles from './Input.module.scss';
 import { InputProps } from './Input.types';
+import { HStack } from '../Stack';
 
 export const Input = memo((props: InputProps) => {
   const {
@@ -53,9 +53,9 @@ export const Input = memo((props: InputProps) => {
   };
 
   return (
-    <div className={classNames(styles.InputWrapper, mods, [className])}>
+    <HStack gap="8" max className={classNames('', mods, [className])}>
       {placeholder && (
-        <div className={styles.placeholder}>
+        <div>
           {`${placeholder}>`}
         </div>
       )}
@@ -79,6 +79,6 @@ export const Input = memo((props: InputProps) => {
           />
         )}
       </div>
-    </div>
+    </HStack>
   );
 });
