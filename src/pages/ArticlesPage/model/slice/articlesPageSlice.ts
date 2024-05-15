@@ -27,7 +27,7 @@ const articlesPageSlice = createSlice({
     view: ArticleView.TILE,
     page: 1,
     hasMore: true,
-    limit: 12,
+    limit: 8,
     _mounted: false,
     search: '',
     order: SortOrder.ASC,
@@ -45,7 +45,7 @@ const articlesPageSlice = createSlice({
     initState: (state) => {
       const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
       state.view = view;
-      state.limit = view === ArticleView.TILE ? 12 : 4;
+      state.limit = view === ArticleView.TILE ? 8 : 4;
       state._mounted = true;
     },
     setOrder: (state, action: PayloadAction<SortOrder>) => {

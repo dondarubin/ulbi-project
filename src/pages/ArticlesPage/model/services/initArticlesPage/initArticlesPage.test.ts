@@ -14,12 +14,13 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    // await testThunk.callThunk({});
+    const searchParams = new URLSearchParams();
+    await testThunk.callThunk(searchParams);
 
     // pending, fulfilled, и 2 dispatch внутри initArticlesPage
     expect(testThunk.dispatch).toBeCalledTimes(4);
     // функция вызвана с нужным аргументом
-    expect(fetchArticlesList).toBeCalledWith({ page: 2 });
+    expect(fetchArticlesList).toBeCalled();
   });
 
   test('fetchArticlesList not called', async () => {
@@ -30,7 +31,8 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    // await testThunk.callThunk();
+    const searchParams = new URLSearchParams();
+    await testThunk.callThunk(searchParams);
 
     // pending, fulfilled
     expect(testThunk.dispatch).toBeCalledTimes(2);

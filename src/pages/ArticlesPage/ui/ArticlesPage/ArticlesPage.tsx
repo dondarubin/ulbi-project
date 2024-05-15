@@ -1,22 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { ArticleList } from 'entities/Article';
 import {
   ReducersList, useAppDispatch, useDynamicModuleLoader, useEffectInitial,
 } from 'shared/lib/hooks';
-import { useSelector } from 'react-redux';
 import { PageWrapper } from 'widgets/PageWrapper';
-import { Text, TextTheme } from 'shared/ui/Text';
-import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
+import { ArticleInfinityList } from './components/ArticleInfinityList/ArticleInfinityList';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import styles from './ArticlesPage.module.scss';
-import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
-import {
-  getArticlesPageError,
-  getArticlesPageIsLoading,
-  getArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors';
+import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { ArticlesPageFilters } from './components/ArticlesPageFilters/ArticlesPageFilters';
 
@@ -30,10 +22,6 @@ const initialReducers: ReducersList = {
 
 const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlesPageError);
-  const view = useSelector(getArticlesPageView);
   const [searchParams] = useSearchParams();
   useDynamicModuleLoader({ reducers: initialReducers, removeAfterUnmount: false });
 
@@ -51,13 +39,7 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
       onPageEnd={onPageEndLoadNextPartHandler}
     >
       <ArticlesPageFilters />
-      <ArticleList
-        className={styles.list}
-        isLoading={isLoading}
-        view={view}
-        articles={articles}
-        error={error}
-      />
+      <ArticleInfinityList className={styles.list} />
     </PageWrapper>
   );
 });

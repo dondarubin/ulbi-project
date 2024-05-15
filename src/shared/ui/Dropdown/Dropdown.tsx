@@ -2,7 +2,7 @@ import { Menu } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Fragment, ReactNode } from 'react';
 import { DropdownDirection } from 'shared/types/ui.types';
-import { AppLink } from 'shared/ui/AppLink';
+import { AppLink } from '../AppLink';
 import styles from './Dropdown.module.scss';
 
 export interface DropdownItem {
@@ -63,14 +63,23 @@ export function Dropdown(props: DropdownProps) {
 
           if (item.href) {
             return (
-              <Menu.Item as={AppLink} to={item.href} disabled={item.disabled}>
+              <Menu.Item
+                as={AppLink}
+                to={item.href}
+                disabled={item.disabled}
+                key={`${item.content}`}
+              >
                 {content}
               </Menu.Item>
             );
           }
 
           return (
-            <Menu.Item as={Fragment} disabled={item.disabled}>
+            <Menu.Item
+              as={Fragment}
+              disabled={item.disabled}
+              key={`${item.content}`}
+            >
               {content}
             </Menu.Item>
           );

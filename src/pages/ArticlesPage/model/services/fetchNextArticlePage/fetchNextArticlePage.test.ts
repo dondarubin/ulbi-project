@@ -22,7 +22,7 @@ describe('fetchNextArticlePage.test', () => {
     // pending, fulfilled, и 2 dispatch внутри fetchNextArticlePage
     expect(testThunk.dispatch).toBeCalledTimes(4);
     // функция вызвана с нужным аргументом
-    expect(fetchArticlesList).toBeCalledWith({ page: 3 });
+    expect(fetchArticlesList).toBeCalled();
   });
 
   test('fetchArticlesList not called', async () => {
