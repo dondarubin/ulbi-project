@@ -11,11 +11,13 @@ import { AddNewCommentFormSchema } from 'features/AddNewComment';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
 import { ArticleRecommendationsSchema } from 'features/ArticleRecommendationsList';
+import { rtkApi } from 'shared/api/rtkApi';
 
 // TODO Разобраться и принять решение использования одного из видов кейсов для userId и т.д. (Kebab...)
 export interface StateSchema {
   user: UserSchema;
   scrollSave: ScrollSaveSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;

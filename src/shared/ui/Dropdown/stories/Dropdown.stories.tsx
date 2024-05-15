@@ -19,6 +19,7 @@ const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} 
 
 export const Normal = Template.bind({});
 Normal.args = {
+  // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
   items: [
     {
@@ -35,6 +36,7 @@ Normal.args = {
 
 export const Dark = Template.bind({});
 Dark.args = {
+  // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
   items: [
     {
@@ -52,6 +54,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {
+  // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
   direction: 'bottom left',
   items: [
@@ -70,6 +73,7 @@ BottomLeft.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BottomRight = Template.bind({});
 BottomRight.args = {
+  // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
   direction: 'bottom right',
   items: [
@@ -88,6 +92,7 @@ BottomRight.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const TopRight = Template.bind({});
 TopRight.args = {
+  // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
   direction: 'top right',
   items: [
@@ -106,6 +111,7 @@ TopRight.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const TopLeft = Template.bind({});
 TopLeft.args = {
+  // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
   direction: 'top left',
   items: [

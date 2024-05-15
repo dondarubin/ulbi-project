@@ -56,6 +56,7 @@ export const ArticleCommentList = memo(({ className, id }: ArticleCommentListPro
     >
       <Text
         size={TextSize.L}
+        className={styles.title}
         title={t('Комментарии')}
       />
       {validateError && (
@@ -64,6 +65,7 @@ export const ArticleCommentList = memo(({ className, id }: ArticleCommentListPro
           text={validateErrorsTranslates[validateError]}
         />
       )}
+      {/* TODO фича не может использоваься в фиче (70 урок: 16:00) */}
       <AddNewCommentForm onSuccessCreateNewComment={onSuccessCreateNewCommentHandler} />
       <CommentList comments={comments} isLoading={isLoading} />
     </VStack>

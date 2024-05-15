@@ -1,76 +1,58 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import {
-  ReducersList, useAppDispatch, useDynamicModuleLoader, useEffectInitial,
-} from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
 import { Text, TextSize } from 'shared/ui/Text';
-import { ArticleList, getArticleDetailsMounted } from 'entities/Article';
+import { ArticleList, ArticleType, getArticleDetailsData } from 'entities/Article';
+import { VStack } from 'shared/ui/Stack';
 import styles from './ArticleRecommendationsList.module.scss';
-import { articleRecommendationsReducer, getArticleRecommendations } from '../model/slice/articleRecommendationsSlice';
-import {
-  getArticleRecommendationsError,
-  getArticleRecommendationsIsLoading,
-} from '../model/selectors/articleRecommendationsSelectors';
-import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { useArticleRecommendationsList } from '../api/recommendationApi';
 
 interface ArticleRecommendationsListProps {
   className?: string;
 }
-
-const initialReducers: ReducersList = {
-  articleRecommendations: articleRecommendationsReducer,
-};
 
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
   const {
     className,
   } = props;
   const { t } = useTranslation('articles');
-  const dispatch = useAppDispatch();
-  const articleDetailsMounted = useSelector(getArticleDetailsMounted);
-  const recommendations = useSelector(getArticleRecommendations.selectAll);
-  const isLoading = useSelector(getArticleRecommendationsIsLoading);
-  const error = useSelector(getArticleRecommendationsError);
-  useDynamicModuleLoader({ reducers: initialReducers });
+  const articleDetailsData = useSelector(getArticleDetailsData);
 
-  useEffectInitial(() => {
-    if (articleDetailsMounted) {
-      dispatch(fetchArticleRecommendations());
-    }
-  }, [dispatch, articleDetailsMounted]);
+  const {
+    isLoading, data: recommendations, error,
+  } = useArticleRecommendationsList(articleDetailsData?.type[0] || ArticleType.ALL);
 
-  if (error) {
+  if (error || (recommendations === undefined)) {
     return (
-      <div className={classNames(styles.ArticleRecommendationsList, {}, [className])}>
+      <VStack gap="8" className={classNames('', {}, [className])}>
         <Text
           size={TextSize.L}
-          className={styles.ArticleDetailsPage_comment_title}
+          className={styles.comment_title}
           title={t('Рекомендуем')}
         />
         <Text
           size={TextSize.L}
-          className={styles.ArticleDetailsPage_comment_title}
+          className={styles.comment_title}
           title={t('Рекомендаций не найдено')}
         />
-      </div>
+      </VStack>
     );
   }
 
   return (
-    <div className={classNames(styles.ArticleRecommendationsList, {}, [className])}>
+    <VStack gap="8" className={classNames('', {}, [className])}>
       <Text
         size={TextSize.L}
-        className={styles.ArticleDetailsPage_comment_title}
+        className={styles.comment_title}
         title={t('Рекомендуем')}
       />
       <ArticleList
         className={styles.recommendations}
-        articles={recommendations}
+        articles={recommendations.searchingArticles}
         isLoading={isLoading}
         target="_blank"
       />
-    </div>
+    </VStack>
   );
 });
