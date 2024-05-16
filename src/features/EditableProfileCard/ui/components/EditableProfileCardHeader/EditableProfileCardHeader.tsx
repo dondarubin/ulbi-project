@@ -2,7 +2,6 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text';
 import { getUserAuthData } from 'entities/User';
@@ -10,7 +9,6 @@ import { HStack } from 'shared/ui/Stack';
 import { updateProfileData } from '../../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../../model/slice/profileSlice';
 import { getProfileReadonly } from '../../../model/selectors/getProfileReadonly/getProfileReadonly';
-import styles from './EditableProfileCardHeader.module.scss';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -46,6 +44,7 @@ export const EditableProfileCardHeader = ({ className, id }: ProfilePageHeaderPr
           <Button
             theme={ButtonTheme.OUTLINE}
             onClick={onEditProfileHandler}
+            data-testid="EditableProfileCardHeader.EditBtn"
           >
             {t('Редактировать')}
           </Button>
@@ -54,6 +53,7 @@ export const EditableProfileCardHeader = ({ className, id }: ProfilePageHeaderPr
             <Button
               theme={ButtonTheme.OUTLINE_RED}
               onClick={onCancelEditProfileHandler}
+              data-testid="EditableProfileCardHeader.CancelBtn"
             >
               {t('Отменить')}
             </Button>
@@ -61,6 +61,7 @@ export const EditableProfileCardHeader = ({ className, id }: ProfilePageHeaderPr
             <Button
               theme={ButtonTheme.OUTLINE}
               onClick={onSaveProfileHandler}
+              data-testid="EditableProfileCardHeader.SaveBtn"
             >
               {t('Сохранить')}
             </Button>

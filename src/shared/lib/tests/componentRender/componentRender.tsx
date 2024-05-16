@@ -10,11 +10,12 @@ export function componentRender(component: ReactNode, options: ComponentRenderOp
   const {
     route = '/',
     initialState,
+    asyncReducers,
   } = options;
 
   return render(
     <MemoryRouter initialEntries={[route]}>
-      <StoreProvider initialState={initialState}>
+      <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
         <I18nextProvider i18n={i18nForTests}>
           {component}
         </I18nextProvider>

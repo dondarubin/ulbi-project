@@ -5,7 +5,6 @@ import {
 import { useCallback } from 'react';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { ProfileCard } from 'entities/Profile';
@@ -93,6 +92,7 @@ export const EditableProfileCard = ({ className, id }: EditableProfileCardProps)
       <EditableProfileCardHeader id={id} />
       {validateErrors?.length && validateErrors.map((error) => (
         <Text
+          data-testid="EditableProfileCard.Error"
           key={error}
           theme={TextTheme.ERROR}
           text={validateErrorsTranslates[error]}

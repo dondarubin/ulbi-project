@@ -23,6 +23,8 @@ export interface TextProps {
   theme?: TextTheme;
   align?: TextAlign;
   size?: TextSize;
+
+  'data-testid'?: string
 }
 
 export type HeaderTagType = 'h1' | 'h2' | 'h3'
