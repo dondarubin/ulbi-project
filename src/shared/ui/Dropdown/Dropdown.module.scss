@@ -16,7 +16,7 @@
   background: var(--dropdown-bg);
   position: absolute;
   border-radius: 12px;
-  z-index: 10000;
+  z-index: var(--dropdown-z-index);
   border: 1px solid var(--primary-color);
   display: flex;
   flex-direction: column;

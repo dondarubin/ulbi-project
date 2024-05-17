@@ -1,4 +1,4 @@
-import { userActions } from 'entities/User';
+import { userActions, UserRoles } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
 import { loginByUsername } from './loginByUsername';
 
@@ -79,6 +79,7 @@ describe('loginByUsername.test', () => {
       user: {
         userId: 1,
         userName: 'mama228',
+        roles: [UserRoles.USER],
       },
       accessToken: 'fgdhnksjmdskgnjlzds',
       accessTokenExpiration: 1800000,

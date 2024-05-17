@@ -1,3 +1,4 @@
+import { UserRoles } from 'entities/User';
 import { UserSchema } from '../types/UserSchema.types';
 import { userActions, userReducer } from './userSlice';
 
@@ -6,7 +7,7 @@ describe('userSlice.test', () => {
     const state: DeepPartial<UserSchema> = {};
     expect(userReducer(
       state as UserSchema,
-      userActions.setAuthData({ userId: 1, userName: 'mama' }),
-    )).toEqual({ authData: { userId: 1, userName: 'mama' } });
+      userActions.setAuthData({ userId: 1, userName: 'mama', roles: [UserRoles.USER] }),
+    )).toEqual({ authData: { userId: 1, userName: 'mama', roles: [UserRoles.USER] } });
   });
 });
