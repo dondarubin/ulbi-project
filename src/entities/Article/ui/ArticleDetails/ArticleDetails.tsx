@@ -30,7 +30,7 @@ import { ArticleContentType } from '../../model/constants/articleConstants';
 
 interface ArticleDetailsProps {
   className?: string;
-  id: string
+  id?: string
 }
 
 const initialReducers: ReducersList = {
@@ -46,7 +46,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   useDynamicModuleLoader({ reducers: initialReducers });
 
   useEffectInitial(() => {
-    dispatch(fetchArticleById(id));
+    if (id) {
+      dispatch(fetchArticleById(id));
+    }
   }, [dispatch, id]);
 
   // TODO придумать уникальные ключи

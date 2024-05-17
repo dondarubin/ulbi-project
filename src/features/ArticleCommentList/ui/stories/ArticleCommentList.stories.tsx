@@ -15,54 +15,54 @@ export default {
 
 const Template: ComponentStory<typeof ArticleCommentList> = (args) => <ArticleCommentList {...args} />;
 
-// export const Primary = Template.bind({});
-// Primary.args = {};
-// Primary.decorators = [StoreDecorator({
-//   articleComments: {
-//     ids: [1, 2],
-//     entities: {
-//       1: {
-//         comment_id: 1,
-//         text: 'some comment 2',
-//         article_id: 1,
-//         username: 'admin 1',
-//         user_id: 23,
-//         avatar: AvatarStorybook,
-//       },
-//       2: {
-//         comment_id: 2,
-//         text: 'some comment 2',
-//         article_id: 1,
-//         username: 'admin 2',
-//         user_id: 24,
-//         avatar: AvatarStorybook,
-//       },
-//     },
-//   },
-// })];
-//
-// export const Dark = Template.bind({});
-// Dark.args = {};
-// Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-//   articleComments: {
-//     ids: [1, 2],
-//     entities: {
-//       1: {
-//         comment_id: 1,
-//         text: 'some comment 2',
-//         article_id: 1,
-//         username: 'admin 1',
-//         user_id: 23,
-//         avatar: AvatarStorybook,
-//       },
-//       2: {
-//         comment_id: 1,
-//         text: 'some comment 2',
-//         article_id: 1,
-//         username: 'admin 2',
-//         user_id: 24,
-//         avatar: AvatarStorybook,
-//       },
-//     },
-//   },
-// })];
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [StoreDecorator({
+  articleComments: {
+    ids: [1, 2],
+    entities: {
+      1: {
+        comment_id: 1,
+        text: 'some comment 2',
+        article_id: 1,
+        username: 'admin 1',
+        user_id: 23,
+        avatar: AvatarStorybook,
+      },
+      2: {
+        comment_id: 2,
+        text: 'some comment 2',
+        article_id: 1,
+        username: 'admin 2',
+        user_id: 24,
+        avatar: AvatarStorybook,
+      },
+    },
+  },
+})];
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+  articleComments: {
+    ids: [1, 2],
+    entities: {
+      1: {
+        comment_id: 1,
+        text: 'some comment 2',
+        article_id: 1,
+        username: 'admin 1',
+        user_id: 23,
+        avatar: AvatarStorybook,
+      },
+      2: {
+        comment_id: 1,
+        text: 'some comment 2',
+        article_id: 1,
+        username: 'admin 2',
+        user_id: 24,
+        avatar: AvatarStorybook,
+      },
+    },
+  },
+})];

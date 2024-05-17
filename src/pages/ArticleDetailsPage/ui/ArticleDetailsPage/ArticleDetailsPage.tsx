@@ -18,13 +18,13 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles');
   const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return (
-      <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-        <Text theme={TextTheme.ERROR} title={t('Article not found!')} text={t('Try later')} />
-      </PageWrapper>
-    );
-  }
+  // if (!id) {
+  //   return (
+  //     <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+  //       <Text theme={TextTheme.ERROR} title={t('Article not found!')} text={t('Try later')} />
+  //     </PageWrapper>
+  //   );
+  // }
 
   return (
     <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>

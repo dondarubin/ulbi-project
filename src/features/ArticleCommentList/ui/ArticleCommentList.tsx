@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import {
   ReducersList, useAppDispatch, useDynamicModuleLoader, useEffectInitial,
 } from 'shared/lib/hooks';
@@ -17,7 +17,7 @@ import { addNewCommentForArticle } from '../model/services/addNewCommentForArtic
 
 interface ArticleCommentListProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const initialReducers: ReducersList = {
@@ -41,8 +41,10 @@ export const ArticleCommentList = memo(({ className, id }: ArticleCommentListPro
   };
 
   useEffectInitial(() => {
-    dispatch(fetchArticleCommentsById(id));
-  });
+    if (id) {
+      dispatch(fetchArticleCommentsById(id));
+    }
+  }, [id, dispatch]);
 
   const onSuccessCreateNewCommentHandler = useCallback((value: string) => {
     dispatch(addNewCommentForArticle(value));
