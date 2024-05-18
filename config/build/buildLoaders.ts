@@ -4,8 +4,9 @@ import { buildStyleLoader } from './loaders/buildStyleLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-  const babelLoader = buildBabelLoader(isDev);
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
@@ -18,19 +19,20 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
   const svgLoader = buildSvgLoader();
 
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  };
+  // const typescriptLoader = {
+  //   test: /\.tsx?$/,
+  //   use: 'ts-loader',
+  //   exclude: /node_modules/,
+  // };
 
-  const styleLoader = buildStyleLoader(isDev);
+  const styleLoader = buildStyleLoader(options.isDev);
 
   return [
     fileLoader,
     svgLoader,
-    babelLoader,
-    typescriptLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
+    // typescriptLoader,
     styleLoader,
   ];
 }
