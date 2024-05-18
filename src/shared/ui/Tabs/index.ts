@@ -2,5 +2,5 @@ import { TabItem, Tabs } from './Tabs';
 
 export {
   Tabs,
-  TabItem,
+  type TabItem,
 };

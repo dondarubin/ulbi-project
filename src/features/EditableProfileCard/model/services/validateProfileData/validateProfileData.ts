@@ -1,5 +1,5 @@
 import { IProfile } from 'entities/Profile';
-import { ValidateProfileErrors } from '../../types/ProflieSchema.types';
+import { ValidateProfileErrors } from '../../consts/consts';
 
 export function validateProfileData(profile?: IProfile) {
   if (!profile) {

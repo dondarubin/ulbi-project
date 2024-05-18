@@ -2,5 +2,5 @@ import { ListBox, ListBoxItem } from './ListBox';
 
 export {
   ListBox,
-  ListBoxItem,
+  type ListBoxItem,
 };

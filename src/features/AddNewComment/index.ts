@@ -1,5 +1,6 @@
+import { ValidateCommentErrors } from './model/consts/consts';
 import { getAddNewCommentFormValidateError } from './model/selectors/addNewCommentFormSelectors';
-import { AddNewCommentFormSchema, ValidateCommentErrors } from './model/types/AddNewCommentFormSchema.types';
+import { AddNewCommentFormSchema } from './model/types/AddNewCommentFormSchema.types';
 import { AddNewCommentFormLazy } from './ui/AddNewCommentForm.lazy';
 
 export {

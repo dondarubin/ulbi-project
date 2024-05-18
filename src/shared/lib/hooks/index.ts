@@ -11,7 +11,7 @@ import { useThrottle } from './useThrottle/useThrottle';
 export {
   useDeviceType,
   useDynamicModuleLoader,
-  ReducersList,
+  type ReducersList,
   useAppDispatch,
   useEffectInitial,
   useHover,

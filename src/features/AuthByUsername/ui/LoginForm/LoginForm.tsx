@@ -13,7 +13,7 @@ import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLo
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
-import { ValidateLoginErrors } from '../../model/types/loginSchema';
+import { ValidateLoginErrors } from '../../model/consts/consts';
 
 export interface LoginFormProps {
   className?: string;

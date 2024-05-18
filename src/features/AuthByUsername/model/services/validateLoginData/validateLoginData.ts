@@ -1,4 +1,4 @@
-import { ValidateLoginErrors } from '../../types/loginSchema';
+import { ValidateLoginErrors } from '../../consts/consts';
 
 export function validateLoginData(username: string, password: string) {
   if (!username || !password) {

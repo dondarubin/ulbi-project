@@ -18,8 +18,8 @@ const AppRouter = memo(() => {
     return routeIsAccessibleByAuth && routeIsAccessibleByRole;
   }), [isAuth, userRoles]);
 
-  // const renderWithWrapper = useCallback((route: AppRoutesProps) => {
-  //   const element = (
+  // consts renderWithWrapper = useCallback((route: AppRoutesProps) => {
+  //   consts element = (
   //     <Suspense fallback={<PageLoader />}>
   //       {route.element}
   //     </Suspense>

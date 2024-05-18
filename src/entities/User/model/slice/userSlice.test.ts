@@ -1,4 +1,4 @@
-import { UserRoles } from 'entities/User';
+import { UserRoles } from '../consts/consts';
 import { UserSchema } from '../types/UserSchema.types';
 import { userActions, userReducer } from './userSlice';
 

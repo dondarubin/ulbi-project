@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ValidateLoginErrors } from '../../types/loginSchema';
+import { ValidateLoginErrors } from '../../consts/consts';
 import { getLoginValidateErrors } from './getLoginValidateErrors';
 
 describe('getLoginValidateErrors.test', () => {

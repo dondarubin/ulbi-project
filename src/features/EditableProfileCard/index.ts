@@ -5,5 +5,5 @@ import { EditableProfileCard } from './ui/EditableProfileCard';
 export {
   profileSlice,
   EditableProfileCard,
-  ProfileSchema,
+  type ProfileSchema,
 };

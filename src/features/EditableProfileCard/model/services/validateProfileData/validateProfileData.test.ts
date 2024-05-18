@@ -1,7 +1,7 @@
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { validateProfileData } from './validateProfileData';
-import { ValidateProfileErrors } from '../../types/ProflieSchema.types';
+import { ValidateProfileErrors } from '../../consts/consts';
 
 const serverResponse = {
   username: 'admin',

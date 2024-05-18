@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThinkAPI } from 'app/providers/StoreProvider';
-import { IProfile } from '../../../../../entities/Profile/model/types/profile.types';
+import { IProfile } from 'entities/Profile';
+import { ValidateProfileErrors } from '../../consts/consts';
 import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData';
-import { ValidateProfileErrors } from '../../types/ProflieSchema.types';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 export const updateProfileData = createAsyncThunk<IProfile, string, ThinkAPI<ValidateProfileErrors[]>>(

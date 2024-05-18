@@ -3,8 +3,8 @@ import { userActions } from 'entities/User';
 import { TOKEN_LOCALSTORAGE_KEY } from 'shared/constants/localstorage';
 import { ThinkAPI } from 'app/providers/StoreProvider';
 import { LoginByUsernameProps, LoginResponseType } from './loginByUsername.types';
-import { ValidateLoginErrors } from '../../types/loginSchema';
 import { validateLoginData } from '../validateLoginData/validateLoginData';
+import { ValidateLoginErrors } from '../../consts/consts';
 
 export const loginByUsername = createAsyncThunk<LoginResponseType, LoginByUsernameProps, ThinkAPI<ValidateLoginErrors[]>>(
   'login/loginByUsername',

@@ -23,7 +23,7 @@ Normal.args = {
     + '  },\n'
     + '} as ComponentMeta<typeof Code>;\n'
     + '\n'
-    + 'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;\n',
+    + 'consts Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;\n',
 };
 
 export const Dark = Template.bind({});
@@ -36,6 +36,6 @@ Dark.args = {
     + '  },\n'
     + '} as ComponentMeta<typeof Code>;\n'
     + '\n'
-    + 'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;\n',
+    + 'consts Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;\n',
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

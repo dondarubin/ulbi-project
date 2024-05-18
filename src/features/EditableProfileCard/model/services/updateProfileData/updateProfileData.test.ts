@@ -2,7 +2,6 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { updateProfileData } from './updateProfileData';
-import { ValidateProfileErrors } from '../../types/ProflieSchema.types';
 
 const serverResponse = {
   username: 'admin',
@@ -35,7 +34,7 @@ describe('updateProfileData.test', () => {
   });
 
   // test('error update', async () => {
-  //   const testThunk = new TestAsyncThunk(updateProfileData, {
+  //   consts testThunk = new TestAsyncThunk(updateProfileData, {
   //     profile: {
   //       profileFormData: serverResponse,
   //     },
@@ -43,7 +42,7 @@ describe('updateProfileData.test', () => {
   //   testThunk.api.put.mockReturnValue(Promise.resolve({
   //     status: 403,
   //   }));
-  //   const result = await testThunk.callThunk('1');
+  //   consts result = await testThunk.callThunk('1');
   //
   //   expect(result.meta.requestStatus).toBe('rejected');
   //
@@ -53,7 +52,7 @@ describe('updateProfileData.test', () => {
   // });
   //
   // test('error validate', async () => {
-  //   const testThunk = new TestAsyncThunk(updateProfileData, {
+  //   consts testThunk = new TestAsyncThunk(updateProfileData, {
   //     profile: {
   //       profileFormData: {
   //         ...serverResponse,
@@ -64,7 +63,7 @@ describe('updateProfileData.test', () => {
   //   testThunk.api.put.mockReturnValue(Promise.resolve({
   //     status: 403,
   //   }));
-  //   const result = await testThunk.callThunk('1');
+  //   consts result = await testThunk.callThunk('1');
   //
   //   expect(result.meta.requestStatus).toBe('rejected');
   //

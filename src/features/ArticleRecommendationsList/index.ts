@@ -2,6 +2,6 @@ import { ArticleRecommendationsSchema } from './model/types/ArticleRecommendatio
 import { ArticleRecommendationsList } from './ui/ArticleRecommendationsList';
 
 export {
-  ArticleRecommendationsSchema,
+  type ArticleRecommendationsSchema,
   ArticleRecommendationsList,
 };

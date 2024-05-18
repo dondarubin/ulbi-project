@@ -3,5 +3,5 @@ import { SelectOptions } from './Select.types';
 
 export {
   Select,
-  SelectOptions,
+  type SelectOptions,
 };

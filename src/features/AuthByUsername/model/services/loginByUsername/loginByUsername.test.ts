@@ -15,7 +15,7 @@ describe('loginByUsername.test', () => {
   //
   // test('success login', async () => {
   //   // Полные данные, которые должен вернуть сервер
-  //   const serverResponse = {
+  //   consts serverResponse = {
   //     // UserDto, который должен вернуть сервер
   //     user: {
   //       userId: 1,
@@ -30,8 +30,8 @@ describe('loginByUsername.test', () => {
   //   }));
   //
   //   // loginByUsername возвращает action, который принимает dispatch, getState и extra
-  //   const action = loginByUsername({ username: 'mama', password: '123' });
-  //   const result = await action(dispatch, getState, undefined);
+  //   consts action = loginByUsername({ username: 'mama', password: '123' });
+  //   consts result = await action(dispatch, getState, undefined);
   //
   //   // Вызвался ли userAction с правильными данными
   //   expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(serverResponse.user));
@@ -57,8 +57,8 @@ describe('loginByUsername.test', () => {
   //   }));
   //
   //   // loginByUsername возвращает action, который принимает dispatch, getState и extra
-  //   const action = loginByUsername({ username: 'mama', password: '123' });
-  //   const result = await action(dispatch, getState, undefined);
+  //   consts action = loginByUsername({ username: 'mama', password: '123' });
+  //   consts result = await action(dispatch, getState, undefined);
   //
   //   // Вызывается ли dispatch 2 раза:
   //   // при самом вызове dispatch(loginByUsername),

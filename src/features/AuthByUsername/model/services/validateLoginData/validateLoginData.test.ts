@@ -1,4 +1,4 @@
-import { ValidateLoginErrors } from '../../types/loginSchema';
+import { ValidateLoginErrors } from '../../consts/consts';
 import { validateLoginData } from './validateLoginData';
 
 // TODO дописать тесты при добавлении новой валидации

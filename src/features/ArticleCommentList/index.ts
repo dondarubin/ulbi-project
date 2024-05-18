@@ -4,6 +4,6 @@ import { ArticleCommentList } from './ui/ArticleCommentList';
 
 export {
   addNewCommentForArticle,
-  ArticleCommentsSchema,
+  type ArticleCommentsSchema,
   ArticleCommentList,
 };
