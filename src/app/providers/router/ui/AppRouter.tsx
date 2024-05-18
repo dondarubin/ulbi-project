@@ -1,11 +1,12 @@
 import { memo, Suspense, useMemo } from 'react';
-import { routeConfig, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import {
   Navigate, Route, Routes, useLocation,
 } from 'react-router-dom';
 import { PageLoader } from 'widgets/PageLoader';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, getUserRoles } from 'entities/User';
+import { getRouteForbidden } from 'shared/constants/router';
 
 const AppRouter = memo(() => {
   const isAuth = useSelector(getUserAuthData);
@@ -43,7 +44,7 @@ const AppRouter = memo(() => {
           path={path}
           element={(
             <Suspense fallback={<PageLoader />}>
-              {(roles && !roles.some((role) => userRoles?.includes(role))) ? <Navigate to={RoutePath.forbidden} state={{ from: location }} replace /> : element}
+              {(roles && !roles.some((role) => userRoles?.includes(role))) ? <Navigate to={getRouteForbidden()} state={{ from: location }} replace /> : element}
             </Suspense>
           )}
         />

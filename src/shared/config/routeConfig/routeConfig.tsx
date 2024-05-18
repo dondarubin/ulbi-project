@@ -10,84 +10,71 @@ import { ArticleCreatePage } from 'pages/ArticleCreatePage';
 import { AdminPanelPage } from 'pages/AdminPanelPage';
 import { UserRoles } from 'entities/User';
 import { ForbiddenPage } from 'pages/ForbiddenPage';
+import {
+  AppRotes,
+  getRouteAbout,
+  getRouteAdminPanel,
+  getRouteArticleCreate,
+  getRouteArticleDetails,
+  getRouteArticleEdit,
+  getRouteArticles,
+  getRouteForbidden,
+  getRouteMain,
+  getRouteNotFound,
+  getRouteProfile,
+} from 'shared/constants/router';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
   roles?: UserRoles[]
 }
 
-export enum AppRotes {
-  MAIN = 'main',
-  ABOUT = 'about',
-  PROFILE = 'profile',
-  ARTICLES = 'articles',
-  ARTICLE_DETAILS = 'article_details',
-  ARTICLE_CREATE = 'article_create',
-  ARTICLE_EDIT = 'article_edit',
-  ADMIN_PANEL = 'admin_panel',
-  FORBIDDEN = 'forbidden',
-  NOT_FOUND = 'not_found',
-}
-
-export const RoutePath: Record<AppRotes, string> = {
-  [AppRotes.MAIN]: '/',
-  [AppRotes.ABOUT]: '/about',
-  [AppRotes.PROFILE]: '/profile/', // + :id
-  [AppRotes.ARTICLES]: '/articles',
-  [AppRotes.ARTICLE_DETAILS]: '/articles/', // + :id
-  [AppRotes.ARTICLE_CREATE]: '/articles/new',
-  [AppRotes.ARTICLE_EDIT]: '/articles/edit/',
-  [AppRotes.ADMIN_PANEL]: '/admin',
-  [AppRotes.FORBIDDEN]: '/forbidden',
-  [AppRotes.NOT_FOUND]: '*',
-};
-
 export const routeConfig: Record<AppRotes, AppRoutesProps> = {
   [AppRotes.MAIN]: {
-    path: RoutePath.main,
+    path: getRouteMain(),
     element: <MainPage />,
   },
   [AppRotes.ABOUT]: {
-    path: RoutePath.about,
+    path: getRouteAbout(),
     element: <AboutPage />,
   },
   [AppRotes.PROFILE]: {
-    path: `${RoutePath.profile}:id`,
+    path: getRouteProfile(':id'),
     element: <ProfilePage />,
     authOnly: true,
   },
   [AppRotes.ARTICLES]: {
-    path: RoutePath.articles,
+    path: getRouteArticles(),
     element: <ArticlesPage />,
     authOnly: true,
   },
   [AppRotes.ARTICLE_DETAILS]: {
-    path: `${RoutePath.article_details}:id`,
+    path: getRouteArticleDetails(':id'),
     element: <ArticleDetailsPage />,
     authOnly: true,
   },
   [AppRotes.ARTICLE_CREATE]: {
-    path: `${RoutePath.article_create}`,
+    path: getRouteArticleCreate(),
     element: <ArticleCreatePage />,
     authOnly: true,
   },
   [AppRotes.ARTICLE_EDIT]: {
-    path: `${RoutePath.article_edit}:id`,
+    path: getRouteArticleEdit(':id'),
     element: <ArticleEditPage />,
     authOnly: true,
   },
   [AppRotes.ADMIN_PANEL]: {
-    path: `${RoutePath.admin_panel}`,
+    path: getRouteAdminPanel(),
     element: <AdminPanelPage />,
     authOnly: true,
     roles: [UserRoles.ADMIN, UserRoles.MANAGER],
   },
   [AppRotes.FORBIDDEN]: {
-    path: `${RoutePath.forbidden}`,
+    path: getRouteForbidden(),
     element: <ForbiddenPage />,
   },
   [AppRotes.NOT_FOUND]: {
-    path: RoutePath.not_found,
+    path: getRouteNotFound(),
     element: <NotFoundPage />,
   },
 };

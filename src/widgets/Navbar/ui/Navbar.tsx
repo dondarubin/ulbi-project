@@ -9,9 +9,9 @@ import {
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Dropdown } from 'shared/ui/Dropdown';
 import { Avatar } from 'shared/ui/Avatar';
+import { getRouteAdminPanel, getRouteArticleCreate, getRouteProfile } from 'shared/constants/router';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -50,7 +50,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         />
         <AppLink
           className={styles.createBtn}
-          to={RoutePath.article_create}
+          to={getRouteArticleCreate()}
           theme={AppLinkTheme.PRIMARY_INVERTED}
         >
           {t('Создать статью')}
@@ -62,11 +62,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           items={[
             ...(isAdminPanelAvailable ? [{
               content: t('Админка'),
-              href: RoutePath.admin_panel,
+              href: getRouteAdminPanel(),
             }] : []),
             {
               content: t('Профиль'),
-              href: RoutePath.profile + authData.userId,
+              href: getRouteProfile(authData.userId.toString()),
             },
             {
               content: t('Выйти'),
