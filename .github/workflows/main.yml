@@ -51,5 +51,3 @@ jobs:
       - name: Screenshot test
         run: npm run test:ui:ci
         if: always()
-У вас нет доступа к этой странице: У вас нет доступа к этой странице
-Админ панель: Админ панель
