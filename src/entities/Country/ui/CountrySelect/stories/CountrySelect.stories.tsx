@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Country } from '../../../model/types/country.types';
 import { CountrySelect } from '../CountrySelect';
 
@@ -15,4 +16,5 @@ const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect 
 export const Primary = Template.bind({});
 Primary.args = {
   value: Country.RUSSIA,
+  onChange: action('OnChangeValue'),
 };

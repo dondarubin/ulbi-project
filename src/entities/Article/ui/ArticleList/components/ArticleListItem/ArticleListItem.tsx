@@ -53,7 +53,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           <div className={styles.footer}>
             <AppLink
               target={target}
-              to={getRouteArticleDetails(article.article_id.toString())}
+              to={getRouteArticleDetails(String(article.article_id))}
             >
               <Button theme={ButtonTheme.OUTLINE}>
                 {t('Читать далее')}
@@ -71,7 +71,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
     <AppLink
       target={target}
-      to={getRouteArticleDetails(article.article_id.toString())}
+      to={getRouteArticleDetails(String(article.article_id))}
       className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
     >
       <Card>

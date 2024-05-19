@@ -1,8 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Text, TextTheme } from 'shared/ui/Text';
 import { ArticleCommentList } from 'features/ArticleCommentList';
 import { PageWrapper } from 'widgets/PageWrapper';
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
@@ -15,7 +13,6 @@ interface ArticleDetailsPageProps {
 }
 
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
-  const { t } = useTranslation('articles');
   const { id } = useParams<{ id: string }>();
 
   // if (!id) {

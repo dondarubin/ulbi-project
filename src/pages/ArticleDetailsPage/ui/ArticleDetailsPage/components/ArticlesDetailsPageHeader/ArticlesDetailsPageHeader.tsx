@@ -30,7 +30,7 @@ export const ArticlesDetailsPageHeader = memo((props: ArticlesDetailsPageHeaderP
 
   const onClickEditArticleHandler = useCallback(() => {
     if (currentArticle) {
-      navigate(getRouteArticleEdit(currentArticle.article_id.toString()));
+      navigate(getRouteArticleEdit(String(currentArticle.article_id)));
     }
   }, [currentArticle, navigate]);
 

@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Select } from '../Select';
 
 export default {
@@ -18,6 +19,7 @@ Primary.args = {
     { value: 'RUB', content: 'Рубль' },
     { value: 'USD', content: 'Доллар' },
   ],
+  onChange: action('OnChangeValue'),
 };
 
 export const WithoutLabel = Template.bind({});
@@ -26,4 +28,5 @@ WithoutLabel.args = {
     { value: 'RUB', content: 'Рубль' },
     { value: 'USD', content: 'Доллар' },
   ],
+  onChange: action('OnChangeValue'),
 };

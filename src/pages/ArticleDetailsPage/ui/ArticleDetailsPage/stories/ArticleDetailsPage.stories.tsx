@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleContentType, ArticleType } from 'entities/Article/model/constants/articleConstants';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { IArticleWithUserData } from 'entities/Article';
+import withMock from 'storybook-addon-mock';
 import ArticleDetailsPage from '../ArticleDetailsPage';
 
 export default {
@@ -10,6 +11,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [withMock],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
@@ -99,6 +101,24 @@ CanEdit.decorators = [StoreDecorator({
     articleData: article,
   },
 })];
+CanEdit.parameters = {
+  mockData: [
+    {
+      url: `${__API__}/articles?limit=8&page=1&sort=created_at&order=desc&search=&type=ALL`,
+      method: 'GET',
+      status: 200,
+      response: {
+        searchingArticles: [
+          { ...article, article_id: 2 },
+          { ...article, article_id: 3 },
+          { ...article, article_id: 4 },
+          { ...article, article_id: 5 },
+        ],
+        hasMore: true,
+      },
+    },
+  ],
+};
 
 export const CantEdit = Template.bind({});
 CantEdit.args = {};
@@ -112,3 +132,21 @@ CantEdit.decorators = [StoreDecorator({
     articleData: article,
   },
 })];
+CantEdit.parameters = {
+  mockData: [
+    {
+      url: `${__API__}/articles?limit=8&page=1&sort=created_at&order=desc&search=&type=ALL`,
+      method: 'GET',
+      status: 200,
+      response: {
+        searchingArticles: [
+          { ...article, article_id: 2 },
+          { ...article, article_id: 3 },
+          { ...article, article_id: 4 },
+          { ...article, article_id: 5 },
+        ],
+        hasMore: true,
+      },
+    },
+  ],
+};

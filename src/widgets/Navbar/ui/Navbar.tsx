@@ -66,7 +66,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             }] : []),
             {
               content: t('Профиль'),
-              href: getRouteProfile(authData.userId.toString()),
+              href: getRouteProfile(String(authData.userId)),
             },
             {
               content: t('Выйти'),
