@@ -12,6 +12,7 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
 import { Dropdown } from 'shared/ui/Dropdown';
 import { Avatar } from 'shared/ui/Avatar';
 import { getRouteAdminPanel, getRouteArticleCreate, getRouteProfile } from 'shared/constants/router';
+import { RegisterModal } from 'features/RegisterByUsername';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -22,6 +23,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
+  const [isOpenRegisterModal, setIsOpenRegisterModal] = useState(false);
   const authData = useSelector(getUserAuthData);
   const isAdmin = useSelector(getIsUserAdmin);
   const isManager = useSelector(getIsUserManager);
@@ -30,8 +32,16 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     setIsOpenLoginModal(true);
   }, []);
 
+  const onClickOpenRegisterModalHandler = useCallback(() => {
+    setIsOpenRegisterModal(true);
+  }, []);
+
   const onClickCloseLoginModalHandler = useCallback(() => {
     setIsOpenLoginModal(false);
+  }, []);
+
+  const onClickCloseRegisterModalHandler = useCallback(() => {
+    setIsOpenRegisterModal(false);
   }, []);
 
   const onClickLogoutHandler = useCallback(() => {
@@ -45,7 +55,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       <header className={classNames(styles.Navbar, {}, [className])}>
         <Text
           className={styles.appName}
-          title={t('Articles App')}
+          title={t('Tech Pulse')}
           theme={TextTheme.INVERTED}
         />
         <AppLink
@@ -86,6 +96,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       <Button
         className={classNames(styles.links, {}, [])}
         theme={ButtonTheme.CLEAR_INVERTED}
+        onClick={onClickOpenRegisterModalHandler}
+      >
+        {t('Зарегистрироваться')}
+      </Button>
+
+      <Button
+        className={classNames(styles.links, {}, [])}
+        theme={ButtonTheme.CLEAR_INVERTED}
         onClick={onClickOpenLoginModalHandler}
       >
         {t('Войти')}
@@ -95,6 +113,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <LoginModal
           isOpen={isOpenLoginModal}
           onClose={onClickCloseLoginModalHandler}
+        />
+      )}
+
+      {isOpenRegisterModal && (
+        <RegisterModal
+          isOpen={isOpenRegisterModal}
+          onClose={onClickCloseRegisterModalHandler}
         />
       )}
     </header>

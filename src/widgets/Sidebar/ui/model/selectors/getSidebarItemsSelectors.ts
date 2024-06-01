@@ -5,8 +5,9 @@ import { AboutIcon } from 'shared/assets/icons/AboutIcon/AboutIcon';
 import { UserProfileIcon } from 'shared/assets/icons/UserProfile/UserProfileIcon';
 import { ArticlesIcon } from 'shared/assets/icons/ArticlesIcon/ArticlesIcon';
 import {
-  getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+  getRouteAbout, getRouteAiHelper, getRouteArticles, getRouteMain, getRouteProfile,
 } from 'shared/constants/router';
+import { RobotIcon } from 'shared/assets/icons/RobotIcon/RobotIcon';
 import { SidebarItemType } from '../types/Sidebar.types';
 
 export const getSidebarItems = createSelector(
@@ -37,6 +38,12 @@ export const getSidebarItems = createSelector(
           path: getRouteArticles(),
           text: 'Статьи',
           Icon: ArticlesIcon,
+          authOnly: true,
+        },
+        {
+          path: getRouteAiHelper(),
+          text: 'Помощник',
+          Icon: RobotIcon,
           authOnly: true,
         },
       );

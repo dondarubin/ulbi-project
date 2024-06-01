@@ -14,6 +14,7 @@ import {
   AppRotes,
   getRouteAbout,
   getRouteAdminPanel,
+  getRouteAiHelper,
   getRouteArticleCreate,
   getRouteArticleDetails,
   getRouteArticleEdit,
@@ -23,6 +24,7 @@ import {
   getRouteNotFound,
   getRouteProfile,
 } from 'shared/constants/router';
+import { AiHelperPage } from 'pages/AiHelperPage';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
@@ -68,6 +70,11 @@ export const routeConfig: Record<AppRotes, AppRoutesProps> = {
     element: <AdminPanelPage />,
     authOnly: true,
     roles: [UserRoles.ADMIN, UserRoles.MANAGER],
+  },
+  [AppRotes.AI_HELPER]: {
+    path: getRouteAiHelper(),
+    element: <AiHelperPage />,
+    authOnly: true,
   },
   [AppRotes.FORBIDDEN]: {
     path: getRouteForbidden(),

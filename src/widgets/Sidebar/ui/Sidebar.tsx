@@ -2,12 +2,13 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwither';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { ArrowIconRight } from 'shared/assets/icons/ArrowIcons/ArrowIconRight/ArrowIconRight';
-import { ArrowIconLeft } from 'shared/assets/icons/ArrowIcons/ArrowIconLeft/ArrowIconLeft';
 import { LineIcon } from 'shared/assets/icons/ArrowIcons/LineIcon/LineIcon';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
 import { VStack } from 'shared/ui/Stack';
+import { useHover } from 'shared/lib/hooks';
+import { ArrowIconLeft } from 'shared/assets/icons/ArrowIcons/ArrowIconLeft/ArrowIconLeft';
+import { ArrowIconRight } from 'shared/assets/icons/ArrowIcons/ArrowIconRight/ArrowIconRight';
 import styles from './Sidebar.module.scss';
 import { getSidebarItems } from './model/selectors/getSidebarItemsSelectors';
 import { SidebarItem } from './components/SidebarItem';
@@ -18,16 +19,11 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
-  const [hovered, setHovered] = useState(false);
+  const [isHover, bindHover] = useHover();
   const sidebarItemsList = useSelector(getSidebarItems);
 
   const onClickToggleCollapseHandler = () => {
     setCollapsed((prev) => !prev);
-    setHovered((prev) => !prev);
-  };
-
-  const onHoverToggleHoverHandler = () => {
-    setHovered((prev) => !prev);
   };
 
   const sidebarItemsListMemo = useMemo(() => sidebarItemsList.map((item) => (
@@ -51,8 +47,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         className={styles.collapseButton}
         data-testid="sidebar-toggle"
         onClick={onClickToggleCollapseHandler}
-        onMouseEnter={onHoverToggleHoverHandler}
-        onMouseLeave={onHoverToggleHoverHandler}
+        {...bindHover}
         theme={ButtonTheme.BACKGROUND_INVERTED}
         size={ButtonSize.XL}
         square
@@ -60,7 +55,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         {
           collapsed ? (
             <ArrowIconRight color="var(--inverted-primary-color)" />
-          ) : hovered ? (
+          ) : isHover ? (
             <ArrowIconLeft color="var(--inverted-primary-color)" />
           ) : (
             <LineIcon color="var(--inverted-primary-color)" />

@@ -1,6 +1,6 @@
 import { ValidateLoginErrors } from '../consts/consts';
 
-export interface LoginSchema {
+export interface LoginSchemaTypes {
   username: string,
   password: string,
   isLoading: boolean,

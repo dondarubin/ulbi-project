@@ -5,7 +5,7 @@ import { Input } from 'shared/ui/Input';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { ReducersList, useAppDispatch, useDynamicModuleLoader } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { HStack } from 'shared/ui/Stack';
 import styles from './AddNewCommentForm.module.scss';
 import { addNewCommentFormActions, addNewCommentFormReducer } from '../model/slice/addNewCommentFormSlice';
 import { getAddNewCommentFormText } from '../model/selectors/addNewCommentFormSelectors';

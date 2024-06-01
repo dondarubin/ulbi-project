@@ -1,0 +1,8 @@
+.AskAiAssistantForm {
+  padding: 15px;
+  border: 1px solid var(--primary-color);
+
+  &_input {
+    flex-grow: 1;
+  }
+}

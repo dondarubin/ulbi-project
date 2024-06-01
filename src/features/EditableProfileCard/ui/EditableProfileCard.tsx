@@ -53,7 +53,7 @@ export const EditableProfileCard = ({ className, id }: EditableProfileCardProps)
     if (id) {
       dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const onChangeFirstnameHandler = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ firstname: value || '' }));

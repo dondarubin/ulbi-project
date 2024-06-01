@@ -1,14 +1,30 @@
 .app_purple_theme {
-  // TODO внедрить новую тему
-  --bg-color: var(--color-purple);
-  --inverted-bg-color: var(--color-white);
+  //// TODO внедрить новую тему
+  //--bg-color: var(--color-purple);
+  //--inverted-bg-color: var(--color-white);
+  //--primary-color: var(--color-white);
+  //--inverted-primary-color: var(--color-purple);
+  //--secondary-color: var(--color-purple);
+  //--inverted-secondary-color: var(--color-purple);
+  //--color-modal-bg: var(--color-lightblue);
+  //
+  //// TODO сделать нормальные цвета
+  //--skeleton-shadow: var(--color-blue-dark);
+  //--skeleton-color: var(--color-blue-light);
+
+  --bg-color: var(--color-black);
+  --inverted-bg-color: var(--color-gray);
   --primary-color: var(--color-white);
-  --inverted-primary-color: var(--color-purple);
-  --secondary-color: var(--color-purple);
-  --inverted-secondary-color: var(--color-purple);
-  --color-modal-bg: var(--color-lightblue);
+  --inverted-primary-color: var(--color-black);
+  --secondary-color: var(--color-green);
+  --inverted-secondary-color: var(--color-blue);
+  --color-modal-bg: var(--color-gray-dark);
 
   // TODO сделать нормальные цвета
-  --skeleton-shadow: var(--color-blue-dark);
-  --skeleton-color: var(--color-blue-light);
+  --skeleton-shadow: var(--color-green-dark);
+  --skeleton-color: var(--color-green-light);
+  --code-bg: var(--color-black-light);
+  --card-bg: var(--color-black-light);
+  --listbox-bg: var(--color-black-light);
+  --dropdown-bg: var(--color-black-light);
 }

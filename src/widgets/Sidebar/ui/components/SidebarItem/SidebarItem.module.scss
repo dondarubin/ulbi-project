@@ -38,6 +38,11 @@
   &:nth-child(4):hover > svg > circle {
     stroke: var(--inverted-secondary-color);
   }
+
+  // Цвет 5-ой иконки при hover
+  &:nth-child(5):hover > svg > path {
+    fill: var(--inverted-secondary-color);
+  }
 }
 
 .link {

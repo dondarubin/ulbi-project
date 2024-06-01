@@ -4,6 +4,8 @@
   background: var(--inverted-bg-color);
   display: flex;
   align-items: center;
+  justify-content: end;
+  gap: 20px;
   padding: 20px;
 }
 
@@ -12,8 +14,6 @@
 }
 
 .links {
-  margin-left: auto;
-
   &:hover {
     color: var(--inverted-secondary-color);
   }

@@ -2,7 +2,7 @@ import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
+import { LoginSchemaTypes } from 'features/AuthByUsername';
 import { AxiosInstance } from 'axios';
 import { ProfileSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
@@ -12,6 +12,8 @@ import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
 import { ArticleRecommendationsSchema } from 'features/ArticleRecommendationsList';
 import { rtkApi } from 'shared/api/rtkApi';
+import { AiHelperSchema } from 'entities/AiHelper';
+import { RegisterSchema } from 'features/RegisterByUsername';
 
 // TODO Разобраться и принять решение использования одного из видов кейсов для userId и т.д. (Kebab...)
 export interface StateSchema {
@@ -20,13 +22,15 @@ export interface StateSchema {
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Асинхронные редюсеры
-  loginForm?: LoginSchema;
+  loginForm?: LoginSchemaTypes;
+  registerForm?: RegisterSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleComments?: ArticleCommentsSchema;
   articleRecommendations?: ArticleRecommendationsSchema;
   addNewCommentForm?: AddNewCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
+  aiHelper?: AiHelperSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema
