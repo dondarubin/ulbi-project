@@ -12,6 +12,7 @@ import { RegisterModal } from 'features/RegisterByUsername';
 import { HStack } from 'shared/ui/Stack';
 import { NotificationButton } from 'features/NotificationButton';
 import { AvatarDropdown } from 'features/AvatarDropdown';
+import { Drawer } from 'shared/ui/Drawer';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -57,7 +58,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         </AppLink>
 
         <HStack gap="16" align="center" className={styles.actions}>
-          <NotificationButton />
+          <NotificationButton userId={authData.userId} />
           <AvatarDropdown />
         </HStack>
       </header>

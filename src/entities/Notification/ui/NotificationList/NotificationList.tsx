@@ -8,14 +8,17 @@ import { useNotifications } from '../../api/notificationApi';
 
 interface NotificationListProps {
   className?: string;
+  userId: number;
 }
 
 export const NotificationList = memo((props: NotificationListProps) => {
   const {
     className,
+    userId,
   } = props;
-  const { data, isLoading } = useNotifications(null, {
-    pollingInterval: 5000,
+
+  const { data, isLoading } = useNotifications(userId, {
+    pollingInterval: 10000,
   });
 
   if (isLoading) {
