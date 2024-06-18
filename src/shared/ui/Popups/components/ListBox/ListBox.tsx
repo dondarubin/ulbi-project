@@ -44,7 +44,7 @@ export function ListBox(props: ListBoxProps) {
   return (
     <HStack gap="8">
       {label && (
-        <span className={classNames('', { [styles.disabled]: readonly }, [])}>
+        <span className={classNames('', { [popupStyle.disabled]: readonly }, [])}>
           {`${label}>`}
         </span>
       )}

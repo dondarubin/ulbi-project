@@ -1,17 +1,4 @@
 .app_purple_theme {
-  //// TODO внедрить новую тему
-  //--bg-color: var(--color-purple);
-  //--inverted-bg-color: var(--color-white);
-  //--primary-color: var(--color-white);
-  //--inverted-primary-color: var(--color-purple);
-  //--secondary-color: var(--color-purple);
-  //--inverted-secondary-color: var(--color-purple);
-  //--color-modal-bg: var(--color-lightblue);
-  //
-  //// TODO сделать нормальные цвета
-  //--skeleton-shadow: var(--color-blue-dark);
-  //--skeleton-color: var(--color-blue-light);
-
   --bg-color: var(--color-black);
   --inverted-bg-color: var(--color-gray);
   --primary-color: var(--color-white);
@@ -28,3 +15,15 @@
   --listbox-bg: var(--color-black-light);
   --dropdown-bg: var(--color-black-light);
 }
+
+//// TODO внедрить новую тему
+//  --bg-color: var(--color-purple);
+//  --inverted-bg-color: var(--color-white);
+//  --primary-color: var(--color-white);
+//  --inverted-primary-color: var(--color-purple);
+//  --secondary-color: var(--color-purple);
+//  --inverted-secondary-color: var(--color-purple);
+//  --color-modal-bg: var(--color-lightblue);
+//// TODO сделать нормальные цвета
+//  --skeleton-shadow: var(--color-blue-dark);
+//  --skeleton-color: var(--color-blue-light);

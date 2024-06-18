@@ -35,24 +35,24 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     </Button>
   );
 
+  if (isMobile) {
+    return (
+      <>
+        {trigger}
+        <Drawer isOpen={isOpenDrawer} onClose={onClickCloseDrawerHandler}>
+          <NotificationList userId={userId} />
+        </Drawer>
+      </>
+    );
+  }
+
   return (
-    <>
-      {isMobile ? (
-        <>
-          {trigger}
-          <Drawer isOpen={isOpenDrawer} onClose={onClickCloseDrawerHandler}>
-            <NotificationList userId={userId} />
-          </Drawer>
-        </>
-      ) : (
-        <Popover
-          className={classNames(styles.NotificationButton, {}, [className])}
-          direction="bottom left"
-          trigger={trigger}
-        >
-          <NotificationList className={styles.notifications} userId={userId} />
-        </Popover>
-      )}
-    </>
+    <Popover
+      className={classNames(styles.NotificationButton, {}, [className])}
+      direction="bottom left"
+      trigger={trigger}
+    >
+      <NotificationList className={styles.notifications} userId={userId} />
+    </Popover>
   );
 });
