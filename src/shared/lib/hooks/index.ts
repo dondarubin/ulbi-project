@@ -7,6 +7,7 @@ import { useEffectInitial } from './useEffectInitial/useEffectInitial';
 import { useHover } from './useHover/useHover';
 import { useInfinityScroll } from './useInfinityScroll/useInfinityScroll';
 import { useLayoutEffectCustom } from './useLayoutEffectCustom/useLayoutEffectCustom';
+import { useModal } from './useModal/useModal';
 import { useThrottle } from './useThrottle/useThrottle';
 
 export {
@@ -21,4 +22,5 @@ export {
   useLayoutEffectCustom,
   useDebounce,
   useDevice,
+  useModal,
 };
