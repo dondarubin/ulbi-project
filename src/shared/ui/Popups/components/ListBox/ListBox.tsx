@@ -3,8 +3,10 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { DropdownDirection } from 'shared/types/ui.types';
 import styles from './ListBox.module.scss';
-import { Button } from '../Button';
-import { HStack } from '../Stack';
+import { Button } from '../../../Button';
+import { HStack } from '../../../Stack';
+import { mapDirectionClass } from '../../styles/consts';
+import popupStyle from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
   value: string;
@@ -22,13 +24,6 @@ interface ListBoxProps {
   direction?: DropdownDirection;
   label?: string;
 }
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'top left': styles.optionsTopLeft,
-  'top right': styles.optionsTopRight,
-  'bottom left': styles.optionsBottomLeft,
-  'bottom right': styles.optionsBottomRight,
-};
 
 export function ListBox(props: ListBoxProps) {
   const {
@@ -55,20 +50,20 @@ export function ListBox(props: ListBoxProps) {
       )}
 
       <HListBox
-        className={classNames(styles.ListBox, {}, [className])}
+        className={classNames(styles.ListBox, {}, [className, popupStyle.popup])}
         as="div"
         value={selectedValue}
         onChange={onChange}
         disabled={readonly}
       >
-        <HListBox.Button disabled={readonly} className={styles.ListBox_btn}>
+        <HListBox.Button disabled={readonly} className={popupStyle.btn}>
           <Button disabled={readonly}>
             {selectedValue ?? defaultValue}
           </Button>
           {/* TODO добавить иконку */}
         </HListBox.Button>
 
-        <HListBox.Options className={classNames(styles.ListBox_options, {}, optionsClasses)}>
+        <HListBox.Options className={classNames(styles.options, {}, optionsClasses)}>
           {items?.map((item) => (
             <HListBox.Option
               key={item.value}
@@ -79,10 +74,10 @@ export function ListBox(props: ListBoxProps) {
               {({ active, selected }) => (
                 <li
                   className={classNames(
-                    styles.ListBox_item,
+                    styles.item,
                     {
-                      [styles.active]: active,
-                      [styles.disabled]: item.disabled,
+                      [popupStyle.active]: active,
+                      [popupStyle.disabled]: item.disabled,
                     },
                   )}
                 >

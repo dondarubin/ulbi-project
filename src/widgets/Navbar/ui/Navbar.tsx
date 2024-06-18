@@ -2,17 +2,16 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  getIsUserAdmin, getIsUserManager, getUserAuthData, logout,
-} from 'entities/User';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
-import { Dropdown } from 'shared/ui/Dropdown';
-import { Avatar } from 'shared/ui/Avatar';
-import { getRouteAdminPanel, getRouteArticleCreate, getRouteProfile } from 'shared/constants/router';
+import { getRouteArticleCreate } from 'shared/constants/router';
 import { RegisterModal } from 'features/RegisterByUsername';
+import { HStack } from 'shared/ui/Stack';
+import { NotificationButton } from 'features/NotificationButton';
+import { AvatarDropdown } from 'features/AvatarDropdown';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -20,13 +19,10 @@ interface NavbarProps {
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const { t } = useTranslation('main');
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenRegisterModal, setIsOpenRegisterModal] = useState(false);
   const authData = useSelector(getUserAuthData);
-  const isAdmin = useSelector(getIsUserAdmin);
-  const isManager = useSelector(getIsUserManager);
 
   const onClickOpenLoginModalHandler = useCallback(() => {
     setIsOpenLoginModal(true);
@@ -44,12 +40,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     setIsOpenRegisterModal(false);
   }, []);
 
-  const onClickLogoutHandler = useCallback(() => {
-    dispatch(logout());
-  }, [dispatch]);
-
-  const isAdminPanelAvailable = isAdmin || isManager;
-
   if (authData) {
     return (
       <header className={classNames(styles.Navbar, {}, [className])}>
@@ -66,27 +56,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           {t('Создать статью')}
         </AppLink>
 
-        {/* TODO добавить как то аватар */}
-        <Dropdown
-          className={styles.dropdown}
-          items={[
-            ...(isAdminPanelAvailable ? [{
-              content: t('Админка'),
-              href: getRouteAdminPanel(),
-            }] : []),
-            {
-              content: t('Профиль'),
-              href: getRouteProfile(String(authData.userId)),
-            },
-            {
-              content: t('Выйти'),
-              onClick: onClickLogoutHandler,
-            },
-          ]}
-          // trigger={<Avatar size={30} src={authData.avatar}/>}
-          trigger={<Avatar size={30} />}
-          direction="bottom left"
-        />
+        <HStack gap="16" align="center" className={styles.actions}>
+          <NotificationButton />
+          <AvatarDropdown />
+        </HStack>
       </header>
     );
   }

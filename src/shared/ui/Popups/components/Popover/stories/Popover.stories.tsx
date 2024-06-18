@@ -1,54 +1,44 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Button } from '../../Button';
-import { Dropdown } from '../index';
+import { Popover } from '../Popover';
+import { Button } from '../../../../Button';
 
 export default {
-  title: 'shared/Dropdown',
-  component: Dropdown,
+  title: 'shared/Popups/Popover',
+  component: Popover,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
   decorators: [
     (Story) => <div style={{ padding: 100 }}><Story /></div>,
   ],
-} as ComponentMeta<typeof Dropdown>;
+} as ComponentMeta<typeof Popover>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
   // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
-  items: [
-    {
-      content: 'first',
-    },
-    {
-      content: 'second',
-    },
-    {
-      content: 'third',
-    },
-  ],
+  children: (
+    // eslint-disable-next-line i18next/no-literal-string
+    <div>
+      Content
+    </div>
+  ),
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
   // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
-  items: [
-    {
-      content: 'first',
-    },
-    {
-      content: 'second',
-    },
-    {
-      content: 'third',
-    },
-  ],
+  children: (
+    // eslint-disable-next-line i18next/no-literal-string
+    <div>
+      Content
+    </div>
+  ),
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -57,17 +47,12 @@ BottomLeft.args = {
   // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
   direction: 'bottom left',
-  items: [
-    {
-      content: 'first',
-    },
-    {
-      content: 'second',
-    },
-    {
-      content: 'third',
-    },
-  ],
+  children: (
+    // eslint-disable-next-line i18next/no-literal-string
+    <div>
+      Content
+    </div>
+  ),
 };
 BottomLeft.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -76,17 +61,12 @@ BottomRight.args = {
   // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
   direction: 'bottom right',
-  items: [
-    {
-      content: 'first',
-    },
-    {
-      content: 'second',
-    },
-    {
-      content: 'third',
-    },
-  ],
+  children: (
+    // eslint-disable-next-line i18next/no-literal-string
+    <div>
+      Content
+    </div>
+  ),
 };
 BottomRight.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -95,17 +75,12 @@ TopRight.args = {
   // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
   direction: 'top right',
-  items: [
-    {
-      content: 'first',
-    },
-    {
-      content: 'second',
-    },
-    {
-      content: 'third',
-    },
-  ],
+  children: (
+    // eslint-disable-next-line i18next/no-literal-string
+    <div>
+      Content
+    </div>
+  ),
 };
 TopRight.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -114,16 +89,11 @@ TopLeft.args = {
   // eslint-disable-next-line i18next/no-literal-string
   trigger: <Button>Open!</Button>,
   direction: 'top left',
-  items: [
-    {
-      content: 'first',
-    },
-    {
-      content: 'second',
-    },
-    {
-      content: 'third',
-    },
-  ],
+  children: (
+    // eslint-disable-next-line i18next/no-literal-string
+    <div>
+      Content
+    </div>
+  ),
 };
 TopLeft.decorators = [ThemeDecorator(Theme.DARK)];

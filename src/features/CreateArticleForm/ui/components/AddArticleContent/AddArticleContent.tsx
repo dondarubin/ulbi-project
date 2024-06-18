@@ -4,12 +4,12 @@ import {
   memo, useCallback, useMemo, useState,
 } from 'react';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { ListBox } from 'shared/ui/ListBox';
 import { Button } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { ArticleContentType } from 'entities/Article/model/constants/articleConstants';
 import { Input } from 'shared/ui/Input';
+import { ListBox } from 'shared/ui/Popups';
 import { createArticleFormActions } from '../../../model/slice/createArticleFormSlice';
 import {
   getCreateArticleFormCodeField,
