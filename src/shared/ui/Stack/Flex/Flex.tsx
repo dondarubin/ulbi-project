@@ -5,7 +5,7 @@ import {
 import styles from './Flex.module.scss';
 
 type FlexJustify = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
-type FlexAlign = 'start' | 'center' | 'end';
+type FlexAlign = 'start' | 'center' | 'end' | 'stretch';
 type FlexDirection = 'row' | 'column';
 type FlexGap = '4' | '8' | '16' | '32';
 
@@ -22,6 +22,7 @@ const alignClasses: Record<FlexAlign, string> = {
   start: styles.alignStart,
   end: styles.alignEnd,
   center: styles.alignCenter,
+  stretch: styles.alignStretch,
 };
 
 const directionClasses: Record<FlexDirection, string> = {

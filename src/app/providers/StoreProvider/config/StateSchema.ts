@@ -14,6 +14,7 @@ import { ArticleRecommendationsSchema } from 'features/ArticleRecommendationsLis
 import { rtkApi } from 'shared/api/rtkApi';
 import { AiHelperSchema } from 'entities/AiHelper';
 import { RegisterSchema } from 'features/RegisterByUsername';
+import { CreateArticleFormSchema } from 'features/CreateArticleForm';
 
 // TODO Разобраться и принять решение использования одного из видов кейсов для userId и т.д. (Kebab...)
 export interface StateSchema {
@@ -25,6 +26,7 @@ export interface StateSchema {
   loginForm?: LoginSchemaTypes;
   registerForm?: RegisterSchema;
   profile?: ProfileSchema;
+  createArticleForm?: CreateArticleFormSchema;
   articleDetails?: ArticleDetailsSchema;
   articleComments?: ArticleCommentsSchema;
   articleRecommendations?: ArticleRecommendationsSchema;

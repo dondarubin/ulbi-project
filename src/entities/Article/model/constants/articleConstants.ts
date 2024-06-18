@@ -5,6 +5,10 @@ export enum ArticleType {
   BUSINESS = 'Business',
 }
 
+type ExcludeAll<T> = T extends 'ALL' ? never : T;
+
+export type ArticleTypeWithoutAll = ExcludeAll<ArticleType>;
+
 export enum ArticleContentType {
   TEXT = 'TEXT',
   IMAGE = 'IMAGE',

@@ -6,6 +6,8 @@ import { Text } from 'shared/ui/Text';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { VStack } from 'shared/ui/Stack';
 import { Card } from 'shared/ui/Card';
+import { useAppDispatch, useEffectInitial } from 'shared/lib/hooks';
+import { getAiHistory } from '../../model/services/getAiHistory/getAiHistory';
 import styles from './AiHelperResponseList.module.scss';
 import { getAiHelperQuestionData, getAiHelperQuestionIsLoading } from '../../model/selectors/AskAiHelperFormSelectors';
 
@@ -18,8 +20,13 @@ export const AiHelperResponseList = memo((props: AiHelperResponseListProps) => {
     className,
   } = props;
   const { t } = useTranslation('helper');
+  const dispatch = useAppDispatch();
   const responseData = useSelector(getAiHelperQuestionData);
   const isLoading = useSelector(getAiHelperQuestionIsLoading);
+
+  useEffectInitial(() => {
+    dispatch(getAiHistory());
+  }, []);
 
   if (isLoading) {
     return (

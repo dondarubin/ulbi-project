@@ -19,8 +19,8 @@ export const askAiHelper = createAsyncThunk<AiResponse, void, ThinkAPI<ValidateQ
 
     try {
       const response = await extra.api.post<AiResponse>('/askGpt', {
-        message: questionText,
         user_id: userData.userId,
+        prompt: questionText,
       });
 
       console.log(response.data);

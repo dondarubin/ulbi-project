@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { getAiHistory } from '../services/getAiHistory/getAiHistory';
+import { AiResponseRole } from '../consts/consts';
 import { askAiHelper } from '../services/askAiHelper/askAiHelper';
 import { AiHelperSchema } from '../types/AskAiHelperForm.types';
 
@@ -22,12 +24,26 @@ export const aiHelperSlice = createSlice({
       .addCase(askAiHelper.pending, (state) => {
         state.isLoading = true;
         state.validateError = undefined;
+        // state.aiHelperResponses.unshift({ role: AiResponseRole.USER, content: state.questionText ?? '' });
       })
       .addCase(askAiHelper.fulfilled, (state, action) => {
         state.isLoading = false;
         state.aiHelperResponses.unshift(action.payload);
       })
       .addCase(askAiHelper.rejected, (state, action) => {
+        state.isLoading = false;
+        state.validateError = action.payload;
+      });
+    builder
+      .addCase(getAiHistory.pending, (state) => {
+        state.isLoading = true;
+        state.validateError = undefined;
+      })
+      .addCase(getAiHistory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.aiHelperResponses.splice(0, state.aiHelperResponses.length, ...action.payload.filter((response) => response.role !== 'system'));
+      })
+      .addCase(getAiHistory.rejected, (state, action) => {
         state.isLoading = false;
         state.validateError = action.payload;
       });

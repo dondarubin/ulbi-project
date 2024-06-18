@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { PageWrapper } from 'widgets/PageWrapper';
+import { CreateArticleForm } from 'features/CreateArticleForm';
 import styles from './ArticleCreatePage.module.scss';
 
 interface ArticleCreatePageProps {
@@ -16,7 +17,7 @@ const ArticleCreatePage = memo((props: ArticleCreatePageProps) => {
 
   return (
     <PageWrapper className={classNames(styles.ArticleCreatePage, {}, [className])}>
-
+      <CreateArticleForm />
     </PageWrapper>
   );
 });

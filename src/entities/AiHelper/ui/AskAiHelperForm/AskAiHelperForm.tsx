@@ -28,7 +28,7 @@ export const AskAiHelperForm = memo((props: AskAiAssistantFormProps) => {
   const dispatch = useAppDispatch();
   const questionText = useSelector(getAiHelperQuestionText);
   const isLoading = useSelector(getAiHelperQuestionIsLoading);
-  useDynamicModuleLoader({ reducers: initialReducers });
+  useDynamicModuleLoader({ reducers: initialReducers, removeAfterUnmount: false });
 
   const onChangeQuestionValueHandler = useCallback((value: string) => {
     dispatch(aiHelperActions.setQuestionText(value));

@@ -1,3 +1,4 @@
+import { ValidateQuestionErrors, AiResponseRole } from './model/consts/consts';
 import { getAiHelperQuestionText } from './model/selectors/AskAiHelperFormSelectors';
 import { askAiHelper } from './model/services/askAiHelper/askAiHelper';
 import { AiHelperSchema } from './model/types/AskAiHelperForm.types';
@@ -10,4 +11,6 @@ export {
   type AiHelperSchema,
   getAiHelperQuestionText,
   askAiHelper,
+  AiResponseRole,
+  ValidateQuestionErrors,
 };

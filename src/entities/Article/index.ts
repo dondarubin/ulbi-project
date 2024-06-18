@@ -1,9 +1,17 @@
-import { ArticleSortField, ArticleType, ArticleView } from './model/constants/articleConstants';
+import {
+  ArticleContentType,
+  ArticleSortField, ArticleType, ArticleTypeWithoutAll, ArticleView,
+} from './model/constants/articleConstants';
 import {
   getArticleDetailsData,
   getArticleDetailsMounted,
 } from './model/selectors/articleDetailsSelectors';
 import {
+  ArticleCodeContent,
+  ArticleContent,
+  ArticleImageContent,
+  ArticleTextContent,
+  CreatedArticleType,
   GetAllArticleResponse,
   IArticle,
   IArticleWithUserData,
@@ -20,9 +28,16 @@ export {
   getArticleDetailsMounted,
   ArticleDetails,
   type IArticle,
+  type ArticleContent,
   type ArticleDetailsSchema,
   type IArticleWithUserData,
   type GetAllArticleResponse,
+  type CreatedArticleType,
+  type ArticleTypeWithoutAll,
+  type ArticleTextContent,
+  type ArticleImageContent,
+  type ArticleCodeContent,
+  ArticleContentType,
   ArticleSortField,
   ArticleView,
   ArticleType,

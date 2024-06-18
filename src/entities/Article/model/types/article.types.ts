@@ -37,6 +37,14 @@ export interface IArticle {
   content: ArticleContent[]
 }
 
+export interface CreatedArticleType {
+  title?: string;
+  subtitle?: string;
+  img?: string;
+  type?: ArticleType[];
+  content?: ArticleContent[]
+}
+
 export interface IArticleWithUserData extends IArticle {
   avatar?: string;
   username: string;

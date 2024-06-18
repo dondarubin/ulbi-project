@@ -10,6 +10,9 @@ import { profileReducer } from 'features/EditableProfileCard/model/slice/profile
 import { ReducersList } from 'shared/lib/hooks';
 import { articlesPageReducer } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
 import { addNewCommentFormReducer } from 'features/AddNewComment/model/slice/addNewCommentFormSlice';
+import { registerReducer } from 'features/RegisterByUsername/model/slice/registerSlice';
+import { aiHelperReducer } from 'entities/AiHelper/model/slice/aiHelperSlice';
+import { createArticleFormReducer } from 'features/CreateArticleForm/model/slice/createArticleFormSlice';
 
 const initialAsyncReducers: ReducersList = {
   loginForm: loginReducer,
@@ -19,6 +22,9 @@ const initialAsyncReducers: ReducersList = {
   articleComments: articleCommentsReducer,
   articleRecommendations: articleRecommendationsReducer,
   articlesPage: articlesPageReducer,
+  registerForm: registerReducer,
+  aiHelper: aiHelperReducer,
+  createArticleForm: createArticleFormReducer,
 };
 
 export const StoreDecorator = (
