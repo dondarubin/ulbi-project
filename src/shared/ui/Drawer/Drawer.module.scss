@@ -1,14 +1,75 @@
-.Drawer {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  z-index: var(--modal-negative-z-index);
-  color: var(--primary-color);
-  pointer-events: none;
-}
+//.Drawer {
+//  position: fixed;
+//  top: 0;
+//  bottom: 0;
+//  left: 0;
+//  right: 0;
+//  opacity: 0;
+//  z-index: var(--modal-negative-z-index);
+//  color: var(--primary-color);
+//  pointer-events: none;
+//}
+//
+//.overlay {
+//  width: 100%;
+//  height: 100%;
+//  background: var(--color-overlay);
+//  display: flex;
+//  align-items: flex-end;
+//  justify-content: center;
+//}
+//
+//.content {
+//  height: 70%;
+//  background: var(--color-modal-bg);
+//  bottom: 0;
+//  border-top-left-radius: 12px;
+//  border-top-right-radius: 12px;
+//  position: relative;
+//  width: 94vw;
+//  min-height: 100px;
+//  padding: 20px;
+//  transition: 0.3s transform;
+//  transform: translateY(100%);
+//  overflow-y: auto;
+//  overflow-x: hidden;
+//}
+//
+//.content::-webkit-scrollbar {
+//  width: 0;
+//  height: 0;
+//}
+//
+//.content::before {
+//  content: "";
+//  position: relative;
+//  display: block;
+//  width: 100px;
+//  height: 10px;
+//  background: var(--bg-color);
+//  margin: auto;
+//  bottom: 40px;
+//  border-radius: 12px;
+//}
+//
+//.opened {
+//  pointer-events: auto;
+//  opacity: 1;
+//  z-index: var(--modal-z-index);
+//
+//  .content {
+//    transform: translateY(0%);
+//  }
+//}
+//
+//.isClosing {
+//  .content {
+//    transform: translateY(100%);
+//  }
+//}
+
+
+
 
 .overlay {
   width: 100%;
@@ -19,32 +80,15 @@
   justify-content: center;
 }
 
-.content {
-  height: 70%;
-  background: var(--color-modal-bg);
+.Drawer {
+  position: fixed;
+  top: 0;
   bottom: 0;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  position: relative;
-  width: 100%;
-  min-height: 100px;
-  padding: 20px;
-  transition: 0.3s transform;
-  transform: translateY(100%);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.content::before {
-  content: "";
-  position: relative;
-  display: block;
-  width: 100px;
-  height: 10px;
-  background: var(--bg-color);
-  margin: auto;
-  bottom: 40px;
-  border-radius: 12px;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
 }
 
 .opened {
@@ -57,8 +101,15 @@
   }
 }
 
-.isClosing {
-  .content {
-    transform: translateY(100%);
-  }
+.sheet {
+  z-index: var(--modal-z-index);
+  position: fixed;
+  left: 2vw;
+  height: calc(100vh + 100px);
+  width: 96vw;
+  border-radius: 12px 12px 0;
+  background: var(--color-modal-bg);
+  touch-action: none;
+  padding: 15px;
+  overflow-y: auto;
 }
