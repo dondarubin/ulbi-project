@@ -20,8 +20,6 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     content: value,
   })), []);
 
-  console.log(countryOptions);
-
   const onChangeCountryHandler = useCallback((value: string) => {
     onChange?.(value as Country);
   }, [onChange]);
