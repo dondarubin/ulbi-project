@@ -1,19 +1,19 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import {
-  ReducersList, useAppDispatch, useDynamicModuleLoader, useEffectInitial,
-} from 'shared/lib/hooks';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import {
+  ReducersList, useAppDispatch, useDynamicModuleLoader, useEffectInitial,
+} from '@/shared/lib/hooks';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import {
   Text, TextAlign, TextSize, TextTheme,
-} from 'shared/ui/Text';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { Avatar } from 'shared/ui/Avatar';
-import { EyeIcon } from 'shared/assets/icons/EyeIcon/EyeIcon';
-import { CalendarIcon } from 'shared/assets/icons/CalendarIcon/CalendarIcon';
-import { getRandomNumber } from 'shared/lib/getRandomNumber/getRandomNumber';
-import { HStack, VStack } from 'shared/ui/Stack';
+} from '@/shared/ui/Text';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar';
+import { EyeIcon } from '@/shared/assets/icons/EyeIcon/EyeIcon';
+import { CalendarIcon } from '@/shared/assets/icons/CalendarIcon/CalendarIcon';
+import { getRandomNumber } from '@/shared/lib/getRandomNumber/getRandomNumber';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';

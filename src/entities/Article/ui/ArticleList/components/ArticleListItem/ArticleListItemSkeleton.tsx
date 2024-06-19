@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Card } from 'shared/ui/Card';
-import { Skeleton } from 'shared/ui/Skeleton';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Card } from '@/shared/ui/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import styles from './ArticleListItem.module.scss';
 import { ArticleView } from '../../../../model/constants/articleConstants';
 

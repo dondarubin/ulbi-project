@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { LangSwitcherProps } from './LangSwitcher.types';
 
 // eslint-disable-next-line no-undef

@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import AvatarStorybook from 'shared/assets/test/avatarStorybook.png';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import AvatarStorybook from '@/shared/assets/test/avatarStorybook.png';
 import { ArticleCommentList } from '../ArticleCommentList';
 
 export default {

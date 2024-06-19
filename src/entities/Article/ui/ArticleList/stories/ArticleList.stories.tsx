@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import AvatarStorybook from 'shared/assets/test/avatarStorybook.png';
+import AvatarStorybook from '@/shared/assets/test/avatarStorybook.png';
 import { ArticleContentType, ArticleType, ArticleView } from '../../../model/constants/articleConstants';
 import { IArticleWithUserData } from '../../../model/types/article.types';
 import { ArticleList } from '../ArticleList';

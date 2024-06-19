@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { PrimaryDark } from 'features/AuthByUsername/ui/LoginForm/stories/LoginForm.stories';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { PrimaryDark } from '@/features/AuthByUsername/ui/LoginForm/stories/LoginForm.stories';
 import { CreateArticleForm } from '../CreateArticleForm';
 
 export default {

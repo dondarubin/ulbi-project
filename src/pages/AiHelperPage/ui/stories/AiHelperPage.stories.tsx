@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { AiResponseRole, ValidateQuestionErrors } from 'entities/AiHelper';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { AiResponseRole, ValidateQuestionErrors } from '@/entities/AiHelper';
 import AiHelperPage from '../AiHelperPage';
 
 export default {

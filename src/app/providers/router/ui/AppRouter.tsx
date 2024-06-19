@@ -1,12 +1,12 @@
 import { memo, Suspense, useMemo } from 'react';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import {
   Navigate, Route, Routes, useLocation,
 } from 'react-router-dom';
-import { PageLoader } from 'widgets/PageLoader';
 import { useSelector } from 'react-redux';
-import { getUserAuthData, getUserRoles } from 'entities/User';
-import { getRouteForbidden } from 'shared/constants/router';
+import { routeConfig } from '@/shared/config/routeConfig/routeConfig';
+import { PageLoader } from '@/widgets/PageLoader';
+import { getUserAuthData, getUserRoles } from '@/entities/User';
+import { getRouteForbidden } from '@/shared/constants/router';
 
 const AppRouter = memo(() => {
   const isAuth = useSelector(getUserAuthData);

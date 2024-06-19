@@ -1,12 +1,12 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input';
-import { Loader } from 'shared/ui/Loader';
-import { Avatar } from 'shared/ui/Avatar';
-import { Currency, CurrencySelect } from 'entities/Currency';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text';
-import { Country, CountrySelect } from 'entities/Country';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Input } from '@/shared/ui/Input';
+import { Loader } from '@/shared/ui/Loader';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
+import { Country, CountrySelect } from '@/entities/Country';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ProfileCard.module.scss';
 import { IProfile } from '../../model/types/profile.types';
 

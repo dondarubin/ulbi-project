@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThinkAPI } from 'app/providers/StoreProvider';
-import { IComment } from 'entities/Comment';
+import { ThinkAPI } from '@/app/providers/StoreProvider';
+import { IComment } from '@/entities/Comment';
 
 // TODO написать тесы
 export const fetchArticleCommentsById = createAsyncThunk<IComment[], string, ThinkAPI<string>>(

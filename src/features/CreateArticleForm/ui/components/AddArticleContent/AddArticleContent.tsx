@@ -1,15 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
   memo, useCallback, useMemo, useState,
 } from 'react';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { Button } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks';
-import { ArticleContentType } from 'entities/Article/model/constants/articleConstants';
-import { Input } from 'shared/ui/Input';
-import { ListBox } from 'shared/ui/Popups';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Button } from '@/shared/ui/Button';
+import { useAppDispatch } from '@/shared/lib/hooks';
+import { ArticleContentType } from '@/entities/Article/model/constants/articleConstants';
+import { Input } from '@/shared/ui/Input';
+import { ListBox } from '@/shared/ui/Popups';
 import { createArticleFormActions } from '../../../model/slice/createArticleFormSlice';
 import {
   getCreateArticleFormCodeField,

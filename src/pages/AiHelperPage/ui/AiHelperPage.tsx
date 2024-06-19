@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { PageWrapper } from 'widgets/PageWrapper';
-import { AiHelperResponseList, askAiHelper, AskAiHelperForm } from 'entities/AiHelper';
-import { useAppDispatch } from 'shared/lib/hooks';
-import { VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { PageWrapper } from '@/widgets/PageWrapper';
+import { AiHelperResponseList, askAiHelper, AskAiHelperForm } from '@/entities/AiHelper';
+import { useAppDispatch } from '@/shared/lib/hooks';
+import { VStack } from '@/shared/ui/Stack';
 import styles from './AiHelperPage.module.scss';
 
 interface AIHelperPageProps {

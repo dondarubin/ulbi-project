@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { ReducersList, useAppDispatch, useDynamicModuleLoader } from 'shared/lib/hooks';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { Input } from 'shared/ui/Input';
-import { Text, TextTheme } from 'shared/ui/Text';
-import { VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ReducersList, useAppDispatch, useDynamicModuleLoader } from '@/shared/lib/hooks';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import { VStack } from '@/shared/ui/Stack';
 import {
   getRegisterIsLoading,
   getRegisterPassword, getRegisterReplyPassword,

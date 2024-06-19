@@ -1,14 +1,14 @@
 import { useSelector } from 'react-redux';
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ReducersList, useAppDispatch, useDynamicModuleLoader, useEffectInitial,
-} from 'shared/lib/hooks';
-import { useCallback } from 'react';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { Text, TextTheme } from 'shared/ui/Text';
-import { useTranslation } from 'react-i18next';
-import { ProfileCard } from 'entities/Profile';
-import { VStack } from 'shared/ui/Stack';
+} from '@/shared/lib/hooks';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import { ProfileCard } from '@/entities/Profile';
+import { VStack } from '@/shared/ui/Stack';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';

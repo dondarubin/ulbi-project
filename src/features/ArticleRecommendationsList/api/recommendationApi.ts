@@ -1,6 +1,6 @@
-import { rtkApi } from 'shared/api/rtkApi';
-import { ArticleSortField, ArticleType, GetAllArticleResponse } from 'entities/Article';
-import { SortOrder } from 'shared/constants/sort';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ArticleSortField, ArticleType, GetAllArticleResponse } from '@/entities/Article';
+import { SortOrder } from '@/shared/constants/sort';
 
 const recommendationApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({

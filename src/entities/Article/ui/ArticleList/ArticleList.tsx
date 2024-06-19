@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 import styles from './ArticleList.module.scss';
 import { IArticleWithUserData } from '../../model/types/article.types';
 import { ArticleListItem } from './components/ArticleListItem/ArticleListItem';

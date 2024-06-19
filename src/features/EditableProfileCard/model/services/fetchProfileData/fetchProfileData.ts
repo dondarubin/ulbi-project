@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThinkAPI } from 'app/providers/StoreProvider';
-import { IProfile } from 'entities/Profile';
+import { ThinkAPI } from '@/app/providers/StoreProvider';
+import { IProfile } from '@/entities/Profile';
 
 export const fetchProfileData = createAsyncThunk<IProfile, string, ThinkAPI<string>>(
   'profile/fetchProfileData',

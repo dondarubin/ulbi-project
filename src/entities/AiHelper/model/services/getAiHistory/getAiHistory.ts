@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThinkAPI } from 'app/providers/StoreProvider';
-import { getUserAuthData } from 'entities/User';
+import { ThinkAPI } from '@/app/providers/StoreProvider';
+import { getUserAuthData } from '@/entities/User';
 import { ValidateQuestionErrors } from '../../consts/consts';
 import { AiResponse } from '../../types/AskAiHelperForm.types';
 

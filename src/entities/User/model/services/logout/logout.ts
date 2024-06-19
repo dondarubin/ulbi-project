@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { TOKEN_LOCALSTORAGE_KEY } from 'shared/constants/localstorage';
-import { ThinkAPI } from 'app/providers/StoreProvider';
+import { TOKEN_LOCALSTORAGE_KEY } from '@/shared/constants/localstorage';
+import { ThinkAPI } from '@/app/providers/StoreProvider';
 
 interface LogoutProps {
   deletedRefreshToken: string

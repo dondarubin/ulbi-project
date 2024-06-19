@@ -1,18 +1,18 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { Input } from 'shared/ui/Input';
 import { useSelector } from 'react-redux';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { ReducersList, useAppDispatch, useDynamicModuleLoader } from 'shared/lib/hooks';
-import { Text } from 'shared/ui/Text';
-import { ArticleContent, ArticleTypeTabs } from 'entities/Article';
-import { Card } from 'shared/ui/Card';
-import { ArticleContentType } from 'entities/Article/model/constants/articleConstants';
-import { ArticleCode } from 'entities/Article/ui/ArticleDetails/components/ArticleCode/ArticleCode';
-import { ArticleText } from 'entities/Article/ui/ArticleDetails/components/ArticleText/ArticleText';
-import { ArticleImage } from 'entities/Article/ui/ArticleDetails/components/ArticleImage/ArticleImage';
-import { getRandomNumber } from 'shared/lib/getRandomNumber/getRandomNumber';
+import { Input } from '@/shared/ui/Input';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { ReducersList, useAppDispatch, useDynamicModuleLoader } from '@/shared/lib/hooks';
+import { Text } from '@/shared/ui/Text';
+import { ArticleContent, ArticleTypeTabs } from '@/entities/Article';
+import { Card } from '@/shared/ui/Card';
+import { ArticleContentType } from '@/entities/Article/model/constants/articleConstants';
+import { ArticleCode } from '@/entities/Article/ui/ArticleDetails/components/ArticleCode/ArticleCode';
+import { ArticleText } from '@/entities/Article/ui/ArticleDetails/components/ArticleText/ArticleText';
+import { ArticleImage } from '@/entities/Article/ui/ArticleDetails/components/ArticleImage/ArticleImage';
+import { getRandomNumber } from '@/shared/lib/getRandomNumber/getRandomNumber';
 import { AddArticleContent } from './components/AddArticleContent/AddArticleContent';
 import {
   getCreateArticleFormContent,

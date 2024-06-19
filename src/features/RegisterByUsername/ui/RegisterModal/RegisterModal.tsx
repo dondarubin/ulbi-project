@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, Suspense } from 'react';
-import { Loader } from 'shared/ui/Loader';
-import { Modal } from 'shared/ui/Modal';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Loader } from '@/shared/ui/Loader';
+import { Modal } from '@/shared/ui/Modal';
 import styles from './RegisterModal.module.scss';
 import { RegisterFormLazy } from '../RegisterForm/RegisterForm.lazy';
 

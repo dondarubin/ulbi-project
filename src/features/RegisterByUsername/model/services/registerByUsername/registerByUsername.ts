@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThinkAPI } from 'app/providers/StoreProvider';
-import { TOKEN_LOCALSTORAGE_KEY } from 'shared/constants/localstorage';
-import { userActions } from 'entities/User';
+import { ThinkAPI } from '@/app/providers/StoreProvider';
+import { TOKEN_LOCALSTORAGE_KEY } from '@/shared/constants/localstorage';
+import { userActions } from '@/entities/User';
 import { ValidateRegisterErrors } from '../../consts/consts';
 import { RegisterByUsernameProps, RegisterResponseType } from './registerByUsername.types';
 import { validateRegisterData } from '../validateRegisterData/validateRegisterData';

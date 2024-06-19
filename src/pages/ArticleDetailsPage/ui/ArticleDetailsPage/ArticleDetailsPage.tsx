@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { ArticleCommentList } from 'features/ArticleCommentList';
-import { PageWrapper } from 'widgets/PageWrapper';
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
-import { ArticleDetails } from 'entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleCommentList } from '@/features/ArticleCommentList';
+import { PageWrapper } from '@/widgets/PageWrapper';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import { ArticleDetails } from '@/entities/Article';
 import styles from './ArticleDetailsPage.module.scss';
 import { ArticlesDetailsPageHeader } from './components/ArticlesDetailsPageHeader/ArticlesDetailsPageHeader';
 

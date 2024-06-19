@@ -1,5 +1,5 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { useModal } from 'shared/lib/hooks';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { useModal } from '@/shared/lib/hooks';
 import styles from './Modal.module.scss';
 import { ModalProps } from './Modal.types';
 import { Portal } from '../Portal';

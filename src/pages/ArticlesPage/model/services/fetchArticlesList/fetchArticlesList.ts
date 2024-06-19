@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThinkAPI } from 'app/providers/StoreProvider';
-import { GetAllArticleResponse } from 'entities/Article';
-import { addQueryParams } from 'shared/lib/addQueryParams/addQueryParams';
+import { ThinkAPI } from '@/app/providers/StoreProvider';
+import { GetAllArticleResponse } from '@/entities/Article';
+import { addQueryParams } from '@/shared/lib/addQueryParams/addQueryParams';
 import {
   articleRecommendationsActions,
   articleRecommendationsReducer,
-} from 'features/ArticleRecommendationsList/model/slice/articleRecommendationsSlice';
+} from '@/features/ArticleRecommendationsList/model/slice/articleRecommendationsSlice';
 import {
   getArticlesPageLimit,
   getArticlesPageOrder, getArticlesPagePage,

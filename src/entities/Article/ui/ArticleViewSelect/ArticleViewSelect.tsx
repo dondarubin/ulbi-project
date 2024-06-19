@@ -1,8 +1,8 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { ListIcon } from 'shared/assets/icons/ListIcon/ListIcon';
-import { TileIcon } from 'shared/assets/icons/TileIcon/TileIcon';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ListIcon } from '@/shared/assets/icons/ListIcon/ListIcon';
+import { TileIcon } from '@/shared/assets/icons/TileIcon/TileIcon';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import styles from './ArticleViewSelect.module.scss';
 import { ArticleView } from '../../model/constants/articleConstants';
 

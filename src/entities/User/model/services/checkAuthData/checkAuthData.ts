@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { TOKEN_LOCALSTORAGE_KEY } from 'shared/constants/localstorage';
-import { ThinkAPI } from 'app/providers/StoreProvider';
+import { TOKEN_LOCALSTORAGE_KEY } from '@/shared/constants/localstorage';
+import { ThinkAPI } from '@/app/providers/StoreProvider';
 import { RefreshResponseType } from './checkAuthData.types';
 
 export const checkAuthData = createAsyncThunk<RefreshResponseType, void, ThinkAPI<string>>(

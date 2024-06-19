@@ -1,6 +1,6 @@
 import { AsyncThunkAction } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
 import axios, { AxiosStatic } from 'axios';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 // Этот тип - функция, которая принимает аргумент и возвращает AsyncThunkAction
 // (такой же тип имеет конкретный asyncThunk)

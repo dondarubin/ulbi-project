@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageWrapper } from 'widgets/PageWrapper';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -17,8 +16,9 @@ import {
 import {
   Doughnut, Line, PolarArea,
 } from 'react-chartjs-2';
-import { Card } from 'shared/ui/Card';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { PageWrapper } from '@/widgets/PageWrapper';
+import { Card } from '@/shared/ui/Card';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './AdminPanelPage.module.scss';
 
 ChartJS.register(

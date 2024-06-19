@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { ArticleList } from 'entities/Article';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleList } from '@/entities/Article';
 import { getArticles } from '../../../../model/slice/articlesPageSlice';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../../../model/selectors/articlesPageSelectors';
 import styles from './ArticleInfinityList.module.scss';

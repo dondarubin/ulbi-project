@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { RefreshResponseType } from 'entities/User/model/services/checkAuthData/checkAuthData.types';
-import { TOKEN_LOCALSTORAGE_KEY } from 'shared/constants/localstorage';
+import { RefreshResponseType } from '@/entities/User/model/services/checkAuthData/checkAuthData.types';
+import { TOKEN_LOCALSTORAGE_KEY } from '@/shared/constants/localstorage';
 
 export const $api = axios.create({
   baseURL: __API__,

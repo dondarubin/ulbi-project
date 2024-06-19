@@ -1,5 +1,5 @@
-import { ArticleContent } from 'entities/Article/model/types/article.types';
-import { ArticleContentType } from 'entities/Article/model/constants/articleConstants';
+import { ArticleContent } from '@/entities/Article/model/types/article.types';
+import { ArticleContentType } from '@/entities/Article/model/constants/articleConstants';
 
 export const addValueToArticleContentArray = (
   articles: ArticleContent[],

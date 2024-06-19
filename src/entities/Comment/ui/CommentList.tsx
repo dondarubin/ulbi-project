@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Text } from 'shared/ui/Text';
-import { VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
+import { VStack } from '@/shared/ui/Stack';
 import styles from './CommentList.module.scss';
 import { IComment } from '../model/types/comment.types';
 import { CommentCard } from './components/CommentCard/CommentCard';

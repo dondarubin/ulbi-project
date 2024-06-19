@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThinkAPI } from 'app/providers/StoreProvider';
-import { IProfile } from 'entities/Profile';
+import { ThinkAPI } from '@/app/providers/StoreProvider';
+import { IProfile } from '@/entities/Profile';
 import { ValidateProfileErrors } from '../../consts/consts';
 import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData';
 import { validateProfileData } from '../validateProfileData/validateProfileData';

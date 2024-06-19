@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ArticleContent, ArticleContentType, ArticleTypeWithoutAll } from 'entities/Article';
-import { addValueToArticleContentArray } from 'shared/lib/addValueToArticleContentArray/addValueToArticleContentArray';
+import { ArticleContent, ArticleContentType, ArticleTypeWithoutAll } from '@/entities/Article';
+import { addValueToArticleContentArray } from '@/shared/lib/addValueToArticleContentArray/addValueToArticleContentArray';
 import { CreateArticleFormSchema } from '../types/createArticleForm.types';
 
 const initialState: CreateArticleFormSchema = {

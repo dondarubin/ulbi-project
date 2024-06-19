@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { HStack } from 'shared/ui/Stack';
-import { Input } from 'shared/ui/Input';
-import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
-import { ReducersList, useAppDispatch, useDynamicModuleLoader } from 'shared/lib/hooks';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { HStack } from '@/shared/ui/Stack';
+import { Input } from '@/shared/ui/Input';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { ReducersList, useAppDispatch, useDynamicModuleLoader } from '@/shared/lib/hooks';
 import { getAiHelperQuestionIsLoading, getAiHelperQuestionText } from '../../model/selectors/AskAiHelperFormSelectors';
 import styles from './AskAiHelperForm.module.scss';
 import { aiHelperActions, aiHelperReducer } from '../../model/slice/aiHelperSlice';

@@ -1,20 +1,20 @@
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { UserSchema } from 'entities/User';
-import { LoginSchemaTypes } from 'features/AuthByUsername';
 import { AxiosInstance } from 'axios';
-import { ProfileSchema } from 'features/EditableProfileCard';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleCommentsSchema } from 'features/ArticleCommentList';
-import { AddNewCommentFormSchema } from 'features/AddNewComment';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { ScrollSaveSchema } from 'features/ScrollSave';
-import { ArticleRecommendationsSchema } from 'features/ArticleRecommendationsList';
-import { rtkApi } from 'shared/api/rtkApi';
-import { AiHelperSchema } from 'entities/AiHelper';
-import { RegisterSchema } from 'features/RegisterByUsername';
-import { CreateArticleFormSchema } from 'features/CreateArticleForm';
+import { UserSchema } from '@/entities/User';
+import { LoginSchemaTypes } from '@/features/AuthByUsername';
+import { ProfileSchema } from '@/features/EditableProfileCard';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { ArticleCommentsSchema } from '@/features/ArticleCommentList';
+import { AddNewCommentFormSchema } from '@/features/AddNewComment';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { ScrollSaveSchema } from '@/features/ScrollSave';
+import { ArticleRecommendationsSchema } from '@/features/ArticleRecommendationsList';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { AiHelperSchema } from '@/entities/AiHelper';
+import { RegisterSchema } from '@/features/RegisterByUsername';
+import { CreateArticleFormSchema } from '@/features/CreateArticleForm';
 
 // TODO Разобраться и принять решение использования одного из видов кейсов для userId и т.д. (Kebab...)
 export interface StateSchema {

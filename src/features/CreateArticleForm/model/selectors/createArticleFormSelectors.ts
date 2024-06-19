@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleType } from 'entities/Article';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ArticleType } from '@/entities/Article';
 
 export const getCreateArticleFormTitle = (state: StateSchema) => state.createArticleForm?.title ?? '';
 export const getCreateArticleFormSubtitle = (state: StateSchema) => state.createArticleForm?.subtitle ?? '';

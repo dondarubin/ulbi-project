@@ -4,7 +4,7 @@ import {
   ArticleImageContent,
   ArticleTextContent,
   ArticleTypeWithoutAll,
-} from 'entities/Article';
+} from '@/entities/Article';
 import { ValidateCreateArticleErrors } from '../consts/consts';
 
 export interface CreateArticleFormSchema {

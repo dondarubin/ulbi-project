@@ -1,13 +1,13 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getUserAuthData } from 'entities/User';
-import { MainIconDesktop } from 'shared/assets/icons/MainIcon/MainIconDesktop';
-import { AboutIcon } from 'shared/assets/icons/AboutIcon/AboutIcon';
-import { UserProfileIcon } from 'shared/assets/icons/UserProfile/UserProfileIcon';
-import { ArticlesIcon } from 'shared/assets/icons/ArticlesIcon/ArticlesIcon';
+import { getUserAuthData } from '@/entities/User';
+import { MainIconDesktop } from '@/shared/assets/icons/MainIcon/MainIconDesktop';
+import { AboutIcon } from '@/shared/assets/icons/AboutIcon/AboutIcon';
+import { UserProfileIcon } from '@/shared/assets/icons/UserProfile/UserProfileIcon';
+import { ArticlesIcon } from '@/shared/assets/icons/ArticlesIcon/ArticlesIcon';
 import {
   getRouteAbout, getRouteAiHelper, getRouteArticles, getRouteMain, getRouteProfile,
-} from 'shared/constants/router';
-import { RobotIcon } from 'shared/assets/icons/RobotIcon/RobotIcon';
+} from '@/shared/constants/router';
+import { RobotIcon } from '@/shared/assets/icons/RobotIcon/RobotIcon';
 import { SidebarItemType } from '../types/Sidebar.types';
 
 export const getSidebarItems = createSelector(

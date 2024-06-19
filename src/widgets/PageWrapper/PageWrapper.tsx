@@ -1,14 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import {
   MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
-import {
-  useAppDispatch, useInfinityScroll, useLayoutEffectCustom, useThrottle,
-} from 'shared/lib/hooks';
-import { getScrollSaveByPath, scrollSaveActions } from 'features/ScrollSave';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import {
+  useAppDispatch, useInfinityScroll, useLayoutEffectCustom, useThrottle,
+} from '@/shared/lib/hooks';
+import { getScrollSaveByPath, scrollSaveActions } from '@/features/ScrollSave';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import styles from './PageWrapper.module.scss';
 
 interface PageWrapperProps {

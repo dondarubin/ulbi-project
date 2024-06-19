@@ -1,8 +1,8 @@
-import { EditableProfileCard } from 'features/EditableProfileCard';
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useParams } from 'react-router-dom';
-import { PageWrapper } from 'widgets/PageWrapper';
+import { EditableProfileCard } from '@/features/EditableProfileCard';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { PageWrapper } from '@/widgets/PageWrapper';
 
 interface ProfilePageProps {
   className?: string;

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThinkAPI } from 'app/providers/StoreProvider';
-import { ArticleSortField, GetAllArticleResponse, getArticleDetailsData } from 'entities/Article';
-import { SortOrder } from 'shared/constants/sort';
+import { ThinkAPI } from '@/app/providers/StoreProvider';
+import { ArticleSortField, GetAllArticleResponse, getArticleDetailsData } from '@/entities/Article';
+import { SortOrder } from '@/shared/constants/sort';
 
 // TODO написать тесы
 export const fetchArticleRecommendations = createAsyncThunk<

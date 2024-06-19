@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 export const getRegisterValidateErrors = (state: StateSchema) => state.registerForm?.validateErrors;
 export const getRegisterIsLoading = (state: StateSchema) => state.registerForm?.isLoading || false;

@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageWrapper } from 'widgets/PageWrapper';
-import { VStack } from 'shared/ui/Stack';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text';
+import { PageWrapper } from '@/widgets/PageWrapper';
+import { VStack } from '@/shared/ui/Stack';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
 
 const MainPage = memo(() => {
   const { t } = useTranslation('main');

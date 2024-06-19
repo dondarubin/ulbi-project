@@ -1,7 +1,7 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
   ChangeEvent, memo, MutableRefObject, useEffect, useRef, useState,
 } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import styles from './Input.module.scss';
 import { InputProps } from './Input.types';
 import { HStack } from '../Stack';

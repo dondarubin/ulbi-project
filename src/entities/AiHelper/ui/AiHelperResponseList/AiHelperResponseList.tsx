@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
-import { Text } from 'shared/ui/Text';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { VStack } from 'shared/ui/Stack';
-import { Card } from 'shared/ui/Card';
-import { useAppDispatch, useEffectInitial } from 'shared/lib/hooks';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { VStack } from '@/shared/ui/Stack';
+import { Card } from '@/shared/ui/Card';
+import { useAppDispatch, useEffectInitial } from '@/shared/lib/hooks';
 import { getAiHistory } from '../../model/services/getAiHistory/getAiHistory';
 import styles from './AiHelperResponseList.module.scss';
 import { getAiHelperQuestionData, getAiHelperQuestionIsLoading } from '../../model/selectors/AskAiHelperFormSelectors';
