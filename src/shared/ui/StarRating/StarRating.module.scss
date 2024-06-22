@@ -1,0 +1,28 @@
+.StarRating {
+
+}
+
+.starContainer {
+  cursor: pointer;
+
+  & > svg > path {
+    //stroke: red;
+    //fill: none;
+  }
+}
+
+.hovered {
+  & > svg > path {
+    fill: var(--secondary-color);
+  }
+}
+
+.normal {
+  & > svg > path {
+    fill: none;
+  }
+}
+
+.selected {
+  cursor: auto;
+}

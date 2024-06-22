@@ -9,6 +9,7 @@ import { TypescriptIcon } from '@/shared/assets/icons/TypescriptIcon/TypescriptI
 import { NodeIcon } from '@/shared/assets/icons/NodeIcon/NodeIcon';
 import { ExpressIcon } from '@/shared/assets/icons/ExpressIcon/ExpressIcon';
 import { PostgresIcon } from '@/shared/assets/icons/PostgresIcon/PostgresIcon';
+import { RatingCard } from '@/entities/Rating';
 
 const AboutPage = memo(() => {
   const { t } = useTranslation('about');
@@ -46,6 +47,7 @@ const AboutPage = memo(() => {
           <PostgresIcon />
         </HStack>
       </VStack>
+      <RatingCard title="Как вам статья?" feedbackTitle="Напишите пару слов о статье!" hasFeedback />
     </PageWrapper>
   );
 });

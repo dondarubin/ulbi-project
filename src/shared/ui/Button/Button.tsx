@@ -11,6 +11,7 @@ export const Button = memo((props: ButtonProps) => {
     square,
     size = ButtonSize.M,
     disabled,
+    fullWidth,
     ...otherProps
   } = props;
 
@@ -19,6 +20,7 @@ export const Button = memo((props: ButtonProps) => {
     [styles.square]: square,
     [styles[size]]: true,
     [styles.disabled]: disabled,
+    [styles.fullWidth]: fullWidth,
   };
 
   return (

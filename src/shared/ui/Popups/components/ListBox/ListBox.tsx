@@ -56,7 +56,10 @@ export function ListBox(props: ListBoxProps) {
         onChange={onChange}
         disabled={readonly}
       >
-        <HListBox.Button disabled={readonly} className={popupStyle.btn}>
+        <HListBox.Button
+          disabled={readonly}
+          className={popupStyle.btn}
+        >
           <Button disabled={readonly}>
             {selectedValue ?? defaultValue}
           </Button>
