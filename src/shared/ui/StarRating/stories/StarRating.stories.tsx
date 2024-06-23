@@ -19,11 +19,6 @@ Selected.args = {
   selectedStars: 3,
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 30,
-};
-
 export const Big = Template.bind({});
 Big.args = {
   size: 50,

@@ -12,4 +12,7 @@ export default {
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+  isOpen: true,
+  children: <>ghbdfhfgdhgdfhf</>,
+};

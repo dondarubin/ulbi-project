@@ -3,12 +3,12 @@ import { Rating } from '@/entities/Rating';
 
 interface GetArticleRating {
   userId: number;
-  articleId: string;
+  articleId?: string;
 }
 
 interface RateArticle {
   userId: number;
-  articleId: string;
+  articleId?: string;
   rate: number;
   feedback?: string;
 }

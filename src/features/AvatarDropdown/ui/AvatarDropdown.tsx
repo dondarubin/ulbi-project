@@ -4,11 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Popups';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/constants/router';
-import { Avatar } from '@/shared/ui/Avatar';
 import {
   getIsUserAdmin, getIsUserManager, getUserAuthData, logout,
 } from '@/entities/User';
-import styles from './AvatarDropdown.module.scss';
+import { DefaultUserIcon } from '@/shared/assets/icons/DefaultUserIcon/DefaultUserIcon';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -53,7 +52,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         },
       ]}
       // trigger={<Avatar size={30} src={authData.avatar}/>}
-      trigger={<Avatar size={30} />}
+      trigger={<DefaultUserIcon />}
       direction="bottom left"
     />
   );

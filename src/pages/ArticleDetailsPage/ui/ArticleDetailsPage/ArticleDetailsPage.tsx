@@ -18,15 +18,14 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{ id: string }>();
-  const { t } = useTranslation('articles');
 
-  if (!id) {
-    return (
-      <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-        <Text theme={TextTheme.ERROR} title={t('Article not found!')} text={t('Try later')} />
-      </PageWrapper>
-    );
-  }
+  // if (!id) {
+  //   return (
+  //     <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+  //       <Text theme={TextTheme.ERROR} title={t('Article not found!')} text={t('Try later')} />
+  //     </PageWrapper>
+  //   );
+  // }
 
   return (
     <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
