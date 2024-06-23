@@ -21,7 +21,7 @@ export const StarRating = memo((props: StarRatingProps) => {
     onSelect,
   } = props;
 
-  const [currentStarsCount, setCurrentStarsCount] = useState(0);
+  const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
   const onHover = (starCount: number) => () => {
@@ -52,6 +52,7 @@ export const StarRating = memo((props: StarRatingProps) => {
     <HStack max justify="center" className={classNames(styles.StarRating, {}, [className])}>
       {stars.map((starNumber) => (
         <div
+          key={starNumber}
           className={classNames(
             styles.starContainer,
             mods,

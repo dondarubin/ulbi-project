@@ -11,7 +11,6 @@ import { Input } from '@/shared/ui/Input';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { useDevice } from '@/shared/lib/hooks';
 import { Drawer } from '@/shared/ui/Drawer';
-import { DrawerContent } from '@/shared/ui/Drawer/Drawer';
 
 interface RatingCardProps {
   className?: string;
@@ -20,6 +19,7 @@ interface RatingCardProps {
   hasFeedback?: boolean;
   onCancel?:(starCount: number) => void;
   onAccept?:(starCount: number, feedback?: string) => void;
+  rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
@@ -30,10 +30,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
     feedbackTitle,
     onAccept,
     title,
+    rate = 0,
   } = props;
   const { t } = useTranslation('articles');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedbackText, setFeedbackText] = useState('');
   const isMobile = useDevice();
 
@@ -82,12 +83,13 @@ export const RatingCard = memo((props: RatingCardProps) => {
   );
 
   return (
-    <Card className={classNames(styles.RatingCard, {}, [className])}>
+    <Card className={classNames(styles.RatingCard, {}, [className])} fullWidth>
       <VStack align="center" gap="8">
-        <Text title={title} />
+        <Text title={starsCount ? t('Спасибо за оценку!') : title} />
         <StarRating
           size={40}
           onSelect={onSelectStars}
+          selectedStars={starsCount}
         />
       </VStack>
 

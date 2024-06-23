@@ -47,7 +47,6 @@ const AboutPage = memo(() => {
           <PostgresIcon />
         </HStack>
       </VStack>
-      <RatingCard title="Как вам статья?" feedbackTitle="Напишите пару слов о статье!" hasFeedback />
     </PageWrapper>
   );
 });
