@@ -49,7 +49,13 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
     'origin-fsd-plugin/fsd-check-path': ['error', { alias: '@' }],
-    'origin-fsd-plugin/imports-from-public-api': ['error', { alias: '@' }],
+    'origin-fsd-plugin/imports-from-public-api': [
+      'error',
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+      },
+    ],
     'import/no-extraneous-dependencies': ['off', {
       devDependencies: false,
       optionalDependencies: false,
@@ -58,7 +64,20 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': ['error', {
       markupOnly: true,
-      ignoreAttribute: ['border', 'data-testid', 'to', 'as', 'color', 'target', 'direction', 'justify', 'align', 'direction', 'gap', 'role'],
+      ignoreAttribute: [
+        'border',
+        'data-testid',
+        'to',
+        'as',
+        'color',
+        'target',
+        'direction',
+        'justify',
+        'align',
+        'direction',
+        'gap',
+        'role',
+      ],
     }],
     'max-len': ['off', {
       ignoreComments: true,
