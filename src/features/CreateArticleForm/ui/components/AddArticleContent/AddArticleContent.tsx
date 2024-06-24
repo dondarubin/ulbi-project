@@ -7,7 +7,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Button } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/shared/lib/hooks';
-import { ArticleContentType } from '@/entities/Article/model/constants/articleConstants';
 import { Input } from '@/shared/ui/Input';
 import { ListBox } from '@/shared/ui/Popups';
 import { createArticleFormActions } from '../../../model/slice/createArticleFormSlice';
@@ -20,6 +19,7 @@ import {
   getCreateArticleFormTitleField,
 } from '../../../model/selectors/createArticleFormSelectors';
 import styles from './AddArticleContent.module.scss';
+import { ArticleContentType } from '@/entities/Article';
 
 interface AddArticleContentProps {
   className?: string;

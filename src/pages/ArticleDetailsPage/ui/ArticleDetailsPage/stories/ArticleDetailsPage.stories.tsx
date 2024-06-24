@@ -1,8 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
-import { ArticleContentType, ArticleType } from '@/entities/Article/model/constants/articleConstants';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { IArticleWithUserData } from '@/entities/Article';
+import { ArticleContentType, ArticleType, IArticleWithUserData } from '@/entities/Article';
 import ArticleDetailsPage from '../ArticleDetailsPage';
 
 export default {

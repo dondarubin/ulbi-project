@@ -3,26 +3,29 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Input } from '@/shared/ui/Input';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { ReducersList, useAppDispatch, useDynamicModuleLoader } from '@/shared/lib/hooks';
 import { Text } from '@/shared/ui/Text';
-import { ArticleContent, ArticleTypeTabs } from '@/entities/Article';
-import { Card } from '@/shared/ui/Card';
-import { ArticleContentType } from '@/entities/Article/model/constants/articleConstants';
-import { ArticleCode } from '@/entities/Article/ui/ArticleDetails/components/ArticleCode/ArticleCode';
-import { ArticleText } from '@/entities/Article/ui/ArticleDetails/components/ArticleText/ArticleText';
-import { ArticleImage } from '@/entities/Article/ui/ArticleDetails/components/ArticleImage/ArticleImage';
+import { ArticleContent, ArticleContentType } from '@/entities/Article';
 import { getRandomNumber } from '@/shared/lib/getRandomNumber/getRandomNumber';
 import { AddArticleContent } from './components/AddArticleContent/AddArticleContent';
 import {
   getCreateArticleFormContent,
   getCreateArticleFormImg,
-  getCreateArticleFormIsLoading, getCreateArticleFormSubtitle, getCreateArticleFormTitle,
+  getCreateArticleFormIsLoading,
+  getCreateArticleFormSubtitle,
+  getCreateArticleFormTitle,
   getCreateArticleFormType,
   getCreateArticleFormValidateError,
 } from '../model/selectors/createArticleFormSelectors';
 import styles from './CreateArticleForm.module.scss';
 import { createArticleFormActions, createArticleFormReducer } from '../model/slice/createArticleFormSlice';
+// eslint-disable-next-line origin-fsd-plugin/imports-from-public-api
+import { ArticleCode } from '@/entities/Article/ui/ArticleDetails/components/ArticleCode/ArticleCode';
+// eslint-disable-next-line origin-fsd-plugin/imports-from-public-api
+import { ArticleText } from '@/entities/Article/ui/ArticleDetails/components/ArticleText/ArticleText';
+// eslint-disable-next-line origin-fsd-plugin/imports-from-public-api
+import { ArticleImage } from '@/entities/Article/ui/ArticleDetails/components/ArticleImage/ArticleImage';
 
 interface CreateArticleFormProps {
   className?: string;

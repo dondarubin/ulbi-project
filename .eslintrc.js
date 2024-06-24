@@ -48,7 +48,8 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
-    'origin-fsd-plugin/fsd-check-path': ['error', {alias: '@'}],
+    'origin-fsd-plugin/fsd-check-path': ['error', { alias: '@' }],
+    'origin-fsd-plugin/imports-from-public-api': ['error', { alias: '@' }],
     'import/no-extraneous-dependencies': ['off', {
       devDependencies: false,
       optionalDependencies: false,

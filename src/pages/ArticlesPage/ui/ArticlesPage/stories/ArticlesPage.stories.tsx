@@ -1,8 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleType, ArticleView, IArticleWithUserData } from '@/entities/Article';
+import {
+  ArticleContentType, ArticleType, ArticleView, IArticleWithUserData,
+} from '@/entities/Article';
 import AvatarStorybook from '@/shared/assets/test/avatarStorybook.png';
-import { ArticleContentType } from '@/entities/Article/model/constants/articleConstants';
 import ArticlesPage from '../ArticlesPage';
 
 export default {

@@ -3,14 +3,12 @@ import { ThinkAPI } from '@/app/providers/StoreProvider';
 import { GetAllArticleResponse } from '@/entities/Article';
 import { addQueryParams } from '@/shared/lib/addQueryParams/addQueryParams';
 import {
-  articleRecommendationsActions,
-  articleRecommendationsReducer,
-} from '@/features/ArticleRecommendationsList/model/slice/articleRecommendationsSlice';
-import {
   getArticlesPageLimit,
-  getArticlesPageOrder, getArticlesPagePage,
+  getArticlesPageOrder,
+  getArticlesPagePage,
   getArticlesPageSearch,
-  getArticlesPageSort, getArticlesPageType,
+  getArticlesPageSort,
+  getArticlesPageType,
 } from '../../selectors/articlesPageSelectors';
 
 interface FetchArticlesListProps {
