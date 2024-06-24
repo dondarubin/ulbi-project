@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AiHelperResponseList } from '../AiHelperResponseList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { AiResponseRole } from '@/entities/AiHelper';
+import { AiResponseRole } from '../../../model/consts/consts';
 
 export default {
   title: 'entities/AiHelperResponseList',

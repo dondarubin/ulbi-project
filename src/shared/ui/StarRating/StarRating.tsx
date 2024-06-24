@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 import styles from './StarRating.module.scss';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { StarIcon } from '@/shared/assets/icons/StarIcon/StarIcon';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '../Stack';
 
 interface StarRatingProps {
   className?: string;
@@ -49,7 +49,7 @@ export const StarRating = memo((props: StarRatingProps) => {
   };
 
   return (
-    <HStack max justify="center" className={classNames(styles.StarRating, {}, [className])}>
+    <HStack max justify="center" className={classNames('', {}, [className])}>
       {stars.map((starNumber) => (
         <div
           key={starNumber}

@@ -1,14 +1,5 @@
-.StarRating {
-
-}
-
 .starContainer {
   cursor: pointer;
-
-  & > svg > path {
-    //stroke: red;
-    //fill: none;
-  }
 }
 
 .hovered {

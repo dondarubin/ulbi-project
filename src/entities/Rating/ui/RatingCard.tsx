@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
-import styles from './RatingCard.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
@@ -83,7 +82,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
   );
 
   return (
-    <Card className={classNames(styles.RatingCard, {}, [className])} fullWidth>
+    <Card className={classNames('', {}, [className])} fullWidth>
       <VStack align="center" gap="8">
         <Text title={starsCount ? t('Спасибо за оценку!') : title} />
         <StarRating
